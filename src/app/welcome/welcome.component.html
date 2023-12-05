@@ -1,10 +1,122 @@
-<!-- welcome/welcome.component.html -->
-
 <div class="container mt-5">
-  <div class="jumbotron">
-    <h1 class="display-4">Welcome to Janekothiyena!</h1>
-    <p class="lead">This is a cool place to be.</p>
-    <hr class="my-4">
-    <p>Feel free to explore and enjoy your stay.</p>
+  <div class="jumbotron text-center rounded" style="background: linear-gradient(to right, #ffcc00, #ff6600); color: white;">
+    <h1 class="display-4" style="font-family: 'Roboto', sans-serif;">Welcome to Janeko Thiyena!</h1>
+    <p class="lead">Empowering knowledge sharing and community growth.</p>
   </div>
+
+  <div class="alert alert-info" role="alert">
+    <p class="lead text-center">
+      Contribute to our community's growth through knowledge sharing.
+      Sharing knowledge is like practicing Gyana Yoga, fostering inner peace and community betterment.
+      Your contributions impact countless individuals, enhancing our collective journey toward enlightenment. ~~ Shankar.Pandey
+    </p>
+  </div>
+
+  <div class="alert alert-danger" role="alert">
+    <p class="lead text-center colorful-wavy-text">
+      🎄 Embrace the festive season! Check out what's happening now in our Christmas-themed corner. 🎅
+      <a routerLink="/happening-now" class="btn btn-light">Explore Now</a>
+    </p>
+
+  </div>
+
+  <hr class="my-4">
+  <h3 class="text-danger-emphasis text-center">Share Your Turning Point</h3>
+
+  <!-- Bootstrap Grid System for 9 Boxes -->
+  <!-- Update the structure for each card -->
+  <div class="row">
+    <div class="col-lg-4 mb-4">
+      <div class="card custom-card">
+        <div class="card-body">
+          <h5 class="card-title">New In Community</h5>
+          <p class="card-text">New to America! </p>
+          <a href="/new-in-community" class="btn btn-primary">Click here for more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+      <div class="card custom-card" routerLink="/health-tips">
+        <div class="card-body">
+          <h5 class="card-title">Health Tips</h5>
+          <p class="card-text">Start Your Healthy habit</p>
+          <a href="/health-tips" class="btn btn-primary">Click here for more</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repeat the structure for the other 7 help topics -->
+    <div class="col-lg-4 mb-4">
+      <div class="card custom-card" routerLink="/yoga">
+        <div class="card-body">
+          <h5 class="card-title">Yoga</h5>
+          <p class="card-text">Yoga nd more</p>
+          <a href="/yoga" class="btn btn-primary">Click here for more</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repeat for BanksAndCreditCards, LegalHelp, RealEstate, Deadlines, ITJobHelp, and ImmigrationsHelp -->
+    <div class="col-lg-4 mb-4">
+      <div class="card custom-card" routerLink="/banks-and-credit-cards">
+        <div class="card-body">
+          <h5 class="card-title">Banks and Credit Card Tips</h5>
+          <p class="card-text">Content related to the Banks and Credit Card help topic.</p>
+          <a href="/banks-and-credit-cards" class="btn btn-primary">Click here for more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+      <div class="card custom-card" routerLink="/legal-help">
+        <div class="card-body">
+          <h5 class="card-title">Legal Tips</h5>
+          <p class="card-text">Content related to Legal Tips help topic.</p>
+          <a href="/legal-help" class="btn btn-primary">Click here for more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+      <div class="card custom-card" routerLink="/deadlines">
+        <div class="card-body">
+          <h5 class="card-title"> Important Deadlines</h5>
+          <p class="card-text">Content related to Important Deadlines tips help topic.</p>
+          <a href="/deadlines" class="btn btn-primary">Click here for more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+      <div class="card custom-card" routerLink="/real-estate">
+        <div class="card-body">
+          <h5 class="card-title">Real Estate  Tips</h5>
+          <p class="card-text">Buying First home?</p>
+          <a href="/real-estate" class="btn btn-primary">Click here for more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+      <div class="card custom-card" routerLink="/it-job-help">
+        <div class="card-body">
+          <h5 class="card-title">IT Job Tips</h5>
+          <p class="card-text">Content related to IT Job Tips help topic.</p>
+          <a href="/it-job-help" class="btn btn-primary">Click here for more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+      <div class="card custom-card" routerLink="/immigrations-help">
+        <div class="card-body">
+          <h5 class="card-title"> Immigrations Tips</h5>
+          <p class="card-text">Content related to Immigrations Tips tips help topic.</p>
+          <a href="/immigrations-help" class="btn btn-primary">Click here for more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Repeat the structure for additional rows and articles -->
 </div>

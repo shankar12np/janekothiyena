@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div class="row">
+
+    <div *ngFor="let tip of tips" class="col-md-6 mb-4">
+      <div class="text-box bg-danger-subtle p-4">
+        <h4>{{ tip.title }}</h4>
+        <ol *ngIf="tip.points && tip.points.length > 0; else noPoints">
+          <li *ngFor="let point of tip.points">{{ point }}</li>
+        </ol>
+        <ng-template #noPoints></ng-template>
+        <p *ngIf="tip.description; else noDescription" class="bg-warning">{{ tip.description }}</p>
+        <ng-template #noDescription></ng-template>
+        <p class="writer-name">{{ tip.writer }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
