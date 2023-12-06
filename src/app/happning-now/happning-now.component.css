@@ -17,3 +17,8 @@
     background-position: 100%;
   }
 }
+
+.custom-card {
+  background-color: rgba(232, 232, 232, 0.8); /* Lighter background color with 80% opacity */
+  border: 1px solid #ddd; /* Optional: Add a border for better visibility */
+}
