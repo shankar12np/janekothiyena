@@ -20,6 +20,7 @@ import { DeadlinesComponent } from './deadlines/deadlines.component';
 import { ItJobHelpComponent } from './it-job-help/it-job-help.component';
 import { ImmigrationsHelpComponent } from './immigrations-help/immigrations-help.component';
 import { HappningNowComponent } from './happning-now/happning-now.component';
+import { UpComingEventComponent } from './up-coming-event/up-coming-event.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HappningNowComponent } from './happning-now/happning-now.component';
     DeadlinesComponent,
     ItJobHelpComponent,
     ImmigrationsHelpComponent,
-    HappningNowComponent
+    HappningNowComponent,
+    UpComingEventComponent
   ],
   imports: [
     BrowserModule,

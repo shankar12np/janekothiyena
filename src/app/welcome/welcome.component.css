@@ -60,3 +60,13 @@
 .fa-twitter { color: #1DA1F2; } /* Twitter color */
 .fa-instagram { color: #C13584; } /* Instagram color */
 .fa-linkedin { color: #0077b5; } /* LinkedIn color */
+
+/* Responsive adjustments for mobile screens */
+@media screen and (max-width: 600px) {
+  .social-links {
+    position: fixed; /* Fixed positioning on mobile */
+    top: 10px; /* Adjust top position for visibility */
+    left: 10px; /* Adjust left position for visibility */
+    flex-direction: row; /* Icons in a row for compact layout */
+  }
+}

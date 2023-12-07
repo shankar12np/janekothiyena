@@ -14,6 +14,7 @@ import {DeadlinesComponent} from "./deadlines/deadlines.component";
 import {ItJobHelpComponent} from "./it-job-help/it-job-help.component";
 import {ImmigrationsHelpComponent} from "./immigrations-help/immigrations-help.component";
 import {HappningNowComponent} from "./happning-now/happning-now.component";
+import {UpComingEventComponent} from "./up-coming-event/up-coming-event.component";
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -29,7 +30,8 @@ const routes: Routes = [
   { path: 'deadlines', component: DeadlinesComponent },
   { path: 'it-job-help', component: ItJobHelpComponent },
   { path: 'immigrations-help', component: ImmigrationsHelpComponent },
-  {path: 'happening-now', component: HappningNowComponent}
+  {path: 'happening-now', component: HappningNowComponent},
+  {path: 'up-coming-event', component: UpComingEventComponent}
 ];
 
 @NgModule({
