@@ -14,7 +14,7 @@ export class HappningNowComponent {
        '\n\ ',
 
       address: 'Hotel Hilton\n\\6550 Loisdale Rd\nSpringfield, VA 22150',
-      info: 'Ticket - $30, family-friendly event',
+      info: 'Ticket - $40, family-friendly event',
 
     },
 
