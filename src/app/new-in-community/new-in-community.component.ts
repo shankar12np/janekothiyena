@@ -27,7 +27,7 @@ export class NewInCommunityComponent {
         "Find metro and bus routes using Google Maps.",
         "Remember to return shopping carts to the designated area.",
       ],
-      writer: 'Yasoda Pandey'
+      writer: 'Jivan Gurung'
     },
     {
       title: 'Tip 3',
