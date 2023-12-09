@@ -32,6 +32,14 @@ export class HappningNowComponent {
       address: '7700 Bull Run Dr, Centreville, VA 20109, USA\n',
       info: 'Tickets: $30',
     },
+
+    {
+      title: 'National Christmas Tree Lighting',
+      description: 'The National Christmas Tree is located on the Ellipse, south of the White House. From December 2, 2023 to January 1, 2024, the National Christmas Tree and 58 smaller trees are open to the public from 10 am to 10 pm daily, with extended hours until 11 pm Friday-Saturday. The lights turn on near sunset each evening. The tree and grounds are free to visit \n' +
+        '\n',
+      address: 'Near White House \n',
+      info: 'Free event',
+    },
     // Add more events as needed
   ];
 

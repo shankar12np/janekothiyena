@@ -1,5 +1,5 @@
 .custom-card {
-  background-color: lightgoldenrodyellow; /* Use the desired shade of gray */
+  background-color: lightgoldenrodyellow;
 }
 
 .colorful-wavy-text {
@@ -21,20 +21,15 @@
     background-position: 100%;
   }
 }
+
 .header-content {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.social-link {
-  margin-right: 20px; /* Adjust spacing as needed */
-  font-size: 24px; /* Adjust icon size as needed */
-  color: #3b5998; /* Facebook color, can be changed */
-}
-
 .logo {
-  /* If you need specific styles for the logo, add them here */
+  /* Add specific styles for the logo here if needed */
 }
 
 .header-container {
@@ -43,9 +38,10 @@
 }
 
 .social-links {
-  position: absolute;
-  top: 0;
-  left: -5px;
+  position: fixed; /* Keeps it fixed on the screen */
+  top: 10px; /* Distance from the top */
+  left: 10px; /* Distance from the left side */
+  z-index: 1000; /* Ensures it stays on top of other content */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -61,17 +57,45 @@
 .fa-instagram { color: #C13584; } /* Instagram color */
 .fa-linkedin { color: #0077b5; } /* LinkedIn color */
 
-/* Responsive adjustments for mobile screens */
 @media screen and (max-width: 600px) {
   .social-links {
-    position: fixed; /* Fixed positioning on mobile */
-    top: 10px; /* Adjust top position for visibility */
-    left: 10px; /* Adjust left position for visibility */
-    flex-direction: row; /* Icons in a row for compact layout */
+    top: 5px; /* Adjust for smaller screens */
+    left: 5px; /* Adjust for smaller screens */
   }
 }
 
 .img-responsive {
   max-width: 100%;
   height: auto;
+}
+.custom-card {
+  background-color: lightgoldenrodyellow; /* Change to your preferred background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow */
+  overflow: hidden; /* Ensures no content spills out */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.custom-card:hover {
+  transform: translateY(-5px); /* Slightly lift the card on hover */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* Increase shadow on hover */
+}
+
+.custom-card .card-body {
+  padding: 15px; /* Adjust the padding inside the card */
+}
+
+.custom-card .card-title {
+  margin-bottom: 15px; /* Space below the card title */
+  color: #0056b3; /* Title color - choose what fits your design */
+}
+
+.custom-card .card-text {
+  color: #333333; /* Text color - choose what fits your design */
+}
+
+@media (max-width: 768px) {
+  .custom-card {
+    margin-bottom: 20px; /* More space between cards on smaller screens */
+  }
 }
