@@ -1,0 +1,78 @@
+<div class="container mt-1">
+  <!-- Header Container with Social Media Links -->
+  <div class="header-container">
+    <div class="text-center">
+      <div class="row">
+        <!-- Box for Temperature in Kathmandu -->
+        <div class="col-md-4 col-12 mb-3"> <!-- Use col-md-4 for medium screens and col-12 for smaller screens -->
+          <div class="text-bg-info">
+            <h2 class="text-primary" style="font-size: 16px;">Kathmandu Nepal</h2>
+            <p id="tempKathmandu">{{ temperatureInKathmandu }}</p>
+          </div>
+        </div>
+
+        <!-- Box for Temperature at Everest Base Camp -->
+        <div class="col-md-4 col-12 mb-3"> <!-- Use col-md-4 for medium screens and col-12 for smaller screens -->
+          <div class="text-bg-warning">
+            <h2 class="text-primary" style="font-size: 16px;">Everest Basecamp</h2>
+            <p id="tempEverestBaseCamp">{{ temperatureAtEverestBaseCamp }}</p>
+          </div>
+        </div>
+
+        <!-- Box for Temperature at Annapurna Base Camp -->
+        <div class="col-md-4 col-12 mb-3"> <!-- Use col-md-4 for medium screens and col-12 for smaller screens -->
+          <div class="text-bg-info">
+            <h2 class="text-primary" style="font-size: 16px;">Annapurna Basecamp</h2>
+            <p id="tempAnnapurnaBaseCamp">{{ temperatureAtAnnapurnaBaseCamp }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <img src="assets/images/logo.png" alt="Janeko Thiyena Logo" class="img-responsive" style="max-height: 200px;"> <!-- Adjust max-height as needed -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Alert Boxes and Other Content -->
+    <div class="alert alert-info" role="alert">
+      <p class="lead text-center">
+        Contribute to our community's growth through knowledge sharing.
+        Sharing knowledge is like practicing Gyana Yoga, fostering inner peace and community betterment.
+        Your contributions impact countless individuals, enhancing our collective journey toward enlightenment. ~~ Shankar.Pandey
+      </p>
+    </div>
+
+    <div class="alert alert-danger" role="alert">
+      <p class="lead text-center colorful-wavy-text">
+        🎄 Embrace the festive season! Check out what's happening now in our Christmas-themed corner. 🎅
+        <a routerLink="/happening-now" class="btn btn-light">Explore Now</a>
+      </p>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+      <p class="lead text-center colorful-wavy-text">
+        🎉 Upcoming events and new openings in New York. 🎆
+        <a routerLink="/up-coming-event" class="btn btn-light">Learn More</a>
+      </p>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+      <p class="lead text-center colorful-wavy-text">
+        🎉 Planning a Trekking Adventure to Annapurna, Everest, Gokyo ...? Get Expert Insights Here! 🎆
+        <a routerLink="/trekking" class="btn btn-light">Explore Now</a>
+      </p>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+      <h3 class="text-danger"> Discover New York's Top Nepalese-Owned Businesses: Authentic Cuisine and Traditional stores !</h3>
+      <a routerLink="/nepalese-owned-business-newyork" class="btn btn-primary">Explore Now</a>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <p class="text-bg-warning">We're Eager to Hear More - Update Us on Recent Developments!</p>
+  <p>Email: <a href="mailto:thahathiyena.com@gmail.com">thahathiyena.com@gmail.com</a></p>
+</div>

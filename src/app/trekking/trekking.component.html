@@ -1,0 +1,33 @@
+<div class="advice-line m-2 p-3" xmlns="http://www.w3.org/1999/html">
+  <div class="header-container">
+    <!-- Landscape-style box for trekking advice -->
+    <div class="row">
+      <div class="col-lg-12 mb-4">
+        <div class="advice-line">
+          <p style="color: yellow;">
+          <h6 class="text-bg-warning font-monospace"> When preparing for your trek, make sure to have the right trekking gear. Additionally, consider hiring a guide and porter for your journey; they offer valuable assistance and are surprisingly affordable. If you'd like personalized recommendations or assistance, don't hesitate to contact our team via email at <a href="mailto:shankar12np@gmail.com">shankar12np@gmail.com</a>.</h6>
+          </div>
+      </div>
+    </div>
+
+    <!-- Landscape-style boxes for trekking routes -->
+    <div class="row">
+      <!-- Loop through trekkingRoutes and create route boxes -->
+      <div class="col-lg-4 mb-4" *ngFor="let route of trekkingRoutes">
+        <div class="route-box" [ngClass]="route.colorClass">
+          <h2>{{ route.title }}</h2>
+          <ng-container *ngFor="let step of route.description">
+            <p>{{ step }}</p>
+          </ng-container>
+          <p class="text-bg-info">Stay tuned for upcoming expert tips!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="text-center">
+    <p class="text-bg-warning">We're Eager to Hear More - Update Us on Recent Developments!</p>
+    <p>Email: <a href="mailto:thahathiyena.com@gmail.com">thahathiyena.com@gmail.com</a></p>
+  </div>
+</div>

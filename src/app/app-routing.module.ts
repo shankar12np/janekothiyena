@@ -15,6 +15,19 @@ import {ItJobHelpComponent} from "./it-job-help/it-job-help.component";
 import {ImmigrationsHelpComponent} from "./immigrations-help/immigrations-help.component";
 import {HappningNowComponent} from "./happning-now/happning-now.component";
 import {UpComingEventComponent} from "./up-coming-event/up-coming-event.component";
+import {TrekkingComponent} from "./trekking/trekking.component";
+import {NepaleseOwnBusinessComponent} from "./nepalese-own-business/nepalese-own-business.component";
+import {NewYorkComponent} from "./new-york/new-york.component";
+import {LosAngelesComponent} from "./los-angeles/los-angeles.component";
+import {DallasTexasComponent} from "./dallas-texas/dallas-texas.component";
+import {BaltimoreComponent} from "./baltimore/baltimore.component";
+import {
+  NepaleseOwnedBusinessNewyorkComponent
+} from "./nepalese-owned-business-newyork/nepalese-owned-business-newyork.component";
+import {
+  NepaleseOwnedBusinessDallasComponent
+} from "./nepalese-owned-business-dallas/nepalese-owned-business-dallas.component";
+import {NepaleseOwnedBusinessLAComponent} from "./nepalese-owned-business-la/nepalese-owned-business-la.component";
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -31,7 +44,16 @@ const routes: Routes = [
   { path: 'it-job-help', component: ItJobHelpComponent },
   { path: 'immigrations-help', component: ImmigrationsHelpComponent },
   {path: 'happening-now', component: HappningNowComponent},
-  {path: 'up-coming-event', component: UpComingEventComponent}
+  {path: 'up-coming-event', component: UpComingEventComponent},
+  {path: 'trekking', component: TrekkingComponent},
+  {path: 'nepalese-own-business', component: NepaleseOwnBusinessComponent},
+  {path: 'new-york', component: NewYorkComponent},
+  {path: 'los-angeles', component: LosAngelesComponent},
+  {path: 'dallas', component: DallasTexasComponent},
+  {path: 'baltimore', component: BaltimoreComponent},
+  {path: 'nepalese-owned-business-newyork', component: NepaleseOwnedBusinessNewyorkComponent},
+  {path: 'nepalese-owned-business-dallas', component: NepaleseOwnedBusinessDallasComponent},
+  {path: 'nepalese-owned-business-la', component : NepaleseOwnedBusinessLAComponent}
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 <div class="container mt-5">
   <h2 class="text-center mb-4 colorful-wavy-text">Happening Now</h2>
+
   <div class="row">
     <ng-container *ngFor="let event of events; let i = index">
       <div class="col-md-4 mb-4">
@@ -8,6 +9,7 @@
             <div class="card-body">
               <h5 class="card-title text-primary">{{ event.title }}</h5>
               <p class="card-text">{{ event.description }}</p>
+              <p class="card-text"><strong>Date:</strong> {{ event.date | date:'longDate' }}</p>
               <p class="card-text"><strong>Address:</strong> {{ event.address }}</p>
               <p class="card-text"><strong>Info:</strong> {{ event.info }}</p>
             </div>
@@ -16,4 +18,8 @@
       </div>
     </ng-container>
   </div>
+</div>
+<div class="text-center">
+  <p class="text-bg-warning">We're Eager to Hear More - Update Us on Recent Developments!</p>
+  <p>Email: <a href="mailto:shankar12np@gmail.com">shankar12np@gmail.com</a></p>
 </div>

@@ -1,9 +1,40 @@
 .custom-card {
   background-color: lightgoldenrodyellow;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.custom-card .card-body {
+  padding: 15px;
+}
+
+.custom-card .card-title {
+  margin-bottom: 15px;
+  color: #0056b3;
+}
+
+.custom-card .card-text {
+  color: #333;
+}
+
+/* Additional card colors */
+.card-color-1 { background-color: #FFB6C1; }
+.card-color-2 { background-color: #ADD8E6; }
+.card-color-3 { background-color: #90EE90; }
+.card-color-4 { background-color: #FAD02E; }
+.card-color-5 { background-color: #FFA07A; }
+.card-color-6 { background-color: #20B2AA; }
+.card-color-7 { background-color: #778899; }
+.card-color-8 { background-color: #E6E6FA; }
+.card-color-9 { background-color: #D8BFD8; }
+
 .colorful-wavy-text {
-  display: inline-block;
   font-family: 'Arial', sans-serif;
   font-size: 1.2em;
   background: linear-gradient(45deg, #ff00ff, #ff6600, #ffcc00, #00cc00, #0099cc, #ff00ff);
@@ -14,88 +45,94 @@
 }
 
 @keyframes wavyAnimation {
-  0% {
-    background-position: 0%;
-  }
-  100% {
-    background-position: 100%;
-  }
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo {
-  /* Add specific styles for the logo here if needed */
-}
-
-.header-container {
-  position: relative;
-  text-align: center;
+  0% { background-position: 0%; }
+  100% { background-position: 100%; }
 }
 
 .social-links {
-  position: fixed; /* Keeps it fixed on the screen */
-  top: 10px; /* Distance from the top */
-  left: 10px; /* Distance from the left side */
-  z-index: 1000; /* Ensures it stays on top of other content */
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
 .social-link {
-  margin-bottom: 15px; /* Adjust space between links */
-  font-size: 33px; /* Adjust icon size as needed */
+  margin-bottom: 15px;
+  font-size: 33px;
 }
 
-.fa-facebook { color: #3b5998; } /* Facebook color */
-.fa-twitter { color: #1DA1F2; } /* Twitter color */
-.fa-instagram { color: #C13584; } /* Instagram color */
-.fa-linkedin { color: #0077b5; } /* LinkedIn color */
-
-@media screen and (max-width: 600px) {
-  .social-links {
-    top: 5px; /* Adjust for smaller screens */
-    left: 5px; /* Adjust for smaller screens */
-  }
-}
+.fa-facebook { color: #3b5998; }
+.fa-twitter { color: #1DA1F2; }
+.fa-instagram { color: #C13584; }
+.fa-linkedin { color: #0077b5; }
 
 .img-responsive {
   max-width: 100%;
   height: auto;
 }
-.custom-card {
-  background-color: lightgoldenrodyellow; /* Change to your preferred background color */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow */
-  overflow: hidden; /* Ensures no content spills out */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover effects */
-}
-
-.custom-card:hover {
-  transform: translateY(-5px); /* Slightly lift the card on hover */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* Increase shadow on hover */
-}
-
-.custom-card .card-body {
-  padding: 15px; /* Adjust the padding inside the card */
-}
-
-.custom-card .card-title {
-  margin-bottom: 15px; /* Space below the card title */
-  color: #0056b3; /* Title color - choose what fits your design */
-}
-
-.custom-card .card-text {
-  color: #333333; /* Text color - choose what fits your design */
-}
 
 @media (max-width: 768px) {
   .custom-card {
-    margin-bottom: 20px; /* More space between cards on smaller screens */
+    margin-bottom: 20px;
   }
+
+  .social-links {
+    top: 5px;
+    left: 5px;
+  }
+}
+
+/* Styles for the fixed boxes */
+.floating-box {
+  position: fixed;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  width: 150px;
+  font-size: 12px;
+  z-index: 1000;
+}
+
+/* In your welcome.component.css or styles.css */
+.fixed-top-custom {
+  position: fixed;
+  top: 50px; /* Adjust this value based on the actual height of your header */
+  width: 100%;
+  z-index: 1030; /* Keep it high to ensure it's above other content */
+}
+
+.time-kathmandu-separate,
+.time-kathmandu,
+.temperature-everest,
+.temperature-annapurna {
+  background: linear-gradient(45deg, #ff00ff, #ff6600, #ffcc00, #00cc00, #0099cc, #ff00ff);
+  background-size: 200%;
+  padding: 20px;
+  width: 62.5px;
+}
+
+.bg-gradient {
+  background: linear-gradient(45deg, #ff00ff, #ff6600, #ffcc00, #00cc00, #0099cc, #ff00ff);
+  padding: 20px; /* This applies the padding to all bg-gradient cards */
+  /* Other styles... */
+}
+
+
+.time-kathmandu h2,
+.temperature-everest h2,
+.temperature-annapurna h2 {
+  color: blue;
+  font-size: 16px;
+}
+
+.temperature-everest h2 {
+  color: lightcoral;
+}
+
+.temperature-annapurna h2 {
+  color: white;
+  font-size: small;
 }
