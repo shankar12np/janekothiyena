@@ -94,3 +94,12 @@
   color: #d9534f; /* Bootstrap's btn-danger color */
   margin-bottom: 10px;
 }
+
+.box-background {
+  background: linear-gradient(45deg, #9dc3e6, #ffa699, #ffe082, #c68c53);
+}
+
+.blue-yellow-background {
+  background: linear-gradient(45deg, #9dc3e6, #ffe082);
+}
+

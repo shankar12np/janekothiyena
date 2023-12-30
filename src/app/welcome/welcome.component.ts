@@ -5,6 +5,7 @@ import {CurrencyService} from "../service/currency.service";
 import {ExchangeRate} from "../exchange-rate";
 import {interval, startWith, Subject, switchMap, takeUntil} from "rxjs";
 import {NepaliDateConverter} from "../nepali-date-convertor";
+import {NepaliDats} from "../nepali-dats";
 
 
 @Component({
@@ -18,18 +19,27 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   temperatureAtAnnapurnaBaseCamp!: string;
   temperatureInKathmandu!: string;
 
-  inputEnglishDate!: string;
-  inputNepaliDate!: string;
-  nepaliDateToday!: string;
-  englishDateToday!: string;
-  convertedDate!: string;
-
+  inputEnglishDate: string = '';
+  inputNepaliDate: string = '';
+  nepaliDateToday: string = '';
+  englishDateToday: string = '';
 
   // Exchange Rates
   usdToNprRate?: ExchangeRate;
   audToNprRate?: ExchangeRate;
   cadToNprRate?: ExchangeRate;
   eurToNprRate?: ExchangeRate;
+  // AD date variables
+  adYear!: number;
+  adMonth!: number;
+  adDay!: number;
+
+  // BS date variables
+  bsYear!: number;
+  bsMonth!: number;
+  bsDay!: number;
+  // Holds the converted date to display
+  convertedDate!: Date | string;
 
   utcTime?: string;
 
@@ -37,8 +47,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
 
   constructor(private http: HttpClient, private weatherService: WeatherService, private currencyService: CurrencyService) {
-    this.nepaliDateToday = ''; // Initialize to an empty string
-    this.englishDateToday = ''; // Initialize to an empty string
+
   }
 
 
@@ -64,80 +73,10 @@ export class WelcomeComponent implements OnInit, OnDestroy {
         .subscribe(() => this.updateExchangeRates())
     );
 
-    this.setTodayDates();
+
   }
 
-  // Method to set today's dates for both English and Nepali calendars
-  setTodayDates() {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = today.getMonth() + 1; // Note the +1 to adjust for 0-indexed months
-    const day = today.getDate();
-
-    // Convert today's date to Nepali and set it
-    const nepaliDateToday = NepaliDateConverter.convertADToBS(year, month, day);
-    if (nepaliDateToday) {
-      this.nepaliDateToday = nepaliDateToday;
-      this.inputNepaliDate = nepaliDateToday; // Set the input field's default value
-    } else {
-      this.nepaliDateToday = 'Invalid Date';
-      this.inputNepaliDate = 'Invalid Date'; // Set the input field's default value to handle errors
-    }
-
-    this.englishDateToday = this.formatDateToYYYYMMDD(today); // Format today's date as YYYY-MM-DD
-    this.inputEnglishDate = this.englishDateToday; // Set the input field's default value
-  }
-
-  // Convert AD to BS and update the convertedDate property
-  convertADToBS() {
-    if (this.inputEnglishDate) {
-      const [year, month, day] = this.inputEnglishDate.split('-').map(Number);
-
-      // Add a month when converting from AD to BS
-      const bsMonth = month + 1;
-
-      // Convert AD date to BS date
-      const bsDate = NepaliDateConverter.convertADToBS(year, bsMonth, day);
-      this.convertedDate = bsDate || 'Invalid conversion';
-      console.log("English Date (Before Conversion):", this.inputEnglishDate);
-      console.log("Converted Nepali Date:", this.convertedDate);
-    } else {
-      this.convertedDate = 'Please enter a valid date.';
-    }
-  }
-
-// Convert BS to AD and update the convertedDate property
-  convertBSToAD() {
-    if (this.inputNepaliDate) {
-      const [bsYear, bsMonth, bsDay] = this.inputNepaliDate.split('-').map(Number);
-
-      // Subtract a month when converting from BS to AD
-      const adMonth = bsMonth - 1;
-
-      // Convert BS date to AD date
-      const adDate = NepaliDateConverter.convertBSToAD(bsYear, adMonth, bsDay);
-      if (adDate) {
-        const formattedMonth = String(adDate.getMonth() + 1).padStart(2, '0'); // Adjust for 0-indexed month
-        const formattedDay = String(adDate.getDate()).padStart(2, '0');
-
-        // Construct the converted date string in YYYY-MM-DD format
-        this.convertedDate = `${adDate.getFullYear()}-${formattedMonth}-${formattedDay}`;
-        console.log("Nepali Date (Before Conversion):", this.inputNepaliDate);
-        console.log("Converted English Date:", this.convertedDate);
-      } else {
-        this.convertedDate = 'Invalid conversion';
-      }
-    } else {
-      this.convertedDate = 'Please enter a valid date.';
-    }  }
-
-
-  // Utility method to format dates as YYYY-MM-DD
-  private formatDateToYYYYMMDD(date: Date): string {
-    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-  }
-
-  ngOnDestroy() {
+    ngOnDestroy() {
     // Clear intervals
     this.intervals.forEach(clearInterval);
     // Complete the subject to unsubscribe from all observables
