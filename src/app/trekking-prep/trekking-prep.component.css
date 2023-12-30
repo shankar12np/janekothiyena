@@ -1,0 +1,96 @@
+
+/* Styles for the fixed boxes */
+.floating-box {
+  position: fixed;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  width: 150px;
+  font-size: 12px;
+  z-index: 1000;
+}
+
+/* In your welcome.component.css or styles.css */
+.fixed-top-custom {
+  position: fixed;
+  top: 50px; /* Adjust this value based on the actual height of your header */
+  width: 100%;
+  z-index: 1030; /* Keep it high to ensure it's above other content */
+}
+
+.time-kathmandu-separate,
+.time-kathmandu,
+.temperature-everest,
+.temperature-annapurna {
+  background: linear-gradient(45deg, #ff00ff, #ff6600, #ffcc00, #00cc00, #0099cc, #ff00ff);
+  background-size: 200%;
+  padding: 20px;
+  width: 62.5px;
+}
+
+.bg-gradient {
+  background: linear-gradient(45deg, #ff00ff, #ff6600, #ffcc00, #00cc00, #0099cc, #ff00ff);
+  padding: 20px; /* This applies the padding to all bg-gradient cards */
+  /* Other styles... */
+}
+
+
+.time-kathmandu h2,
+.temperature-everest h2,
+.temperature-annapurna h2 {
+  color: blue;
+  font-size: 16px;
+}
+
+.temperature-everest h2 {
+  color: lightcoral;
+}
+
+.temperature-annapurna h2 {
+  color: white;
+  font-size: small;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background: lightgreen; /* Light green background */
+}
+
+.marquee p {
+  margin: 0;
+  white-space: nowrap;
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+
+.marquee p span {
+  font-size: 24px; /* Larger font size */
+  letter-spacing: 2px; /* Space between letters */
+  margin-right: 15px; /* Space between words */
+  color: white; /* This can be removed if you want to keep inline styles for color */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+
+.alert img {
+  margin-bottom: 5px; /* Adds some space between the images */
+}
+
+
+.gear-box {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.gear-category {
+  font-family: 'Pacifico', cursive;
+  color: #d9534f; /* Bootstrap's btn-danger color */
+  margin-bottom: 10px;
+}

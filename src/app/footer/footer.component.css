@@ -1,0 +1,27 @@
+.footer {
+  width: 100%;
+  text-align: center; /* Aligns content to center horizontally */
+  padding: 20px 0; /* Padding for some space around the content */
+  /* Add other styles like background color if needed */
+}
+
+.social-links {
+  display: inline-flex; /* Makes the container a flex container, aligning children inline */
+  justify-content: center; /* Centers flex items on the main-axis (horizontally) */
+  gap: 15px; /* Space between social link items */
+}
+
+.social-link {
+  font-size: 33px; /* Adjust size as necessary */
+  /* Additional styles for the links/icons */
+}
+
+.fa-facebook { color: #3b5998; }
+.fa-twitter { color: #1DA1F2; }
+.fa-instagram { color: #C13584; }
+/* Add styles for additional icons */
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}

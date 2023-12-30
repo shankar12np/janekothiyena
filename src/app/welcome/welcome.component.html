@@ -1,67 +1,21 @@
 <div class="container mt-1">
-  <!-- Header Container with Social Media Links -->
-  <div class="header-container">
-    <div class="social-links">
-      <!-- Social Media Links -->
-      <a href="https://www.facebook.com/profile.php?id=61554560603743&is_tour_dismissed=true" target="_blank" class="social-link"><i class="fa fa-facebook"></i></a>
-      <a href="https://twitter.com/ThahaThiyena" target="_blank" class="social-link"><i class="fa fa-twitter"></i></a>
-      <a href="https://www.instagram.com/thahathiyena/" target="_blank" class="social-link"><i class="fa fa-instagram"></i></a>
-<!--      <a href="https://www.linkedin.com" target="_blank" class="social-link"><i class="fa fa-linkedin"></i></a>-->
-    </div>
-  </div>
-
-<!--  &lt;!&ndash; Fixed Top Section &ndash;&gt;-->
-<!--  <div class="fixed-top-custom">-->
-<!--    <div class="container">-->
-<!--      <div class="row">-->
-<!--        &lt;!&ndash; Box for Kathmandu Time &ndash;&gt;-->
-<!--        <div class="col">-->
-<!--          <div class="card bg-gradient" style="padding: 20px;">-->
-<!--            <h2 class="text-primary" style="font-size: 16px;">Nepal Time</h2>-->
-<!--            <p id="timeKathmandu">{{ timeInKathmandu }}</p>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; Box for Temperature in Kathmandu &ndash;&gt;-->
-<!--        <div class="col">-->
-<!--          <div class="card bg-gradient" style="padding: 20px;">-->
-<!--            <h2 class="text-primary" style="font-size: 16px;">Kathmandu</h2>-->
-<!--            <p id="tempKathmandu">{{ temperatureInKathmandu }}</p>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; Box for Temperature at Everest Base Camp &ndash;&gt;-->
-<!--        <div class="col">-->
-<!--          <div class="card bg-gradient" style="padding: 20px;">-->
-<!--            <h2 class="text-primary" style="font-size: 16px;">Everest Basecamp</h2>-->
-<!--            <p id="tempEverestBaseCamp">{{ temperatureAtEverestBaseCamp }}</p>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; Box for Temperature at Annapurna Base Camp &ndash;&gt;-->
-<!--        <div class="col">-->
-<!--          <div class="card bg-gradient" style="padding: 20px;">-->
-<!--            <h2 class="text-primary" style="font-size: 16px;">Annapurna Basecamp</h2>-->
-<!--            <p id="tempAnnapurnaBaseCamp">{{ temperatureAtAnnapurnaBaseCamp }}</p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+<!--  &lt;!&ndash; Header Container with Social Media Links &ndash;&gt;-->
+<!--  <div class="header-container">-->
+<!--    <div class="social-links">-->
+<!--      &lt;!&ndash; Social Media Links &ndash;&gt;-->
+<!--      <a href="https://www.facebook.com/profile.php?id=61554560603743&is_tour_dismissed=true" target="_blank"-->
+<!--         class="social-link"><i class="fa fa-facebook"></i></a>-->
+<!--      <a href="https://twitter.com/ThahaThiyena" target="_blank" class="social-link"><i class="fa fa-twitter"></i></a>-->
+<!--      <a href="https://www.instagram.com/thahathiyena/" target="_blank" class="social-link"><i-->
+<!--        class="fa fa-instagram"></i></a>-->
+<!--      &lt;!&ndash; Add more social media links as needed &ndash;&gt;-->
 <!--    </div>-->
 <!--  </div>-->
 
   <!-- Logo -->
   <div class="text-center">
     <div class="row">
-      <!-- Box for Kathmandu Time -->
-<!--      <div class="col m-2">-->
-<!--        <div class="text-bg-warning">-->
-<!--          <h2 class="text-primary" style="font-size: 16px;">Nepal Time</h2>-->
-<!--          <p id="timeKathmandu">{{ timeInKathmandu }}</p>-->
-<!--        </div>-->
-<!--      </div>-->
-
-      <!-- Box for Temperature in Kathmandu -->
-      <div class="col">
+       <div class="col">
         <div class="text-bg-info">
           <h2 class="text-primary" style="font-size: 16px;">Kathmandu Nepal</h2>
           <p id="tempKathmandu">{{ temperatureInKathmandu }}</p>
@@ -83,215 +37,398 @@
           <p id="tempAnnapurnaBaseCamp">{{ temperatureAtAnnapurnaBaseCamp }}</p>
         </div>
       </div>
-      <div class="col-md-12 text-center">
-        <img src="assets/images/logo.png" alt="Janeko Thiyena Logo" class="img-responsive" style="max-height: 200px;"> <!-- Adjust max-height as needed -->
-      </div>
-
-  <!-- Alert Boxes and Other Content -->
-  <div class="alert alert-info" role="alert">
-    <p class="lead text-center">
-      Contribute to our community's growth through knowledge sharing.
-      Sharing knowledge is like practicing Gyana Yoga, fostering inner peace and community betterment.
-      Your contributions impact countless individuals, enhancing our collective journey toward enlightenment. ~~ Shankar.Pandey
-    </p>
+    </div>
   </div>
 
 
-      <div class="alert alert-info" role="alert">
-        <div class="row">
-          <div class="col-md-4 col-sm-12 mb-3">
-            <!-- Arjun Ranabhat's Photo -->
-            <img src="assets/images/ArjunPhoto.jpeg" alt="Arjun Ranabhat" class="img-responsive img-thumbnail">
+  <!-- Exchange Rate Container (Right Side) -->
+  <div class="row">
+    <div class="col-md-8">
+     </div>
+
+    <!-- Vertical Container for Exchange Rate Boxes -->
+    <div class="col-md-4">
+      <div class="exchange-rate-container">
+        <!-- Box for USD to NPR Exchange Rate -->
+
+        <!-- Box for AUD to NPR Exchange Rate -->
+        <div class="exchange-rate-box text-bg-light p-3 mb-2">
+          <h2 class="text-danger-emphasis" style="font-size: 16px;">आजको अस्ट्रेलिया डलरको मूल्य</h2>
+          <p class="text-info-emphasis"> 1 AUD = {{ audToNprRate?.rate?.toFixed(4) || 'Loading...' }} NPR</p>
+        </div>
+
+        <div class="exchange-rate-box text-bg-light p-3 mb-2">
+          <h2 class="text-danger-emphasis" style="font-size: 16px;">आजको अमेरिकी डलरको मूल्य</h2>
+          <p class="text-info-emphasis">1 USD = {{ usdToNprRate?.rate?.toFixed(4) || 'Loading...' }} NPR</p>
+        </div>
+
+
+
+        <!-- Box for CAD to NPR Exchange Rate -->
+        <div class="exchange-rate-box text-bg-light p-3 mb-2">
+          <h2 class="text-danger-emphasis" style="font-size: 16px;">आजको क्यानेडियन डलर मूल्य</h2>
+          <p class="text-info-emphasis">1 CAD = {{ cadToNprRate?.rate?.toFixed(4) || 'Loading...' }} NPR</p>
+        </div>
+
+        <!-- Box for EUR to NPR Exchange Rate -->
+        <div class="exchange-rate-box text-bg-light p-3 mb-2">
+          <h2 class="text-danger-emphasis" style="font-size: 16px;">आजको यूरो मूल्य</h2>
+          <p class="text-info-emphasis">1 EUR = {{ eurToNprRate?.rate?.toFixed(4) || 'Loading...' }} NPR</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 text-center">
+    <img src="assets/images/logo.png" alt="Janeko Thiyena Logo" class="img-responsive" style="max-height: 200px;">
+
+    <!-- Marquee Section -->
+    <div class="marquee">
+      <p>
+        <span style="color: blue;">You're from </span>
+        <span style="color: sandybrown;">Nepal !!!</span>
+        <span style="color: darkblue;">Don't forget </span>
+        <span style="color: darkorange;">to be KIND !!!</span>
+        <!-- More colorful text -->
+      </p>
+    </div>
+<br>
+    <div class="text-center">
+      <div class="row">
+        <div class="col">
+          <div class="text-bg-warning">
+            <H4>नेपाल जाँदै हुनुहुन्छ ? सस्तो टिकट चाहियो ?</H4>
+            <p>
+              <a href="https://www.skyscanner.com" target="_blank">Here</a> Skyscanner |
+              <a href="https://www.google.com/travel/flights" target="_blank">Here</a> Flights |
+              <a href="https://www.justfly.com" target="_blank">Here</a> Justfly |
+              <a href="https://www.qatarairways.com/en-us/homepage.html" target="_blank">Here</a> Qatarairways
+            </p>
+
           </div>
-          <div class="col-md-8 col-sm-12">
-            <!-- Arjun Ranabhat's Biography -->
-            <h3 style="font-family: 'Arial', sans-serif; color: #2a6496; font-size: 24px; font-weight: bold; border-bottom: 2px solid sandybrown; display: inline-block; padding-bottom: 5px;">
-              Biography: Arjun Ranabhat
-            </h3>
-            <p class="text-primary">
-              Arjun Ranabhat is truly an inspiring person and his biography is coming soon...
+        </div> <br>
+
+
+    <!-- Alert Boxes and Other Content -->
+    <div class="alert alert-info" role="alert">
+      <p class="lead text-center">
+        Contribute to our community's growth through knowledge sharing.
+        Sharing knowledge is like practicing Gyana Yoga, fostering inner peace and community betterment.
+        Your contributions impact countless individuals, enhancing our collective journey toward enlightenment.
+      <p style="font-family: 'Pacifico', cursive; font-size:24px;color: darkgoldenrod;">S. Pandey</p>
+    </div>
+
+    <div class="alert alert-dismissible" role="alert">
+      <div class="row justify-content-center">
+        <!-- Person Of The Month Photo Box with Text -->
+        <div class="col-md-6 col-sm-10" style="margin-bottom: 0;"> <!-- Adjusted column sizes -->
+          <div class="row align-items-center">
+            <!-- Text: Person Of The Month -->
+            <div class="col-md-3 col-sm-4 text-right"> <!-- Adjusted column sizes -->
+              <p style="font-family: 'Pacifico', cursive STSong; font-size: 20px; color: #FF5733;">Person Of The
+                Month</p>
+              <!-- Reduced font size -->
+            </div>
+            <!-- Image -->
+            <div class="col-md-6 col-sm-6">
+              <img src="assets/images/PersonOfTheMonth.jpeg" alt="Person Of The Month"
+                   class="img-responsive img-thumbnail">
+            </div>
+            <!-- Text: Arjun Ranabhat -->
+            <div class="col-md-3 col-sm-4 text-left"> <!-- Adjusted column sizes -->
+              <p style="font-family: 'Pacifico', cursive STSong; font-size: 20px; color: #33C3FF;">Arjun
+                Ranabhat</p> <!-- Reduced font size -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="alert alert-info" role="alert">
+      <div class="row">
+        <div class="col-md-3 col-sm-8 mb-1">
+          <!-- Arjun Ranabhat's Photo -->
+          <img src="assets/images/ArjunPhoto.jpeg" alt="Arjun Ranabhat" class="img-responsive img-thumbnail">
+        </div>
+        <div class="col-md-8 col-sm-12" style="margin-top: 0;">
+
+          <h3
+            style="font-family: 'Arial', sans-serif; color: #2a6496; font-size: 24px; font-weight: bold; border-bottom: 2px solid sandybrown; display: inline-block; padding-bottom: 5px;">
+            Biography: Arjun Ranabhat
+          </h3>
+          <p class="text-primary" style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold;">
+            A Source of Inspiration and Culinary Excellence
+          </p>
+
+          <!-- Early Life and Background -->
+          <div style="margin-top:20px;">
+            <h4 style="font-family: 'Arial', sans-serif; color: #2a6496; font-weight: bold;">Early Life and
+              Background:</h4>
+            <p style="font-family: 'Arial', sans-serif; font-size: 16px;">
+              Born in Pokhara, Nepal, Arjun embarked on his culinary journey after earning a Bachelor of Science in
+              Hotel and Culinary Management from
+              Vel's University in 2005, Chennai, India. Inspired by watching his mother in the kitchen, his love for
+              cooking ignited early. Her delicious
+              recipes and his desire to share his cultural dishes with Americans motivated him to become a chef.
+              Growing up, the flavors of his mother's
+              cooking sparked a passion for authentic and diverse cuisines. As Arjun pursued his career, he aimed to
+              bring the rich tastes of his heritage
+              to a broader audience. From his early days to becoming a Corporate Executive Chef, his journey is a
+              flavorful tribute to his mother's culinary
+              legacy and a way to introduce his nation's dishes to the American table.
+              Discover More: Dive into Arjun's Professional Achievements and Exciting Culinary Tales
+              <br>
+              <a routerLink="/arjun-biography" class="btn btn btn-light">Explore Now</a>
             </p>
           </div>
+
         </div>
       </div>
 
+    </div>
+  </div>
+</div>
 
-      <div class="alert alert-danger" role="alert">
-    <p class="lead text-center colorful-wavy-text">
-      🎄 Embrace the festive season! Check out what's happening now in our Christmas-themed corner. 🎅
-      <a routerLink="/happening-now" class="btn btn-light">Explore Now</a>
-    </p>
+    <br>
+    <div class="text-center">
+      <div class="row">
+        <div class="col">
+          <div class="text-bg-warning">
+            <H4>कसैले तपाईलाई ट्रेकिङ बारे सोध्नु हुन्छ ?</H4>
+            <h4 class="text-primary"><strong>Remember to share this page</strong></h4>
+
+
+          </div>
+        </div> <br>
+
+<!-- Alert Boxes and Other Content -->
+<div class="container mb-1">
+<div class="alert alert-info" role="alert">
+  <p class="lead text-center">
+    Gear up for the upcoming Everest Basecamp trekking season! I find March-April to be the most splendid time to
+    explore.
+  </p>
+  <p class="text-danger-emphasis text-center">Dedicated Expert: A Lifetime of Trekking Mastery</p>
+  <p style="font-family: 'Pacifico', cursive; font-size:24px;color: darkgoldenrod;" class="text-center">Binaya
+    Pandey</p>
+  <p class="text-center"><strong>Phone:</strong> 977-9841-392739</p>
+  <p class="text-center"><strong>Email:</strong> <a href="mailto:pandayab@gmail.com">pandayab@gmail.com</a></p>
+
+  <!-- Image gallery -->
+  <div class="row">
+    <!-- Add 11 images, adjusting column sizes as needed -->
+    <div class="col-md-4"><img src="assets/images/Lukla.jpg" class="img-fluid" alt="Lukla day 1 activities"></div>
+    <div class="col-md-4"><img src="assets/images/Phakding.jpg" class="img-fluid" alt="Description2"></div>
+    <div class="col-md-4"><img src="assets/images/Namche.jpg" class="img-fluid" alt="Description3"></div>
+    <!--        <div class="col-md-4"><img src="assets/images/EverestView.jpg" class="img-fluid" alt="Description3"></div>-->
+    <!--        <div class="col-md-4"><img src="assets/images/Tenboche.jpg" class="img-fluid" alt="Description3"></div>-->
+    <!--        <div class="col-md-4"><img src="assets/images/Dingboche.jpg" class="img-fluid" alt="Description3"></div>-->
+    <!--        <div class="col-md-4"><img src="assets/images/dingbocheRest.jpg" class="img-fluid" alt="Description3"></div>-->
+    <!--        <div class="col-md-4"><img src="assets/images/EverestMemorials.jpg" class="img-fluid" alt="Description3"></div>-->
+    <!--        <div class="col-md-4"><img src="assets/images/Pyramid.jpg" class="img-fluid" alt="Description3"></div>-->
+    <!--        <div class="col-md-4"><img src="assets/images/GroakShep.jpg" class="img-fluid" alt="Description3"></div>-->
+    <!--        <div class="col-md-4"><img src="assets/images/EBC.jpg" class="img-fluid" alt="Description3"></div>-->
+    <!--        <div class="col-md-4"><img src="assets/images/Suggestation.jpg" class="img-fluid" alt="Description3"></div>-->
+    <a routerLink="/everest-trekking" class="btn btn btn-light">Get full Itinerary</a>
+  </div>
+</div>
+
+
+<!-- Alert Boxes and Other Content -->
+<div class="alert alert-info" role="alert">
+  <p class="lead text-center">
+    Gear up for the upcoming Aannapurna Basecamp trekking season! I find March-April to be the most splendid time to
+    explore.
+  </p>
+  <p class="text-danger-emphasis text-center">A passion for trekking through a lifetime</p>
+  <p style="font-family: 'Pacifico', cursive; font-size:24px;color: darkgoldenrod;" class="text-center">Shankar
+    Pandey</p>
+  <p class="text-center"><strong>Email:</strong> <a href="thahathiyena.com@gmail.com">thahathiyena.com@gmail.com</a></p>
+  <!-- Image gallery -->
+  <div class="row">
+    <!-- Add 11 images, adjusting column sizes as needed -->
+    <div class="col-md-4"><img src="assets/images/jeep.jpg" class="img-fluid" alt="Lukla day 1 activities"></div>
+    <div class="col-md-4"><img src="assets/images/Sinuwa.jpg" class="img-fluid" alt="Lukla day 1 activities"></div>
+    <div class="col-md-4"><img src="assets/images/Deurali.jpg" class="img-fluid" alt="Lukla day 1 activities"></div>
+    <a routerLink="/trekking" class="btn btn btn-light">Get full Itinerary</a>
+
+  </div>
+</div>
+
+
+<!-- Image gallery -->
+<!--      <div class="alert alert-danger" role="alert">-->
+<!--    <p class="lead text-center colorful-wavy-text">-->
+<!--      🎄 Embrace the festive season! Check out what's happening now in our Christmas-themed corner. 🎅-->
+<!--      <a routerLink="/happening-now" class="btn btn-light">Explore Now</a>-->
+<!--    </p>-->
+<!--  </div>-->
+
+<!--  <div class="alert alert-info" role="alert">-->
+<!--    <p class="lead text-center colorful-wavy-text">-->
+<!--      🎉 Celebration, Events and New Openings in DVM. 🎆-->
+<!--      <a routerLink="/up-coming-event" class="btn btn-light">Learn More</a>-->
+<!--    </p>-->
+<!--  </div>-->
+
+<div class="alert alert-info" role="alert">
+  <p class="lead text-center colorful-wavy-text">
+    🌄 Begin Your Trekking Journey Prepared and Informed! 🌟
+    <a routerLink="/trekking-prep" class="btn btn-light">Start Preparing</a>
+  </p>
+</div>
+</div>
+
+<div class="container">
+  <!-- First Row -->
+  <div class="row">
+    <!-- First Alert Box -->
+    <div class="col-md-6">
+      <div class="alert alert-info" role="alert">
+        <h5 class="text-danger text-center">Are you looking for a Job...?</h5>
+        <div class="text-center">
+          <a routerLink="/dmv-jobs" class="btn btn btn-light">Explore Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Alert Box -->
+    <div class="col-md-6">
+      <div class="alert alert-info" role="alert">
+        <h5>Discover DMV's Top Nepalese-Owned Businesses: Authentic Cuisine and Traditional stores!</h5>
+        <div class="text-center">
+          <a routerLink="/nepalese-own-business" class="btn btn btn-light">Explore Now</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="alert alert-info" role="alert">
-    <p class="lead text-center colorful-wavy-text">
-      🎉 Up coming events and new openings in DVM. 🎆
-      <a routerLink="/up-coming-event" class="btn btn-light">Learn More</a>
-    </p>
+  <div class="text-center">
+    <h4>Convert Date</h4>
+    <p class="text-bg-dark">Please note that the results may be off by a couple of days. Use this for tentative reference only.</p>
+    <div class="row">
+      <div class="col">
+        <div class="text-primary">
+          <label for="englishDate">English Date (AD):</label>
+          <input type="date" id="englishDate" name="englishDate" [(ngModel)]="inputEnglishDate" [placeholder]="englishDateToday">
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="text-warning-emphasis">
+          <label for="nepaliDate">Nepali Date (BS):</label>
+          <input type="text" id="nepaliDate" name="nepaliDate" [(ngModel)]="inputNepaliDate" [placeholder]="nepaliDateToday">
+        </div>
+      </div>
+
+      <!-- Buttons to trigger conversion -->
+      <div class="col-12 mt-3">
+        <button class="btn btn-outline-secondary m-2" (click)="convertADToBS()">Convert AD to BS</button>
+        <button class="btn btn-outline-secondary" (click)="convertBSToAD()">Convert BS to AD</button>
+      </div>
+
+      <!-- Displaying the Converted Date -->
+      <div class="col-12 mt-3">
+        <p>Converted Date: {{convertedDate}}</p>
+      </div>
+    </div>
   </div>
-
-  <div class="alert alert-info" role="alert">
-    <p class="lead text-center colorful-wavy-text">
-      🎉 Planning a Trekking Adventure to Annapurna, Everest Gokyo? Get Expert Insights Here! 🎆
-      <a routerLink="/trekking" class="btn btn-light">Explore Now</a>
-    </p>
-  </div>
-
-  <div class="alert alert-info" role="alert">
-    <p class="text-bg-danger text-center">
-      Discover DMV's Top Nepalese-Owned Businesses: Authentic Cuisine and Traditional stores !
-      <a routerLink="/nepalese-own-business" class="btn btn-primary">Explore Now</a>
-    </p>
-  </div>
-
-  <div class="alert alert-info" role="alert">
-    <p class="text-danger text-center">
-    <h5>Discover Baltimore's Top Nepalese-Owned Businesses: Authentic Cuisine and Traditional stores ! </h5>
-      <a routerLink="/baltimore" class="btn btn-primary">Explore Now</a>
-  </div>
-
-  <div class="alert alert-info" role="alert">
-    <p class="text-danger text-center">
-    <h5>Discover New York's Top Nepalese-Owned Businesses: Authentic Cuisine and Traditional stores ! </h5>
-    <a routerLink="/new-york" class="btn btn-primary">Explore Now</a>
-  </div>
-
-  <div class="alert alert-info" role="alert">
-    <p class="text-danger text-center">
-    <h5>Discover LOS ANGELES's Top Nepalese-Owned Businesses: Authentic Cuisine and Traditional stores ! </h5>
-    <a routerLink="/los-angeles" class="btn btn-primary">Explore Now</a>
-  </div>
-
-  <div class="alert alert-info" role="alert">
-    <p class="text-danger text-center">
-    <h5>Discover DALLAS  TEXAS AREA's Top Nepalese-Owned Businesses: Authentic Cuisine and Traditional stores ! </h5>
-    <a routerLink="/dallas" class="btn btn-primary">Explore Now</a>
-  </div>
-
-
-  <!--  &lt;!&ndash; Update the structure for each card &ndash;&gt;-->
-<!--  <div class="row">-->
-<!--    <div class="col-lg-4 mb-4">-->
-<!--      <div class="card custom-card card-color-1" routerLink="/new-york" style="cursor: pointer">-->
-<!--        <div class="card-body text-bg-info">-->
-<!--          <h5 class="card-title text-primary">All ABOUT NEW YORK </h5>-->
-<!--          <p class="card-text">NEW YORK INFO AND JOB POSTING here ....</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <div class="col-lg-4 mb-4">-->
-<!--      <div class="card custom-card card-color-2" routerLink="/los-angeles" style="cursor: pointer">-->
-<!--        <div class="card-body text-bg-warning">-->
-<!--          <h5 class="card-title  text-primary">ALL ABOUT LOS ANGELES</h5>-->
-<!--          <p class="card-text">LOS ANGELES INFO AND JOB POSTING here ... </p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <div class="col-lg-4 mb-4">-->
-<!--      <div class="card custom-card card-color-3" style="cursor: pointer;" routerLink="/dallas">-->
-<!--        <div class="card-body">-->
-<!--          <h5 class="card-title  text-primary">ALL ABOUT DALLAS TEXAS</h5>-->
-<!--          <p class="card-text"> DALLAS  TEXAS AREA INFO AND JOB POSTING here....</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
 
   <hr class="my-4">
-  <h3 class="text-danger-emphasis text-center">Share Your Turning Point</h3>
+      <h3 class="text-danger-emphasis text-center">Share Your Turning Point</h3>
 
-  <!-- Bootstrap Grid System for 9 Boxes -->
-  <!-- Update the structure for each card -->
-  <div class="row">
-    <div class="col-lg-4 mb-4">
-      <div class="card custom-card card-color-1" routerLink="/new-in-community" style="cursor: pointer">
-        <div class="card-body">
-          <h5 class="card-title text-primary">New In Community</h5>
-          <p class="card-text">New to America! Welcome click here yo learn  basics...</p>
+      <!-- Update the structure for each card -->
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <div class="card custom-card card-color-1" routerLink="/new-in-community" style="cursor: pointer">
+            <div class="card-body">
+              <h5 class="card-title text-primary">New in the Community</h5>
+              <p class="card-text">New to America? Welcome! Click here to learn the basics...</p>
+            </div>
           </div>
-      </div>
-    </div>
+        </div>
 
-    <div class="col-lg-4 mb-4">
-      <div class="card custom-card card-color-2" routerLink="/health-tips" style="cursor: pointer">
-        <div class="card-body">
-          <h5 class="card-title  text-primary">Health Tips</h5>
-          <p class="card-text">Start Your Healthy habit, Learn more here... </p>
+        <div class="col-lg-4 mb-4">
+          <div class="card custom-card card-color-2" routerLink="/health-tips" style="cursor: pointer">
+            <div class="card-body">
+              <h5 class="card-title  text-primary">Health Tips</h5>
+              <p class="card-text">Start Your Healthy habit, Learn more here... </p>
+            </div>
           </div>
-      </div>
-    </div>
+        </div>
 
-    <div class="col-lg-4 mb-4">
-      <div class="card custom-card card-color-3" style="cursor: pointer;" routerLink="/yoga">
-        <div class="card-body">
-          <h5 class="card-title  text-primary">Yoga</h5>
-          <p class="card-text">Yoga and more</p>
-          <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+        <div class="col-lg-4 mb-4">
+          <div class="card custom-card card-color-3" style="cursor: pointer;" routerLink="/yoga">
+            <div class="card-body">
+              <h5 class="card-title  text-primary">Yoga</h5>
+              <p class="card-text">Yoga and more</p>
+              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat for BanksAndCreditCards, LegalHelp, RealEstate, Deadlines, ITJobHelp, and ImmigrationsHelp -->
+        <div class="col-lg-4 mb-4">
+          <div class="card custom-card card-color-4" style="cursor: pointer;" routerLink="/banks-and-credit-cards">
+            <div class="card-body">
+              <h5 class="card-title  text-primary">Banks and Credit Card Tips</h5>
+              <p class="card-text">Content related to the Banks and Credit Card help topic.</p>
+              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+          <div class="card custom-card card-color-5" style="cursor: pointer;" routerLink="/legal-help">
+            <div class="card-body">
+              <h5 class="card-title  text-primary">Legal Tips</h5>
+              <p class="card-text">Content related to Legal Tips help topic.</p>
+              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+          <div class="card custom-card card-color-6" style="cursor: pointer;" routerLink="/deadlines">
+            <div class="card-body">
+              <h5 class="card-title  text-primary">Important Deadlines</h5>
+              <p class="card-text">Content related to Important Deadlines tips help topic.</p>
+              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+          <div class="card custom-card card-color-7" style="cursor: pointer;" routerLink="/real-estate">
+            <div class="card-body">
+              <h5 class="card-title  text-primary">Real Estate Tips</h5>
+              <p class="card-text">Buying First home?</p>
+              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+          <div class="card custom-card card-color-8" style="cursor: pointer;" routerLink="/it-job-help">
+            <div class="card-body">
+              <h5 class="card-title  text-primary">IT Job Tips</h5>
+              <p class="card-text">Content related to IT Job Tips help topic.</p>
+              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+          <div class="card custom-card card-color-9" style="cursor: pointer;" routerLink="/immigrations-help">
+            <div class="card-body">
+              <h5 class="card-title  text-primary">Immigrations Tips</h5>
+              <p class="card-text">Content related to Immigrations Tips tips help topic.</p>
+              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Repeat for BanksAndCreditCards, LegalHelp, RealEstate, Deadlines, ITJobHelp, and ImmigrationsHelp -->
-    <div class="col-lg-4 mb-4">
-      <div class="card custom-card card-color-4" style="cursor: pointer;" routerLink="/banks-and-credit-cards">
-        <div class="card-body">
-          <h5 class="card-title  text-primary">Banks and Credit Card Tips</h5>
-          <p class="card-text">Content related to the Banks and Credit Card help topic.</p>
-          <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 mb-4">
-      <div class="card custom-card card-color-5" style="cursor: pointer;" routerLink="/legal-help">
-        <div class="card-body">
-          <h5 class="card-title  text-primary">Legal Tips</h5>
-          <p class="card-text">Content related to Legal Tips help topic.</p>
-          <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 mb-4">
-      <div class="card custom-card card-color-6" style="cursor: pointer;" routerLink="/deadlines">
-        <div class="card-body">
-          <h5 class="card-title  text-primary">Important Deadlines</h5>
-          <p class="card-text">Content related to Important Deadlines tips help topic.</p>
-          <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 mb-4">
-      <div class="card custom-card card-color-7" style="cursor: pointer;" routerLink="/real-estate">
-        <div class="card-body">
-          <h5 class="card-title  text-primary">Real Estate Tips</h5>
-          <p class="card-text">Buying First home?</p>
-          <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 mb-4">
-      <div class="card custom-card card-color-8" style="cursor: pointer;" routerLink="/it-job-help">
-        <div class="card-body">
-          <h5 class="card-title  text-primary">IT Job Tips</h5>
-          <p class="card-text">Content related to IT Job Tips help topic.</p>
-          <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 mb-4">
-      <div class="card custom-card card-color-9" style="cursor: pointer;" routerLink="/immigrations-help">
-        <div class="card-body">
-          <h5 class="card-title  text-primary">Immigrations Tips</h5>
-          <p class="card-text">Content related to Immigrations Tips tips help topic.</p>
-          <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">

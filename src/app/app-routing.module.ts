@@ -28,6 +28,11 @@ import {
   NepaleseOwnedBusinessDallasComponent
 } from "./nepalese-owned-business-dallas/nepalese-owned-business-dallas.component";
 import {NepaleseOwnedBusinessLAComponent} from "./nepalese-owned-business-la/nepalese-owned-business-la.component";
+import {ArjunBiographyComponent} from "./arjun-biography/arjun-biography.component";
+import {DmvJobsComponent} from "./dmv-jobs/dmv-jobs.component";
+import {MarqueeSectionComponent} from "./marquee-section/marquee-section.component";
+import {EverestTrekkingComponent} from "./everest-trekking/everest-trekking.component";
+import {TrekkingPrepComponent} from "./trekking-prep/trekking-prep.component";
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -53,7 +58,12 @@ const routes: Routes = [
   {path: 'baltimore', component: BaltimoreComponent},
   {path: 'nepalese-owned-business-newyork', component: NepaleseOwnedBusinessNewyorkComponent},
   {path: 'nepalese-owned-business-dallas', component: NepaleseOwnedBusinessDallasComponent},
-  {path: 'nepalese-owned-business-la', component : NepaleseOwnedBusinessLAComponent}
+  {path: 'nepalese-owned-business-la', component : NepaleseOwnedBusinessLAComponent},
+  {path: 'arjun-biography', component: ArjunBiographyComponent},
+  {path:'dmv-jobs', component: DmvJobsComponent},
+  {path:'marquee', component: MarqueeSectionComponent},
+  {path: 'everest-trekking', component: EverestTrekkingComponent},
+  {path: 'trekking-prep', component: TrekkingPrepComponent}
 ];
 
 @NgModule({

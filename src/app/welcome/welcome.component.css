@@ -36,7 +36,7 @@
 
 .colorful-wavy-text {
   font-family: 'Arial', sans-serif;
-  font-size: 1.2em;
+  font-size: 1.6em;
   background: linear-gradient(45deg, #ff00ff, #ff6600, #ffcc00, #00cc00, #0099cc, #ff00ff);
   background-size: 400%;
   color: transparent;
@@ -135,4 +135,75 @@
 .temperature-annapurna h2 {
   color: white;
   font-size: small;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background: lightgrey; /* Light green background */
+}
+
+.marquee p {
+  margin: 0;
+  white-space: nowrap;
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+
+.marquee p span {
+  font-size: 24px; /* Larger font size */
+  letter-spacing: 2px; /* Space between letters */
+  margin-right: 15px; /* Space between words */
+  color: white; /* This can be removed if you want to keep inline styles for color */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+
+.alert img {
+  margin-bottom: 5px; /* Adds some space between the images */
+}
+
+/* CSS classes for currency styling */
+.euro-class {
+  background-color: #f0f0f0; /* Light grey background for Euro */
+  /* other styles */
+}
+
+.cad-class {
+  background-color: #f0e0d0; /* Different shade for CAD */
+  /* other styles */
+}
+
+.usd-class {
+  background-color: #e0f0f0; /* Different shade for USD */
+  /* other styles */
+}
+
+.default-class {
+  /* Default styling */
+}
+
+/* Adjust the alignment of the container */
+.exchange-rate-container {
+  text-align: right; /* Align text to the right */
+}
+
+/* Set the width of each exchange rate box to 50% (half size) */
+.exchange-rate-container .exchange-rate-box {
+  width: 50%; /* Set width to 50% for half size */
+  float: right; /* Float the boxes to the right */
+  box-sizing: border-box; /* Include padding and border within the width */
+  margin-bottom: 10px; /* Add margin at the bottom of each box for spacing */
+  padding: 10px; /* Add padding to the boxes for spacing */
+}
+
+/* Set font size for text inside the exchange rate boxes */
+.exchange-rate-container .exchange-rate-box h4,
+.exchange-rate-container .exchange-rate-box p {
+  font-size: 14px; /* Adjust the font size as needed */
+  margin: 0; /* Remove default margins to control spacing */
 }

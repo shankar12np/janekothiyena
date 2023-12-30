@@ -11,25 +11,15 @@ export class YogaComponent {
 
   tips = [
     {
-      title: 'Tip 1',
+      title: 'Sivananda Yoga',
       description: 'Yoga contributes to a healthy and happy life!',
       points: [
         'Make Yoga a part of your routine.',
         'Continue your religious practices from back home.',
         'Teach your kids the importance of embracing their true selves.',
       ],
-      writer: 'Shankar Pandey'
+      writer: 'Yogaacharya Shankar Prasad'
     },
-    {
-      title: 'Tip 2',
-      description: 'This is another useful tip. Customize it as needed.',
-      writer: 'Writer Name'
-    },
-    {
-      title: 'Tip 3',
-      description: 'Here\'s a third tip for you. Customize it as needed.',
-      writer: 'Writer Name'
-    },
-    // Add more tips as needed
+
   ];
 }

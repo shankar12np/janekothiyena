@@ -1,0 +1,24 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background: lightgray; /* Light green background */
+}
+
+.marquee p {
+  margin: 0;
+  white-space: nowrap;
+  display: block; /* Changed from inline-block to block for continuous text */
+  animation: marquee 15s linear infinite; /* Adjusted speed for readability */
+}
+
+.marquee p span {
+  font-size: 24px; /* Larger font size */
+  letter-spacing: 2px; /* Space between letters */
+  margin-right: 15px; /* Space between phrases */
+  color: white; /* This can be removed if you want to keep inline styles for color */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}

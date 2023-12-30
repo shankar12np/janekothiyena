@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {WeatherService} from "../service/weather.service";
 
 @Component({
   selector: 'app-trekking',
@@ -6,33 +8,78 @@ import { Component } from '@angular/core';
   styleUrls: ['./trekking.component.css']
 })
 export class TrekkingComponent {
-  trekkingRoutes = [
-    {
-      title: 'Annapurna Base Camp Trek: Accelerated time saving Route',
-      description: [
-        'Day 1: Pokhara to Jhinu by Jeep. Begin your adventure by catching a jeep at Baglung Bus Park in Pokhara. After lunch in Jhinu, continue your trek towards Chhomrong and then to Sinuwa (Lower Sinuwa is fine, altitude 2,360m).',
-        'Day 2: Trek from Sinuwa to Deurali (elevation: 3,230m). This leg of the journey takes you deeper into the heart of the Annapurna region.',
-        'Day 3: Stop for lunch at Machhapuchhre Base Camp (elevation: 3,700m) and experience the breathtaking surroundings. Make sure to start early to reach Annapurna Base Camp (elevation: 4,130m) by 2 PM.',
-        'Day 4: Begin your descent back to Sinuwa. This day marks the start of your journey back, carrying memories of the majestic mountains.',
-        'Day 5: Trek from Sinuwa to Jhinu, and then return to Pokhara. Celebrate the completion of your trek with a relaxing soak in the Jhinu hot springs.',
-        'Best of luck on your trek! This condensed route offers a unique and exhilarating experience of the Annapurna region.'
-      ],
-      colorClass: 'annapurna'
-    },
-    {
-      title: 'Everest Base Camp Trek',
-      description: [
-        'Embark on an unforgettable journey to the Everest Base Camp.'
-      ],
-      colorClass: 'everest'
-    },
-    {
-      title: 'Langtang Valley Trek',
-      description: [
-        'Discover the scenic beauty of the Langtang Valley on this trek.'
-      ],
-      colorClass: 'langtang'
-    }
-    // Add more trekking routes as needed
-  ];
+  ttimeInKathmandu!: string;
+  temperatureAtEverestBaseCamp!: string;
+  temperatureAtAnnapurnaBaseCamp!: string;
+  temperatureInKathmandu!: string;
+
+  constructor(private http: HttpClient, private weatherService : WeatherService) {}
+
+  ngOnInit() {
+    this.updateKathmanduTime();
+    setInterval(() => this.updateKathmanduTime(), 1000);
+
+    this.updateKathmanduTemperature(); // Call the new function
+    setInterval(() => this.updateKathmanduTemperature(), 600000); // Update every 10 minutes
+
+    this.updateEverestTemperature();
+    setInterval(() => this.updateEverestTemperature(), 600000); // Update every 10 minutes
+
+    this.updateAnnapurnaTemperature(); // Update Annapurna temperature initially
+    setInterval(() => this.updateAnnapurnaTemperature(), 600000); // Update Annapurna temperature every 10 minutes
+
+  }
+
+  updateKathmanduTime() {
+    this.http.get<any>('http://worldtimeapi.org/api/timezone/Asia/Kathmandu')
+      .subscribe(data => {
+        // Extracting the time part from the datetime string
+        let timeString = data.datetime.split('T')[1].split('+')[0];
+
+        // Converting to Date object to use JavaScript's date methods
+        let time = new Date('1970-01-01T' + timeString + 'Z');
+
+        // Formatting hours and minutes with AM/PM
+        let hours = time.getUTCHours();
+        let minutes = time.getUTCMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // Convert hour '0' to '12'
+        const strHours = hours < 10 ? `0${hours}` : hours.toString();
+        const strMinutes = minutes < 10 ? `0${minutes}` : minutes.toString();
+
+        this.ttimeInKathmandu = `${strHours}:${strMinutes} ${ampm}`;
+      });
+  }
+
+  updateKathmanduTemperature() {
+    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e'; // Replace with your OpenWeatherMap API key
+    this.weatherService.getKathmanduWeather(apiKey) // Add the new function in WeatherService
+      .subscribe(data => {
+        this.temperatureInKathmandu = data.main.temp + ' °C';
+      }, error => {
+        console.error('Error fetching Kathmandu weather data: ', error);
+      });
+  }
+
+  updateEverestTemperature() {
+    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e'; // Your OpenWeatherMap API key
+    this.weatherService.getEverestBaseCampWeather(apiKey)
+      .subscribe(data => {
+        this.temperatureAtEverestBaseCamp = data.main.temp + ' °C';
+      }, error => {
+        console.error('Error fetching the weather data: ', error);
+      });
+  }
+
+  updateAnnapurnaTemperature() {
+    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e'; // Your OpenWeatherMap API key
+    this.weatherService.getAnnapurnaBaseCampWeather(apiKey) // Call the Annapurna Base Camp weather service
+      .subscribe(data => {
+        this.temperatureAtAnnapurnaBaseCamp = data.main.temp + ' °C';
+      }, error => {
+        console.error('Error fetching the Annapurna weather data: ', error);
+      });
+  }
+
 }

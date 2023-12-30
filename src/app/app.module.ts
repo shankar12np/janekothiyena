@@ -32,6 +32,12 @@ import { BaltimoreComponent } from './baltimore/baltimore.component';
 import { NepaleseOwnedBusinessNewyorkComponent } from './nepalese-owned-business-newyork/nepalese-owned-business-newyork.component';
 import { NepaleseOwnedBusinessDallasComponent } from './nepalese-owned-business-dallas/nepalese-owned-business-dallas.component';
 import { NepaleseOwnedBusinessLAComponent } from './nepalese-owned-business-la/nepalese-owned-business-la.component';
+import { ArjunBiographyComponent } from './arjun-biography/arjun-biography.component';
+import { DmvJobsComponent } from './dmv-jobs/dmv-jobs.component';
+import { MarqueeSectionComponent } from './marquee-section/marquee-section.component';
+import { EverestTrekkingComponent } from './everest-trekking/everest-trekking.component';
+import { TrekkingPrepComponent } from './trekking-prep/trekking-prep.component';
+
 
 @NgModule({
   declarations: [
@@ -61,7 +67,13 @@ import { NepaleseOwnedBusinessLAComponent } from './nepalese-owned-business-la/n
     BaltimoreComponent,
     NepaleseOwnedBusinessNewyorkComponent,
     NepaleseOwnedBusinessDallasComponent,
-    NepaleseOwnedBusinessLAComponent
+    NepaleseOwnedBusinessLAComponent,
+    ArjunBiographyComponent,
+    DmvJobsComponent,
+    MarqueeSectionComponent,
+    EverestTrekkingComponent,
+    TrekkingPrepComponent,
+
   ],
   imports: [
     BrowserModule,
