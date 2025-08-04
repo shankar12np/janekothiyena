@@ -1,18 +1,4 @@
 <div class="container mt-1">
-<!--  &lt;!&ndash; Header Container with Social Media Links &ndash;&gt;-->
-<!--  <div class="header-container">-->
-<!--    <div class="social-links">-->
-<!--      &lt;!&ndash; Social Media Links &ndash;&gt;-->
-<!--      <a href="https://www.facebook.com/profile.php?id=61554560603743&is_tour_dismissed=true" target="_blank"-->
-<!--         class="social-link"><i class="fa fa-facebook"></i></a>-->
-<!--      <a href="https://twitter.com/ThahaThiyena" target="_blank" class="social-link"><i class="fa fa-twitter"></i></a>-->
-<!--      <a href="https://www.instagram.com/thahathiyena/" target="_blank" class="social-link"><i-->
-<!--        class="fa fa-instagram"></i></a>-->
-<!--      &lt;!&ndash;      <a href="https://www.linkedin.com" target="_blank" class="social-link"><i class="fa fa-linkedin"></i></a>&ndash;&gt;-->
-<!--    </div>-->
-<!--  </div>-->
-
-
   <!-- Logo -->
   <div class="text-center">
     <div class="row">
@@ -20,7 +6,7 @@
       <div class="col">
         <div class="text-bg-info">
           <h2 class="text-primary" style="font-size: 16px;">Kathmandu Nepal</h2>
-          <p id="tempKathmandu">{{ temperatureInKathmandu }}</p>
+          <p id="tempKathmandu">{{ temperatureInKathmandu || 'Loading...' }}</p>
         </div>
       </div>
 
@@ -28,7 +14,7 @@
       <div class="col">
         <div class="text-bg-warning">
           <h2 class="text-primary" style="font-size: 16px;">Everest Basecamp</h2>
-          <p id="tempEverestBaseCamp">{{ temperatureAtEverestBaseCamp }}</p>
+          <p id="tempEverestBaseCamp">{{ temperatureAtEverestBaseCamp || 'Loading...' }}</p>
         </div>
       </div>
 
@@ -36,101 +22,117 @@
       <div class="col">
         <div class="text-bg-info">
           <h2 class="text-primary" style="font-size: 16px;">Annapurna Basecamp</h2>
-          <p id="tempAnnapurnaBaseCamp">{{ temperatureAtAnnapurnaBaseCamp }}</p>
+          <p id="tempAnnapurnaBaseCamp">{{ temperatureAtAnnapurnaBaseCamp || 'Loading...' }}</p>
         </div>
       </div>
-      <div class="col-md-12 text-center">
-        <img src="assets/images/logo.png" alt="Janeko Thiyena Logo" class="img-responsive" style="max-height: 200px;">
+    </div>
 
-        <!-- Marquee Section -->
-        <div class="marquee">
-          <p>
-            <span style="color: blue;">Good Luck </span>
-            <span style="color: red;">Enjoy</span>
-            <span style="color: green;"> Mt Everest</span>
-            <span style="color: darkorange;"> Trekking !</span>
-            <!-- More colorful text -->
-          </p>
+    <div class="col-md-12 text-center">
+      <img src="assets/images/logo.png" alt="Janeko Thiyena Logo" class="img-responsive" style="max-height: 200px;">
+
+      <!-- Marquee Section -->
+      <div class="marquee">
+        <p>
+          <span style="color: blue;">Good Luck </span>
+          <span style="color: red;">Enjoy</span>
+          <span style="color: green;"> Mt Everest</span>
+          <span style="color: darkorange;"> Trekking !</span>
+        </p>
+      </div>
+
+      <!-- Alert Box for Trekking Advice -->
+      <div class="alert alert-info" role="alert">
+        <p class="lead text-center">
+          Venture with insight: Engage a knowledgeable guide and porter, ensure you're well-equipped,
+          and tread each path with respect. Cherish the serenity of the mountains and preserve their
+          pristine condition. Remember, mountain communities are incredibly hospitable, yet deeply
+          connected to their environment and culture. Show the utmost respect to their traditions and
+          land, for when these are threatened, their goodwill can understandably turn to protectiveness.
+          Support local livelihoods, safeguard cultural legacies, and promote environmental stewardship.
+          Keep the peace, leave no trace, and let your passage enrich the land and its guardians.
+        </p>
+        <p style="font-family: 'Pacifico', cursive; font-size:24px; color: darkgoldenrod;">ThahaThiyena.com</p>
+      </div>
+
+      <!-- Guide Info and Firebase Images -->
+      <div class="alert alert-info" role="alert">
+        <p class="lead text-center">
+          Gear up for the upcoming Everest Basecamp trekking season! I find March-April to be the most splendid time to explore.
+        </p>
+        <p class="alert alert-info text-warning">A passion for trekking through a lifetime</p>
+        <p style="font-family: 'Pacifico', cursive; font-size:24px; color: darkgoldenrod;">Binaya Pandey</p>
+        <p><strong>Phone:</strong> 977-9841-392739</p>
+        <p><strong>Email:</strong> <a href="mailto:pandayab@gmail.com">pandayab@gmail.com</a></p>
+
+        <!-- Video Section -->
+        <div class="text-center mt-3">
+          <h3>Everest Yak Video</h3>
+          <video controls autoplay muted width="100%" height="auto">
+            <source [src]="videoUrl" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
-
-        <!-- Alert Box for Trekking Advice -->
-        <div class="alert alert-info" role="alert">
-          <p class="lead text-center">
-            Venture with insight: Engage a knowledgeable guide and porter, ensure you're well-equipped,
-            and tread each path with respect. Cherish the serenity of the mountains and preserve their
-            pristine condition. Remember, mountain communities are incredibly hospitable, yet deeply
-            connected to their environment and culture. Show the utmost respect to their traditions and
-            land, for when these are threatened, their goodwill can understandably turn to protectiveness.
-            Support local livelihoods, safeguard cultural legacies, and promote environmental stewardship.
-            Keep the peace, leave no trace, and let your passage enrich the land and its guardians.
-          </p>
-          <p style="font-family: 'Pacifico', cursive; font-size:24px;color: darkgoldenrod;">ThahaThiyena.com</p>
-        </div>
-
-
-        <div class="alert alert-info" role="alert">
-  <p class="lead text-center">
-    Gear up for the upcoming Everest Basecamp trekking season! I find March-April to be the most splendid time to explore.
-  </p>
-  <p class="alert alert-info text-warning">A passion for trekking through a lifetime</p>
-  <p style="font-family: 'Pacifico', cursive; font-size:24px;color: darkgoldenrod;">Binaya Pandey</p>
-  <p><strong>Phone:</strong> 977-9841-392739</p>
-  <p><strong>Email:</strong> <a href="mailto:pandayab@gmail.com">pandayab@gmail.com</a></p>
-
-  <!-- Image gallery -->
-  <div class="row">
-    <!-- Add 11 images, adjusting column sizes as needed -->
-    <div class="col-md-4"><img src="assets/images/Lukla.jpg" class="img-fluid" alt="Lukla day 1 activities"></div>
-    <div class="col-md-4"><img src="assets/images/Phakding.jpg" class="img-fluid" alt="Description2"></div>
-    <div class="col-md-4"><img src="assets/images/Namche.jpg" class="img-fluid" alt="Description3"></div>
-    <div class="col-md-4"><img src="assets/images/EverestView.jpg" class="img-fluid" alt="Description3"></div>
-    <div class="col-md-4"><img src="assets/images/Tenboche.jpg" class="img-fluid" alt="Description3"></div>
-    <div class="col-md-4"><img src="assets/images/Dingboche.jpg" class="img-fluid" alt="Description3"></div>
-    <div class="col-md-4"><img src="assets/images/dingbocheRest.jpg" class="img-fluid" alt="Description3"></div>
-    <div class="col-md-4"><img src="assets/images/EverestMemorials.jpg" class="img-fluid" alt="Description3"></div>
-    <div class="col-md-4"><img src="assets/images/Pyramid.jpg" class="img-fluid" alt="Description3"></div>
-    <div class="col-md-4"><img src="assets/images/GroakShep.jpg" class="img-fluid" alt="Description3"></div>
-    <div class="col-md-4"><img src="assets/images/EBC.jpg" class="img-fluid" alt="Description3"></div>
-    <div class="col-md-4"><img src="assets/images/Suggestation.jpg" class="img-fluid" alt="Description3"></div>
-
-  </div>
-</div>
-        <div class="container m-1">
+        <!-- Firebase Images with Detailed Captions -->
+        <div class="image-gallery mt-4">
+          <h3 class="text-center mb-3">Everest Trekking Highlights</h3>
           <div class="row">
-            <div class="bg-info-subtle">
-              <h4>Returning Itinerary:</h4>
-              <!-- Using divs to maintain the list-like structure -->
-              <div>
-                <h5>On Day 8th Lobuche to Gorak Shep to Everest Base Camp to Gorak Shep</h5>
+            <ng-container *ngIf="imageUrls.length > 0; else loading">
+              <div *ngFor="let image of imageUrls" class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100" style="border: 1px solid #dc3545; border-radius: 10px;">
+                  <img [src]="image.url" class="card-img-top img-fluid rounded" [alt]="image.alt" loading="lazy">
+                  <div class="card-body" style="background: linear-gradient(135deg, #ffe6e6, #ffcccc);">
+                    <p class="card-text text-center" [innerHTML]="sanitizeCaption(image.caption)"></p>
+                  </div>
+                </div>
               </div>
-              <div class="alert alert-success">
-                <p>If you encounter difficulties or have time constraints, you have the option to take a helicopter ride back to Lukla.</p>
-              </div>
-
-              <div>
-                <h5>On Day 9 Gorak Shep to Kala Patthar to Pheriche</h5>
-              </div>
-              <div>
-                <h5>On Day 10 Pheriche to Namche Bazaar</h5>
-              </div>
-              <div>
-                <h5>On Day 11 Namche Bazaar to Lukla</h5>
-              </div>
-              <div>
-                <h5>On Day 12 Fly back to Kathmandu</h5>
-              </div>
-            </div>
+            </ng-container>
+            <ng-template #loading>
+              <p class="text-center">Loading images...</p>
+            </ng-template>
           </div>
         </div>
 
 
+      </div>
+    </div>
+  </div>
 
-        <div class="text-center">
-          <p class="text-bg-warning">We're Eager to Hear More - Update Us on Recent Developments!</p>
-          <p>Email: <a href="mailto:thahathiyena.com@gmail.com">thahathiyena.com@gmail.com</a></p>
+  <!-- Return Journey Options -->
+  <div class="container my-5 text-center" style="font-size: 1.1rem;">
+    <div class="row justify-content-center">
+      <div class="col-md-8 bg-light shadow-sm rounded p-5">
+        <h3 class="text-success mb-4" style="border-bottom: 3px double lightgreen; padding-bottom: 10px; font-size: 1.5rem;">
+          <i class="fas fa-undo-alt me-3"></i> Your Homeward Adventure
+        </h3>
+        <div class="alert alert-info rounded-pill shadow-sm p-3" role="alert" style="font-size: 1.1rem;">
+          <i class="fas fa-route me-3"></i> <strong style="font-size: 1.2rem;">Journey Back:</strong> From Gorak Shep, choose your path!
+          <ul class="list-unstyled mt-2" style="font-size: 1.1rem;">
+            <li class="mb-2"><i class="fas fa-hiking me-2"></i> <strong>Trek to Lukla:</strong> Descend through Pheriche, Namche Bazaar and Lukla over 3-4 days.</li>
+            <li class="mb-2"><i class="fas fa-helicopter me-2"></i> <strong>Helicopter to Lukla:</strong> A swift 30-40 minute flight for time-constrained trekkers.</li>
+            <li class="mb-2"><i class="fas fa-plane me-2"></i> <strong>Fly to Kathmandu (Lukla):</strong> A 35-minute flight after reaching Lukla.</li>
+          </ul>
+        </div>
+        <p class="text-muted mt-3" style="font-size: 1rem;">Pick the route that matches your vibe and schedule!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pixabay Images -->
+  <div class="container mt-3">
+    <h3 class="text-center mb-3">More Everest Inspiration</h3>
+    <div class="row">
+      <div *ngFor="let image of images" class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img [src]="image.webformatURL" [alt]="image.tags" class="img-fluid card-img-top" (click)="handleImageSelection(image)" />
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Footer Contact -->
+  <div class="text-center">
+    <p class="text-bg-warning">We're Eager to Hear More - Update Us on Recent Developments!</p>
+    <p>Email: <a href="mailto:thahathiyena.com@gmail.com">thahathiyena.com@gmail.com</a></p>
   </div>
 </div>

@@ -14,40 +14,34 @@
       <!-- More colorful text -->
     </p>
   </div>
+
   <!-- Cards Section -->
   <div class="row">
-    <div class="col-md-4">
-      <div class="card shadow">
+    <div class="col-md-4" *ngFor="let job of jobListings">
+      <div class="card mb-4 shadow-sm">
         <div class="card-body">
-          {{ firstComment }}
-          <p class="text-primary">Recommendation coming ... </p>
+          <h5 class="card-title">{{ job.title }}</h5>
+          <p class="card-text">{{ job.description }}</p>
+          <p class="card-text"><strong>Location:</strong> {{ job.location }}</p>
+          <p class="card-text"><strong>Company:</strong> {{ job.company }}</p>
+          <p class="card-text"><strong>Salary:</strong> {{ job.salary }}</p>
+          <p class="card-text"><strong>Posted Date:</strong> {{ job.postedDate }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary" (click)="viewDetails(job.id)">View Details</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card shadow">
-        <div class="card-body">
-          {{ secondComment }}
-          <p class="text-primary">Recommendation coming ... </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card shadow">
-        <div class="card-body">
-          {{ thirdComment }}
-          <p class="text-primary">Recommendation coming ... </p>
-        </div>
-      </div>
-    </div>
-  </div> <!-- End of Cards Row -->
+  </div>
 
   <!-- Call to Action Section -->
   <div class="bg-success-subtle p-4 mt-4 text-center">
     <p class="lead text-danger">
-      Are you hiring ? Let us know !!!
+      Are you hiring? Let us know!
     </p>
     <p class="text-bg-warning">We're Eager to Hear More - Update Us on Recent Developments!</p>
     <p>Email: <a href="mailto:thahathiyena.com@gmail.com">thahathiyena.com@gmail.com</a></p>
   </div>
-</div> <!-- End of Main Container -->
+</div>

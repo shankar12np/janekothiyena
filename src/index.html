@@ -2,43 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>thahathiyena</title>
+  <title>ThahaThiyena: Nepal Trekking Routes & Culture</title>
   <base href="/">
 
-  <!-- Open Graph Tags -->
+  <!-- Meta tags for SEO -->
+  <meta name="description" content="Explore Nepal's best trekking routes including Everest Base Camp, Annapurna Circuit, Gokyo Lakes, and Thorong La Pass. Discover Nepali culture, news, and community resources at ThahaThiyena.com.">
+  <meta name="keywords" content="Nepal trekking routes, Everest Base Camp, Annapurna Circuit, Gokyo Lakes, Thorong La Pass, Nepali culture, Nepali news, Himalayan hiking">
+  <meta name="author" content="S Pandey">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="canonical" href="https://www.thahathiyena.com">
+
+  <!-- Meta tags for Open Graph and Twitter -->
   <meta property="og:title" content="ThahaThiyena: Your Journey Through Nepalese Culture & Lifestyle" />
-  <meta property="og:description" content="Discover ThahaThiyena.com: A vibrant hub for the Nepalese
-   community in the USA and a treasure trove for Himalayan hiking enthusiasts. Explore inspiring stories
-   of success against all odds, find local Nepalese events, restaurants, and stores. Dive into resources for
-   job opportunities, health tips, legal advice, IT career guidance, yoga, and much more. Join us in celebrating
-   Nepalese culture and building a supportive community network." />
-
-  <meta property="og:image" content="https://www.thahathiyena.com/assets/images/logo.png" />
+  <meta property="og:description" content="Discover ThahaThiyena.com: A vibrant hub for the Nepalese community in the USA and a treasure trove for Himalayan hiking enthusiasts. Explore inspiring stories of success against all odds, find local Nepalese events, restaurants, and stores. Dive into resources for job opportunities, health tips, legal advice, IT career guidance, yoga, and much more. Join us in celebrating Nepalese culture and building a supportive community network." />
+  <meta property="og:image" id="ogImage" content="https://www.thahathiyena.com/assets/images/logo.png" />
   <meta property="og:url" content="https://www.thahathiyena.com" />
-
-  <!-- Twitter Card Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ThahaThiyena: Your Guide to Lifestyle,Trekking in Nepal, Hiking in Nepal,
-  Most popular trekking routs, trails, itinerary, Aannapurna, Everest, Nepali Culture, and Community">
-  <meta name="twitter:description" content="ThahaThiyena.com: A central hub for the Nepalese in the USA,
-  featuring Himalayan treks, inspiring biographies, community events, Nepalese dining and shopping, job
-  opportunities, and diverse tips on health, legal matters, IT careers, and more. Connect and grow with us!">
-
+  <meta name="twitter:title" content="ThahaThiyena: Your Guide to Lifestyle, Trekking in Nepal, Hiking in Nepal, Most popular trekking routs, trails, itinerary, Aannapurna, Everest, Nepali Culture, and Community">
+  <meta name="twitter:description" content="ThahaThiyena.com: A central hub for the Nepalese in the USA, featuring Himalayan treks, inspiring biographies, community events, Nepalese dining and shopping, job opportunities, and diverse tips on health, legal matters, IT careers, and more. Connect and grow with us!">
+  <meta name="author" content="Shankar Pandey">
+  <meta name="robots" content="index, follow">
   <meta name="twitter:image" content="https://www.thahathiyena.com/assets/images/logo.png">
 
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.png">
-  <!-- Add these lines to include Bootstrap and jQuery -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <!-- Bootstrap -->
+  <link rel="preload" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
   <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.rel='stylesheet'" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <link rel="canonical" href="https://www.thahathiyena.com">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'YOUR-GA-ID');
+  </script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    function updateImage(imageUrl) {
+      var ogImageTag = document.getElementById('ogImage');
+      ogImageTag.content = imageUrl;
+    }
+    var thumbnailImageUrl = "https://www.thahathiyena.com/assets/images/logo.png";
+    updateImage(thumbnailImageUrl);
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ThahaThiyena",
+      "url": "https://www.thahathiyena.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.thahathiyena.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Everest Base Camp Trek",
+      "description": "A 12-14 day trek to Everest Base Camp, reaching 5,364m, with stunning views of Everest and Sherpa culture.",
+      "url": "https://www.thahathiyena.com/everest-base-camp",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 27.9861,
+        "longitude": 86.9226
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Maghe Sankranti Festival",
+      "description": "A Nepali festival celebrating the harvest with traditional foods like til ko laddu and yam.",
+      "startDate": "2026-01-14",
+      "location": {
+        "@type": "Place",
+        "name": "Nepal",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "NP"
+        }
+      }
+    }
+  </script>
 </head>
 <body>
-  <app-root></app-root>
+<!-- Angular app root -->
+<app-root></app-root>
 </body>
 </html>

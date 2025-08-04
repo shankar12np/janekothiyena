@@ -1,0 +1,26 @@
+.image-container {
+  position: relative;
+  display: inline-block; /* Or flex, grid, etc., depending on your layout */
+  margin: 10px;
+}
+
+.image-container img {
+  width: 100%; /* Adjust as necessary */
+  height: auto;
+  display: block;
+}
+
+.image-container button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+/* Style for the selected image */
+.selected {
+  border: 2px solid blue; /* Change as per your design */
+}

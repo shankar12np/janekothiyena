@@ -167,3 +167,101 @@
 .alert img {
   margin-bottom: 5px; /* Adds some space between the images */
 }
+
+
+.alert img {
+  margin-bottom: 5px; /* Adds some space between the images */
+}
+
+
+.image-container {
+  position: relative;
+  display: inline-block; /* Or flex, grid, etc., depending on your layout */
+  margin: 10px;
+}
+
+.image-container img {
+  width: 100%; /* Adjust as necessary */
+  height: auto;
+  display: block;
+}
+
+.image-container button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+/* Style for the selected image */
+.selected {
+  border: 2px solid blue; /* Change as per your design */
+}
+
+/* everest-trekking.component.css */
+
+
+/* Container styling for pixabay single picture */
+.container {
+  margin-top: 20px;
+}
+
+/* Responsive image styling */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block; /* removes bottom space when inline */
+  margin-left: auto; /* center the image */
+  margin-right: auto;
+  border-radius: 5px; /* optional: if you want rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* optional: if you want shadow for depth effect */
+}
+
+/* Container for the single image */
+.single-image-container {
+  text-align: center; /* Center-align image */
+  margin-top: 20px; /* Adds some space from the top of the container */
+  padding: 20px; /* Adds space inside the container */
+}
+
+/* Responsive image with added aesthetics */
+.single-image {
+  max-width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Rounded corners for the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth effect */
+  transition: transform 0.3s ease-in-out; /* Smooth transform effect */
+}
+
+.single-image:hover {
+  transform: scale(1.05); /* Slightly enlarge image on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+}
+
+
+/* Column styling for proper padding */
+.col-md-12 {
+  padding: 15px;
+}
+
+/*!*video*!*/
+
+/*.video-container {*/
+/*  position: relative;*/
+/*  padding-bottom: 56.25%; !* 16:9 aspect ratio (adjust as needed) *!*/
+/*  height: 0;*/
+/*  overflow: hidden;*/
+/*}*/
+
+/*.video-container iframe {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*}*/
+
+

@@ -8,7 +8,7 @@
   margin: 0;
   white-space: nowrap;
   display: block; /* Changed from inline-block to block for continuous text */
-  animation: marquee 15s linear infinite; /* Adjusted speed for readability */
+  animation: marquee 25s linear infinite; /* Adjusted speed for readability */
 }
 
 .marquee p span {

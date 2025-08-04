@@ -4,34 +4,27 @@
       <a class="navbar-brand" routerLink="/">
         <span style="color: midnightblue;">Thaha</span><span style="color: goldenrod;">Thiyena</span>
       </a>
-      <!-- Corrected button classes and added navbar-toggler for mobile view -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- Added template reference variable #navbarToggler for mobile view -->
+      <button #navbarToggler class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/" onclick="closeNavbar()">Home</a>
+            <!-- Use Angular (click) binding for event handling -->
+            <a class="nav-link" routerLink="/" (click)="closeNavbar()">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/post" onclick="closeNavbar()">Post Yours</a>
+            <a class="nav-link" routerLink="/post" (click)="closeNavbar()">Post Yours</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/about" onclick="closeNavbar()">About</a>
+            <a class="nav-link" routerLink="/about" (click)="closeNavbar()">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/contact" onclick="closeNavbar()">Contact Us</a>
+            <a class="nav-link" routerLink="/contact" (click)="closeNavbar()">Contact Us</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </div>
-
-<script>
-  function closeNavbar() {
-    if (window.innerWidth <= 992) { // Check if it's a mobile screen
-      document.querySelector('.navbar-collapse').classList.remove('show'); // Close the navbar
-    }
-  }
-</script>

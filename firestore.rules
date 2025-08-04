@@ -1,0 +1,14 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Matches any document in the database
+    match /{document=**} {
+      // Allows read access to all users
+      allow read: if true;
+
+      // Restricts write access to the admin user with UID "wKBVUvyBITdYvxwP7IaN4FEg7RY2"
+      allow write: if request.auth != null && request.auth.uid == "wKBVUvyBITdYvxwP7IaN4FEg7RY2";
+    }
+  }
+}

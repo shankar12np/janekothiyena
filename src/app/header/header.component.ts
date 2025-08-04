@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {  closeNavbar() {
-  if (window.innerWidth <= 992) {
-    const navbarToggler = document.querySelector('.navbar-toggler') as HTMLButtonElement;
-    if (navbarToggler) {
-      navbarToggler.click(); // Programmatically click the navbar-toggler button to close the menu
+export class HeaderComponent {
+  @ViewChild('navbarToggler') navbarToggler!: ElementRef<HTMLButtonElement>;  // specify the element type
+
+  constructor() {}
+
+  closeNavbar() {
+    if (window.innerWidth <= 992 && this.navbarToggler) {
+      const toggleBtn = this.navbarToggler.nativeElement;  // get the native element
+      if (toggleBtn) {
+        toggleBtn.click();  // directly call the click method on the native element
+      }
     }
   }
-}
 }

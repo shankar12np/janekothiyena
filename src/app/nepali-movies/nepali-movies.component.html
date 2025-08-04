@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <h2>Nepali Movies</h2>
+  <div class="row">
+    <!-- Loop over each Nepali movie -->
+    <div class="col-md-4" *ngFor="let movie of nepaliMovies">
+      <div class="card mb-3">
+        <!-- Display movie poster -->
+        <ng-container *ngIf="movie.poster_path">
+          <img
+            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+            class="card-img-top"
+            alt="{{ movie.title }}"
+          />
+        </ng-container>
+
+        <div class="card-body">
+          <!-- Display movie title -->
+          <h5 class="card-title">{{ movie.title }}</h5>
+
+          <!-- Display movie overview -->
+          <p class="card-text">{{ movie.overview | slice: 0:500 }}...</p>
+
+          <!-- Display cast names with strong and italic formatting -->
+          <p class="card-text">
+            <strong><em>Cast:</em></strong>
+            <ng-container *ngFor="let actor of movie.cast; let last = last">
+              <ng-container *ngIf="!last">
+                <em>{{ actor.name }}</em>,&nbsp;
+              </ng-container>
+              <ng-container *ngIf="last">
+                <em>{{ actor.name }}</em>
+              </ng-container>
+            </ng-container>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

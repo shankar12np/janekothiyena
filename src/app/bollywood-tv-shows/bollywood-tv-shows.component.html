@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <!-- Section for General Bollywood TV Shows -->
+  <h2 class="text-center mb-4">New Bollywood TV Shows</h2>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 mb-3" *ngFor="let show of tvShows">
+      <div class="card h-100">
+        <img [src]="getTVShowImageUrl(show.poster_path)" class="card-img-top img-fluid" alt="{{ show.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ show.name }}</h5>
+          <p class="card-text">{{ show.overview | slice:0:100 }}...</p>
+          <p class="card-cast" style="font-weight: bold; font-style: italic; -ms-text-size-adjust: auto">{{ getFormattedCastForTVShow(show.cast) }}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">First Air Date: {{ show.first_air_date }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section for Popular Bollywood TV Shows -->
+  <div class="container mt-4">
+    <h2 class="text-center mb-4 mt-5">Popular Bollywood TV Shows</h2>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-3" *ngFor="let show of popularTvShows">
+        <div class="card h-100">
+          <img [src]="getTVShowImageUrl(show.poster_path)" class="card-img-top img-fluid" alt="{{ show.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ show.name }}</h5>
+            <p class="card-text">{{ show.overview | slice:0:100 }}...</p>
+            <!-- Display formatted cast names -->
+            <p class="card-cast" *ngIf="show.cast" style="font-weight: bold; font-style: italic; -ms-text-size-adjust: auto">{{ show.cast }}</p>
+
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">First Air Date: {{ show.first_air_date }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

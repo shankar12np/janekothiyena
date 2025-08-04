@@ -1,0 +1,6 @@
+<!-- search-images.component.html -->
+<div *ngFor="let image of images" class="image-container" [class.selected]="isSelected(image)">
+  <img [src]="image.webformatURL" [alt]="image.tags" />
+  <button (click)="selectImage(image)">Select</button>
+  <!-- Button to select the image -->
+</div>

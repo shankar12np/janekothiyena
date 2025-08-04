@@ -1,0 +1,47 @@
+<div class="container">
+
+  <!-- Nepali News Section -->
+  <div class="row">
+    <div class="col">
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">Nepali News</h4>
+        <div *ngFor="let nepaliNewsItem of nepaliNewsItems">
+          <p><strong>{{ nepaliNewsItem.title }}</strong></p>
+          <p>{{ nepaliNewsItem.description }}</p>
+          <p>{{ nepaliNewsItem.fullContent }}</p> <!-- Added line to display full content -->
+        </div>
+        <p class="mb-0">Stay updated with the latest happenings in Nepal.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- World Political/War News Section -->
+  <div class="row">
+    <div class="col">
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">World Political/War News</h4>
+        <div *ngFor="let worldNewsItem of worldNewsItems">
+          <p><strong>{{ worldNewsItem.title }}</strong></p>
+          <p>{{ worldNewsItem.description }}</p>
+<!--          <p>{{ worldNewsItem.fullContent }}</p> &lt;!&ndash; Added line to display full content &ndash;&gt;-->
+        </div>
+        <p class="mb-0">Stay updated with the latest political and war-related news around the world.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Most Popular Headlines Section -->
+  <div class="row">
+    <div class="col">
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">Most Popular Headlines</h4>
+        <div *ngFor="let headline of mostPopularHeadlines">
+          <p><strong>{{ headline.title }}</strong></p>
+          <p>{{ headline.description }}</p>
+<!--          <p>{{ headline.fullContent }}</p> &lt;!&ndash; Added line to display full content &ndash;&gt;-->
+        </div>
+        <p class="mb-0">Stay updated with the most popular headlines around the world.</p>
+      </div>
+    </div>
+  </div>
+</div>

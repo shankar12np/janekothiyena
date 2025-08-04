@@ -1,55 +1,131 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import {catchError, Observable, of, tap} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { ExchangeRate } from '../exchange-rate';
-import { map } from 'rxjs/operators';
-import {CacheService} from "./cache.service";
+
+// Define API response interfaces for type safety
+interface FixerResponse {
+  success: boolean;
+  timestamp: number;
+  base: string;
+  rates: { [key: string]: number };
+}
+
+interface OpenExchangeResponse {
+  timestamp: number;
+  base: string;
+  rates: { [key: string]: number };
+}
+
+// Configuration object for better organization
+const API_CONFIG = {
+  fixer: {
+    url: 'http://data.fixer.io/api/latest',
+    key: 'd70648d3aebc891c64a62f382c1cc608',
+    defaultSymbols: 'USD,AUD,CAD,NPR'
+  },
+  openExchange: {
+    url: 'https://openexchangerates.org/api/latest.json',
+    appId: '7cc5c64080284276ad157a830b1d3106',
+    base: 'USD'
+  },
+  cacheTTL: 24 * 60 * 60 * 1000 // 24 hours in milliseconds
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurrencyService {
-  // private readonly apiUrl = 'http://data.fixer.io/api/latest';
-  // private readonly accessKey = '<700dbb7f28859f2050e6ba84f4564d1c';
-  // private readonly usdToNprApiKey = '21d3efa4a4531f54fd3f2194b380fd7b';
-  // private readonly cadToNprApiKey = 'd70648d3aebc891c64a62f382c1cc608';
-  // private readonly eurToNprApiKey = '700dbb7f28859f2050e6ba84f4564d1c'; // Replace with your EUR to NPR API key
-  // Replace with your actual API key
-  // private apiKey = '700dbb7f28859f2050e6ba84f4564d1c';
-  private apiKey = 'd70648d3aebc891c64a62f382c1cc608';
-  private apiUrl = `http://data.fixer.io/api/latest?access_key=${this.apiKey}&symbols=USD,AUD,CAD,NPR`;
-
-  private cache: { [key: string]: ExchangeRate } = {};
-  private cacheTime: number | null = null;
+  private cache: { [key: string]: { data: ExchangeRate[]; timestamp: number } } = {};
 
   constructor(private http: HttpClient) {}
 
-  getExchangeRates(): Observable<ExchangeRate[]> {
-    const now = new Date();
-    // Check if cache exists and is not older than 24 hours
-    if (Object.keys(this.cache).length > 0 && this.cacheTime && now.getTime() - this.cacheTime < 24 * 60 * 60 * 1000) {
-      // Convert cached object to array of ExchangeRate
-      return of(Object.values(this.cache));
-    } else {
-      // Fetch new data from the API
-      return this.http.get<any>(this.apiUrl).pipe(
-        map(response => {
-          // Clear the previous cache
-          this.cache = {};
+  private fetchAndCache(
+    cacheKey: string,
+    fetchFn: () => Observable<ExchangeRate[]>
+  ): Observable<ExchangeRate[]> {
+    const now = Date.now();
+    const cached = this.cache[cacheKey];
 
-          // Assume response has a 'rates' object with currency codes as keys
-          for (const [currency, rate] of Object.entries(response.rates)) {
-            this.cache[currency] = new ExchangeRate(response.base, currency, rate as number);
-          }
-
-          this.cacheTime = now.getTime();
-          return Object.values(this.cache);
-        }),
-        catchError(error => {
-          console.error('Error fetching data: ', error);
-          return of([]);
-        })
-      );
+    if (cached && cached.timestamp && now - cached.timestamp < API_CONFIG.cacheTTL) {
+      return of(cached.data);
     }
+
+    return fetchFn().pipe(
+      tap(data => {
+        this.cache[cacheKey] = { data, timestamp: now };
+      }),
+      catchError(error => {
+        console.error(`Error fetching rates for ${cacheKey}:`, error);
+        return throwError(() => new Error(`Failed to fetch ${cacheKey} exchange rates`));
+      })
+    );
+  }
+
+  private fetchFixerRates(symbols: string = API_CONFIG.fixer.defaultSymbols): Observable<ExchangeRate[]> {
+    const url = `${API_CONFIG.fixer.url}?access_key=${API_CONFIG.fixer.key}&symbols=${symbols}`;
+    return this.http.get<FixerResponse>(url).pipe(
+      map(response => {
+        if (!response.success) {
+          throw new Error('Fixer API request failed');
+        }
+        return Object.entries(response.rates).map(([targetCurrency, rate]) =>
+          new ExchangeRate(response.base, targetCurrency, rate)
+        );
+      })
+    );
+  }
+
+  getExchangeRates(symbols: string = API_CONFIG.fixer.defaultSymbols): Observable<ExchangeRate[]> {
+    const cacheKey = `fixer-${symbols}`;
+    return this.fetchAndCache(cacheKey, () => this.fetchFixerRates(symbols));
+  }
+
+  private fetchOpenExchangeRates(): Observable<ExchangeRate[]> {
+    const url = `${API_CONFIG.openExchange.url}?app_id=${API_CONFIG.openExchange.appId}&base=${API_CONFIG.openExchange.base}`;
+    return this.http.get<OpenExchangeResponse>(url).pipe(
+      map(response => {
+        return Object.entries(response.rates).map(([targetCurrency, rate]) =>
+          new ExchangeRate(response.base, targetCurrency, rate)
+        );
+      })
+    );
+  }
+
+  getUsdBasedExchangeRates(): Observable<ExchangeRate[]> {
+    const cacheKey = 'openexchange-usd';
+    return this.fetchAndCache(cacheKey, () => this.fetchOpenExchangeRates());
+  }
+
+  convertCurrency(
+    amount: number,
+    fromCurrency: string,
+    toCurrency: string,
+    useUsdBased: boolean = false
+  ): Observable<number> {
+    const fetchMethod = useUsdBased ? this.getUsdBasedExchangeRates() : this.getExchangeRates();
+    return fetchMethod.pipe(
+      map(rates => {
+        const fromRate = rates.find(r => r.targetCurrency === fromCurrency)?.rate;
+        const toRate = rates.find(r => r.targetCurrency === toCurrency)?.rate;
+
+        if (fromRate === undefined || toRate === undefined) {
+          throw new Error(`Rates not found for ${fromCurrency} or ${toCurrency}`);
+        }
+
+        // Convert via base currency (e.g., EUR for Fixer, USD for OpenExchange)
+        const baseAmount = amount / fromRate;
+        return baseAmount * toRate;
+      }),
+      catchError(error => {
+        console.error('Conversion error:', error);
+        return throwError(() => new Error('Currency conversion failed'));
+      })
+    );
+  }
+
+  clearCache(): void {
+    this.cache = {};
   }
 }
