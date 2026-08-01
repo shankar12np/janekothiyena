@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {WeatherService} from "../service/weather.service";
 import {PixabayService} from "../service/pixabay.service";
 import {FirebaseStorageService} from "../services/firebase-storage.service";
