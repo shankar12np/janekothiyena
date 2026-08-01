@@ -3,9 +3,10 @@ import {TmdbResponse, TmdbServiceService} from "../service/tmdb-service.service"
 
 
 @Component({
-  selector: 'app-nepali-movies',
-  templateUrl: './nepali-movies.component.html',
-  styleUrls: ['./nepali-movies.component.css']
+    selector: 'app-nepali-movies',
+    templateUrl: './nepali-movies.component.html',
+    styleUrls: ['./nepali-movies.component.css'],
+    standalone: false
 })
 export class NepaliMoviesComponent implements OnInit{
   nepaliMovies: any[] = []; // This will store the Nepali movies

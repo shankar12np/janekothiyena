@@ -3,9 +3,10 @@ import { HttpClient } from "@angular/common/http";
 import {WeatherService} from "../service/weather.service";
 
 @Component({
-  selector: 'app-trekking-prep',
-  templateUrl: './trekking-prep.component.html',
-  styleUrls: ['./trekking-prep.component.css']
+    selector: 'app-trekking-prep',
+    templateUrl: './trekking-prep.component.html',
+    styleUrls: ['./trekking-prep.component.css'],
+    standalone: false
 })
 export class TrekkingPrepComponent {
   timeInKathmandu!: string;

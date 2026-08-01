@@ -3,9 +3,10 @@ import {TmdbServiceService, TmdbResponse } from "../service/tmdb-service.service
 
 
 @Component({
-  selector: 'app-bollywood-movies',
-  templateUrl: './bollywood-movies.component.html',
-  styleUrls: ['./bollywood-movies.component.css']
+    selector: 'app-bollywood-movies',
+    templateUrl: './bollywood-movies.component.html',
+    styleUrls: ['./bollywood-movies.component.css'],
+    standalone: false
 })
 export class BollywoodMoviesComponent implements OnInit {
   movies: any[] = [];

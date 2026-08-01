@@ -3,9 +3,10 @@ import {WeatherService} from "../service/weather.service";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
-  selector: 'app-dallas-texas',
-  templateUrl: './dallas-texas.component.html',
-  styleUrls: ['./dallas-texas.component.css']
+    selector: 'app-dallas-texas',
+    templateUrl: './dallas-texas.component.html',
+    styleUrls: ['./dallas-texas.component.css'],
+    standalone: false
 })
 export class DallasTexasComponent {
   timeInKathmandu!: string;

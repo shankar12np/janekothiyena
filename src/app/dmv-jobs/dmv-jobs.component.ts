@@ -3,9 +3,10 @@ import {JobSearchService} from "../service/job-search.service";
 import {forkJoin} from "rxjs";
 
 @Component({
-  selector: 'app-dmv-jobs',
-  templateUrl: './dmv-jobs.component.html',
-  styleUrls: ['./dmv-jobs.component.css']
+    selector: 'app-dmv-jobs',
+    templateUrl: './dmv-jobs.component.html',
+    styleUrls: ['./dmv-jobs.component.css'],
+    standalone: false
 })
 export class DmvJobsComponent implements OnInit{
 

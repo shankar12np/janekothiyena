@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'app-happning-now',
-  templateUrl: './happning-now.component.html',
-  styleUrls: ['./happning-now.component.css']
+    selector: 'app-happning-now',
+    templateUrl: './happning-now.component.html',
+    styleUrls: ['./happning-now.component.css'],
+    standalone: false
 })
 export class HappningNowComponent {
 

@@ -3,9 +3,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-yoga',
-  templateUrl: './yoga.component.html',
-  styleUrls: ['./yoga.component.css']
+    selector: 'app-yoga',
+    templateUrl: './yoga.component.html',
+    styleUrls: ['./yoga.component.css'],
+    standalone: false
 })
 export class YogaComponent {
 

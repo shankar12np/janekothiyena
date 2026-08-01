@@ -3,9 +3,10 @@ import {WeatherService} from "../service/weather.service";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
-  selector: 'app-new-york',
-  templateUrl: './new-york.component.html',
-  styleUrls: ['./new-york.component.css']
+    selector: 'app-new-york',
+    templateUrl: './new-york.component.html',
+    styleUrls: ['./new-york.component.css'],
+    standalone: false
 })
 export class NewYorkComponent {
 

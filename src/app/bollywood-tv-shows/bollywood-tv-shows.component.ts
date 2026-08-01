@@ -3,9 +3,10 @@ import {Component, OnInit} from '@angular/core';
 import { TmdbServiceService, TmdbResponse } from "../service/tmdb-service.service";
 
 @Component({
-  selector: 'app-bollywood-tv-shows',
-  templateUrl: './bollywood-tv-shows.component.html',
-  styleUrls: ['./bollywood-tv-shows.component.css']
+    selector: 'app-bollywood-tv-shows',
+    templateUrl: './bollywood-tv-shows.component.html',
+    styleUrls: ['./bollywood-tv-shows.component.css'],
+    standalone: false
 })
 export class BollywoodTvShowsComponent implements OnInit{
   tvShows: any[] = [];

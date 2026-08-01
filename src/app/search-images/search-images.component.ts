@@ -3,9 +3,10 @@ import {PixabayService} from "../service/pixabay.service";
 
 
 @Component({
-  selector: 'app-search-images',
-  templateUrl: './search-images.component.html',
-  styleUrls: ['./search-images.component.css']
+    selector: 'app-search-images',
+    templateUrl: './search-images.component.html',
+    styleUrls: ['./search-images.component.css'],
+    standalone: false
 })
 export class SearchImagesComponent {
   images: any[] = [];

@@ -9,9 +9,10 @@ import { of } from 'rxjs';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-gokyo',
-  templateUrl: './gokyo.component.html',
-  styleUrls: ['./gokyo.component.css']
+    selector: 'app-gokyo',
+    templateUrl: './gokyo.component.html',
+    styleUrls: ['./gokyo.component.css'],
+    standalone: false
 })
 export class GokyoComponent implements OnInit, OnDestroy {
   imageUrls: { url: string; alt: string; caption: string }[] = []; // Updated to hold URL, alt, and caption

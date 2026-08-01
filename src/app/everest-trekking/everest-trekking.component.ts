@@ -9,9 +9,10 @@ import { takeUntil, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Component({
-  selector: 'app-everest-trekking',
-  templateUrl: './everest-trekking.component.html',
-  styleUrls: ['./everest-trekking.component.css']
+    selector: 'app-everest-trekking',
+    templateUrl: './everest-trekking.component.html',
+    styleUrls: ['./everest-trekking.component.css'],
+    standalone: false
 })
 export class EverestTrekkingComponent implements OnInit, OnDestroy {
   imageUrls$!: Observable<string[]>;

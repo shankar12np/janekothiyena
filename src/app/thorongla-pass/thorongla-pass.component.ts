@@ -6,9 +6,10 @@ import {FirebaseStorageService} from "../services/firebase-storage.service";
 import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 
 @Component({
-  selector: 'app-thorongla-pass',
-  templateUrl: './thorongla-pass.component.html',
-  styleUrls: ['./thorongla-pass.component.css']
+    selector: 'app-thorongla-pass',
+    templateUrl: './thorongla-pass.component.html',
+    styleUrls: ['./thorongla-pass.component.css'],
+    standalone: false
 })
 export class ThoronglaPassComponent {
 

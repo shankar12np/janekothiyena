@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-up-coming-event',
-  templateUrl: './up-coming-event.component.html',
-  styleUrls: ['./up-coming-event.component.css']
+    selector: 'app-up-coming-event',
+    templateUrl: './up-coming-event.component.html',
+    styleUrls: ['./up-coming-event.component.css'],
+    standalone: false
 })
 export class UpComingEventComponent {
   firstComment = 'Are you looking for making your Birthday or Anniversary special?';

@@ -6,9 +6,10 @@ import { FirebaseStorageService } from "../services/firebase-storage.service";
 import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 
 @Component({
-  selector: 'app-trekking',
-  templateUrl: './trekking.component.html',
-  styleUrls: ['./trekking.component.css']
+    selector: 'app-trekking',
+    templateUrl: './trekking.component.html',
+    styleUrls: ['./trekking.component.css'],
+    standalone: false
 })
 export class TrekkingComponent {
   ttimeInKathmandu!: string;

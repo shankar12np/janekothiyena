@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-new-in-community',
-  templateUrl: './new-in-community.component.html',
-  styleUrls: ['./new-in-community.component.css']
+    selector: 'app-new-in-community',
+    templateUrl: './new-in-community.component.html',
+    styleUrls: ['./new-in-community.component.css'],
+    standalone: false
 })
 export class NewInCommunityComponent {
 
