@@ -3,19 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import {WelcomeComponent} from "./welcome/welcome.component";
 import {TrekkingComponent} from "./trekking/trekking.component";
 import {MarqueeSectionComponent} from "./marquee-section/marquee-section.component";
-import {EverestTrekkingComponent} from "./everest-trekking/everest-trekking.component";
-import {TrekkingPrepComponent} from "./trekking-prep/trekking-prep.component";
 import {SearchImagesComponent} from "./search-images/search-images.component";
-import {BollywoodMoviesComponent} from "./bollywood-movies/bollywood-movies.component";
-import {BollywoodTvShowsComponent} from "./bollywood-tv-shows/bollywood-tv-shows.component";
-import {GokyoComponent} from "./gokyo/gokyo.component";
 import {NepaliMoviesComponent} from "./nepali-movies/nepali-movies.component";
 import {NewsComponent} from "./news/news.component";
 import {NepaliSahityaComponent} from "./nepali-sahitya/nepali-sahitya.component";
 import {RadhaPiyariComponent} from "./radha-piyari/radha-piyari.component";
 import {SaniComponent} from "./sani/sani.component";
 import {RajabadiNewsComponent} from "./rajabadi-news/rajabadi-news.component";
-import {ThoronglaPassComponent} from "./thorongla-pass/thorongla-pass.component";
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -48,21 +42,22 @@ const routes: Routes = [
   { path: 'arjun-biography', loadChildren: () => import('./arjun-biography/arjun-biography.module').then(m => m.ArjunBiographyModule) },
   { path: 'dmv-jobs', loadChildren: () => import('./dmv-jobs/dmv-jobs.module').then(m => m.DmvJobsModule) },
 
+  { path: 'everest-trekking', loadChildren: () => import('./everest-trekking/everest-trekking.module').then(m => m.EverestTrekkingModule) },
+  { path: 'trekking-prep', loadChildren: () => import('./trekking-prep/trekking-prep.module').then(m => m.TrekkingPrepModule) },
+  { path: 'gokyo', loadChildren: () => import('./gokyo/gokyo.module').then(m => m.GokyoModule) },
+  { path: 'thorongla', loadChildren: () => import('./thorongla-pass/thorongla-pass.module').then(m => m.ThoronglaPassModule) },
+  { path: 'bollywood', loadChildren: () => import('./bollywood-movies/bollywood-movies.module').then(m => m.BollywoodMoviesModule) },
+  { path: 'bollywood-tv-shows', loadChildren: () => import('./bollywood-tv-shows/bollywood-tv-shows.module').then(m => m.BollywoodTvShowsModule) },
+
   {path: 'trekking', component: TrekkingComponent},
   {path:'marquee', component: MarqueeSectionComponent},
-  {path: 'everest-trekking', component: EverestTrekkingComponent},
-  {path: 'trekking-prep', component: TrekkingPrepComponent},
-  {path: 'gokyo', component: GokyoComponent},
   {path: 'search--images', component: SearchImagesComponent},
-  {path: 'bollywood', component: BollywoodMoviesComponent},
-  {path: 'bollywood-tv-shows', component: BollywoodTvShowsComponent},
   {path: 'nepali-movies', component: NepaliMoviesComponent},
   {path: 'news', component: NewsComponent},
   {path: 'nepali-sahitya', component: NepaliSahityaComponent},
   {path: 'radha-piyari', component: RadhaPiyariComponent},
   {path: 'sani', component: SaniComponent},
-  {path: 'rajabadi', component: RajabadiNewsComponent},
-  {path: 'thorongla', component: ThoronglaPassComponent}
+  {path: 'rajabadi', component: RajabadiNewsComponent}
 ];
 
 @NgModule({
