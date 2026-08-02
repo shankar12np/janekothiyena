@@ -11,8 +11,7 @@ import { provideHttpClient, withInterceptorsFromDi, withXhr } from "@angular/com
 import {FormsModule} from "@angular/forms";
 import { MarqueeSectionComponent } from './marquee-section/marquee-section.component';
 import {AngularFireModule} from "@angular/fire/compat";
-import {environment} from "../environments/environment.development";
-
+import {environment} from "../environments/environment";
 @NgModule({
   declarations: [
     AppComponent,

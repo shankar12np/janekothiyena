@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { TimeService } from '../service/time.service';
 import {WeatherService} from "../service/weather.service";
 import { HttpClient } from "@angular/common/http";
 
@@ -16,7 +17,8 @@ export class NewYorkComponent {
   temperatureAtAnnapurnaBaseCamp!: string;
   temperatureInKathmandu!: string;
 
-  constructor(private weatherService: WeatherService, private http: HttpClient) {
+  constructor(private timeService: TimeService,
+    private weatherService: WeatherService, private http: HttpClient) {
   }
 
 
@@ -36,25 +38,7 @@ export class NewYorkComponent {
   }
 
   updateKathmanduTime() {
-    this.http.get<any>('http://worldtimeapi.org/api/timezone/Asia/Kathmandu')
-      .subscribe(data => {
-        // Extracting the time part from the datetime string
-        let timeString = data.datetime.split('T')[1].split('+')[0];
-
-        // Converting to Date object to use JavaScript's date methods
-        let time = new Date('1970-01-01T' + timeString + 'Z');
-
-        // Formatting hours and minutes with AM/PM
-        let hours = time.getUTCHours();
-        let minutes = time.getUTCMinutes();
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-        hours = hours % 12;
-        hours = hours ? hours : 12; // Convert hour '0' to '12'
-        const strHours = hours < 10 ? `0${hours}` : hours.toString();
-        const strMinutes = minutes < 10 ? `0${minutes}` : minutes.toString();
-
-        this.timeInKathmandu = `${strHours}:${strMinutes} ${ampm}`;
-      });
+    this.timeInKathmandu = this.timeService.getKathmanduTime();
   }
 
   updateKathmanduTemperature() {

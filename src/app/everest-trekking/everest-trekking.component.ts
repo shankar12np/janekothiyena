@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { TimeService } from '../service/time.service';
 import { HttpClient } from '@angular/common/http';
 import { WeatherService } from '../service/weather.service';
 import { PixabayService } from '../service/pixabay.service';
@@ -30,6 +31,7 @@ export class EverestTrekkingComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   constructor(
+    private timeService: TimeService,
     private http: HttpClient,
     private weatherService: WeatherService,
     private pixabayService: PixabayService,
@@ -145,19 +147,7 @@ export class EverestTrekkingComponent implements OnInit, OnDestroy {
   }
 
   updateKathmanduTime() {
-    this.http.get<any>('http://worldtimeapi.org/api/timezone/Asia/Kathmandu')
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: data => {
-          const timeString = data.datetime.split('T')[1].split('+')[0];
-          const time = new Date('1970-01-01T' + timeString + 'Z');
-          const hours = time.getUTCHours() % 12 || 12;
-          const minutes = time.getUTCMinutes();
-          const ampm = time.getUTCHours() >= 12 ? 'PM' : 'AM';
-          this.timeInKathmandu = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${ampm}`;
-        },
-        error: error => console.error('Error fetching Kathmandu time:', error)
-      });
+    this.timeInKathmandu = this.timeService.getKathmanduTime();
   }
 
   updateKathmanduTemperature() {
