@@ -1,11 +1,12 @@
 // yoga.component.ts
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'app-yoga',
     templateUrl: './yoga.component.html',
     styleUrls: ['./yoga.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class YogaComponent {

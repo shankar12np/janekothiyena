@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import {WeatherService} from "../service/weather.service";
 
@@ -6,6 +6,7 @@ import {WeatherService} from "../service/weather.service";
     selector: 'app-trekking-prep',
     templateUrl: './trekking-prep.component.html',
     styleUrls: ['./trekking-prep.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TrekkingPrepComponent {

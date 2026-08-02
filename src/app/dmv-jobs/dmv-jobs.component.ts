@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {JobSearchService} from "../service/job-search.service";
 import {forkJoin} from "rxjs";
 
@@ -6,6 +6,7 @@ import {forkJoin} from "rxjs";
     selector: 'app-dmv-jobs',
     templateUrl: './dmv-jobs.component.html',
     styleUrls: ['./dmv-jobs.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DmvJobsComponent implements OnInit{

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 
 import { TmdbServiceService, TmdbResponse } from "../service/tmdb-service.service";
 
@@ -6,6 +6,7 @@ import { TmdbServiceService, TmdbResponse } from "../service/tmdb-service.servic
     selector: 'app-bollywood-tv-shows',
     templateUrl: './bollywood-tv-shows.component.html',
     styleUrls: ['./bollywood-tv-shows.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class BollywoodTvShowsComponent implements OnInit{

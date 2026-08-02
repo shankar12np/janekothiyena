@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NewsService } from '../service/news.service';
 import { forkJoin } from 'rxjs';
 
@@ -19,6 +19,7 @@ interface NewsApiResponse {
     selector: 'app-news',
     templateUrl: './news.component.html',
     styleUrls: ['./news.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class NewsComponent implements OnInit {

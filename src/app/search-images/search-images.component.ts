@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Output, ChangeDetectionStrategy} from '@angular/core';
 import {PixabayService} from "../service/pixabay.service";
 
 
@@ -6,6 +6,7 @@ import {PixabayService} from "../service/pixabay.service";
     selector: 'app-search-images',
     templateUrl: './search-images.component.html',
     styleUrls: ['./search-images.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SearchImagesComponent {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import {WeatherService} from "../service/weather.service";
 import {PixabayService} from "../service/pixabay.service";
@@ -9,6 +9,7 @@ import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
     selector: 'app-thorongla-pass',
     templateUrl: './thorongla-pass.component.html',
     styleUrls: ['./thorongla-pass.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ThoronglaPassComponent {

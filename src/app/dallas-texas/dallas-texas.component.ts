@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {WeatherService} from "../service/weather.service";
 import { HttpClient } from "@angular/common/http";
 
@@ -6,6 +6,7 @@ import { HttpClient } from "@angular/common/http";
     selector: 'app-dallas-texas',
     templateUrl: './dallas-texas.component.html',
     styleUrls: ['./dallas-texas.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DallasTexasComponent {

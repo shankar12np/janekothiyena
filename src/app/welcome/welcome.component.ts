@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WeatherService } from '../service/weather.service';
 import { CurrencyService } from '../service/currency.service';
@@ -13,6 +13,7 @@ import { NewsService } from '../service/news.service';
     selector: 'app-welcome',
     templateUrl: './welcome.component.html',
     styleUrls: ['./welcome.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class WelcomeComponent implements OnInit, OnDestroy {

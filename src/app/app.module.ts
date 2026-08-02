@@ -21,7 +21,7 @@ import { ItJobHelpComponent } from './it-job-help/it-job-help.component';
 import { ImmigrationsHelpComponent } from './immigrations-help/immigrations-help.component';
 import { HappningNowComponent } from './happning-now/happning-now.component';
 import { UpComingEventComponent } from './up-coming-event/up-coming-event.component';
-import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from "@angular/common/http";
 import { TrekkingComponent } from './trekking/trekking.component';
 import {FormsModule} from "@angular/forms";
 import { NepaleseOwnBusinessComponent } from './nepalese-own-business/nepalese-own-business.component';
@@ -106,5 +106,5 @@ import { ThoronglaPassComponent } from './thorongla-pass/thorongla-pass.componen
         AppRoutingModule,
         NgbModule,
         FormsModule,
-        AngularFireModule.initializeApp(environment.firebase)], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        AngularFireModule.initializeApp(environment.firebase)], providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())] })
 export class AppModule { }

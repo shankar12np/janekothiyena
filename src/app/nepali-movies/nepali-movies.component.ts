@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {TmdbResponse, TmdbServiceService} from "../service/tmdb-service.service";
 
 
@@ -6,6 +6,7 @@ import {TmdbResponse, TmdbServiceService} from "../service/tmdb-service.service"
     selector: 'app-nepali-movies',
     templateUrl: './nepali-movies.component.html',
     styleUrls: ['./nepali-movies.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class NepaliMoviesComponent implements OnInit{

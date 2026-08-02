@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WeatherService } from '../service/weather.service';
 import { PixabayService } from '../service/pixabay.service';
@@ -12,6 +12,7 @@ import { of } from 'rxjs';
     selector: 'app-everest-trekking',
     templateUrl: './everest-trekking.component.html',
     styleUrls: ['./everest-trekking.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class EverestTrekkingComponent implements OnInit, OnDestroy {
