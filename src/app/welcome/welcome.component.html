@@ -1,60 +1,60 @@
 <div class="container mt-1">
-<!--  &lt;!&ndash; Header Container with Social Media Links &ndash;&gt;-->
-<!--  <div class="header-container">-->
-<!--    <div class="social-links">-->
-<!--      &lt;!&ndash; Social Media Links &ndash;&gt;-->
-<!--      <a href="https://www.facebook.com/profile.php?id=61554560603743&is_tour_dismissed=true" target="_blank"-->
-<!--         class="social-link"><i class="fa fa-facebook"></i></a>-->
-<!--      <a href="https://twitter.com/ThahaThiyena" target="_blank" class="social-link"><i class="fa fa-twitter"></i></a>-->
-<!--      <a href="https://www.instagram.com/thahathiyena/" target="_blank" class="social-link"><i-->
+  <!--  &lt;!&ndash; Header Container with Social Media Links &ndash;&gt;-->
+  <!--  <div class="header-container">-->
+  <!--    <div class="social-links">-->
+  <!--      &lt;!&ndash; Social Media Links &ndash;&gt;-->
+  <!--      <a href="https://www.facebook.com/profile.php?id=61554560603743&is_tour_dismissed=true" target="_blank"-->
+  <!--         class="social-link"><i class="fa fa-facebook"></i></a>-->
+  <!--      <a href="https://twitter.com/ThahaThiyena" target="_blank" class="social-link"><i class="fa fa-twitter"></i></a>-->
+  <!--      <a href="https://www.instagram.com/thahathiyena/" target="_blank" class="social-link"><i-->
 <!--        class="fa fa-instagram"></i></a>-->
 <!--      &lt;!&ndash; Add more social media links as needed &ndash;&gt;-->
 <!--    </div>-->
 <!--  </div>-->
 
-  <!-- Logo -->
-  <div class="text-center">
-    <div class="row">
-       <div class="col">
-        <div class="text-bg-info">
-          <h2 class="text-primary" style="font-size: 16px;">Kathmandu Nepal</h2>
-          <p id="tempKathmandu">{{ temperatureInKathmandu }}</p>
-        </div>
+<!-- Logo -->
+<div class="text-center">
+  <div class="row">
+    <div class="col">
+      <div class="text-bg-info">
+        <h2 class="text-primary" style="font-size: 16px;">Kathmandu Nepal</h2>
+        <p id="tempKathmandu">{{ temperatureInKathmandu }}</p>
       </div>
+    </div>
 
-      <!-- Box for Temperature at Everest Base Camp -->
-      <div class="col">
-        <div class="text-bg-warning">
-          <h2 class="text-primary" style="font-size: 16px;">Everest Basecamp</h2>
-          <p id="tempEverestBaseCamp">{{ temperatureAtEverestBaseCamp }}</p>
-        </div>
+    <!-- Box for Temperature at Everest Base Camp -->
+    <div class="col">
+      <div class="text-bg-warning">
+        <h2 class="text-primary" style="font-size: 16px;">Everest Basecamp</h2>
+        <p id="tempEverestBaseCamp">{{ temperatureAtEverestBaseCamp }}</p>
       </div>
+    </div>
 
-      <!-- Box for Temperature at Annapurna Base Camp -->
-      <div class="col">
-        <div class="text-bg-info">
-          <h2 class="text-primary" style="font-size: 16px;">Annapurna Basecamp</h2>
-          <p id="tempAnnapurnaBaseCamp">{{ temperatureAtAnnapurnaBaseCamp }}</p>
-        </div>
+    <!-- Box for Temperature at Annapurna Base Camp -->
+    <div class="col">
+      <div class="text-bg-info">
+        <h2 class="text-primary" style="font-size: 16px;">Annapurna Basecamp</h2>
+        <p id="tempAnnapurnaBaseCamp">{{ temperatureAtAnnapurnaBaseCamp }}</p>
       </div>
     </div>
   </div>
+</div>
 
 
-  <!-- Exchange Rate Container (Right Side) -->
-  <div class="row">
-    <div class="col-md-8">
-     </div>
+<!-- Exchange Rate Container (Right Side) -->
+<div class="row">
+  <div class="col-md-8">
+  </div>
 
-<!--    &lt;!&ndash; Vertical Container for Exchange Rate Boxes &ndash;&gt;-->
-<!--    <div class="col-md-4">-->
-<!--      <div class="exchange-rate-container">-->
-<!--        &lt;!&ndash; Box for USD to NPR Exchange Rate &ndash;&gt;-->
+  <!--    &lt;!&ndash; Vertical Container for Exchange Rate Boxes &ndash;&gt;-->
+  <!--    <div class="col-md-4">-->
+  <!--      <div class="exchange-rate-container">-->
+  <!--        &lt;!&ndash; Box for USD to NPR Exchange Rate &ndash;&gt;-->
 
-<!--        &lt;!&ndash; Box for AUD to NPR Exchange Rate &ndash;&gt;-->
-<!--        <div class="exchange-rate-box text-bg-light p-3 mb-2">-->
-<!--          <h2 class="text-danger-emphasis" style="font-size: 16px;">आजको अस्ट्रेलिया डलरको मूल्य</h2>-->
-<!--          <p class="text-info-emphasis">1 AUD = {{ audToNprRate?.rate?.toFixed(4) || 'Loading...' }} NPR</p>-->
+  <!--        &lt;!&ndash; Box for AUD to NPR Exchange Rate &ndash;&gt;-->
+  <!--        <div class="exchange-rate-box text-bg-light p-3 mb-2">-->
+  <!--          <h2 class="text-danger-emphasis" style="font-size: 16px;">आजको अस्ट्रेलिया डलरको मूल्य</h2>-->
+  <!--          <p class="text-info-emphasis">1 AUD = {{ audToNprRate?.rate?.toFixed(4) || 'Loading...' }} NPR</p>-->
 <!--        </div>-->
 
 <!--        <div class="exchange-rate-box text-bg-light p-3 mb-2">-->
@@ -77,72 +77,87 @@
 <!--        </div>-->
 <!--      </div>-->
 <!--    </div>-->
+</div>
+
+<div class="col-md-12 text-center">
+  <img src="assets/images/logo.png" alt="Janeko Thiyena Logo" class="img-responsive" style="max-height: 200px;">
+
+  <!-- Marquee Section -->
+  <div class="marquee">
+    <p>
+      @if (usdToNprRate) {
+        <span style="color: red;">1 USD = {{ usdToNprRate.getFormattedRate() }}</span>
+      } @else {
+        <span>Loading...</span>
+      }
+      @if (audToNprRate) {
+        <span style="color: blue;">1 AUD = {{ audToNprRate.getFormattedRate() }}</span>
+      } @else {
+        <span>Loading...</span>
+      }
+      @if (cadToNprRate) {
+        <span style="color: red;">1 CAD = {{ cadToNprRate.getFormattedRate() }}</span>
+      } @else {
+        <span>Loading...</span>
+      }
+      @if (eurToNprRate) {
+        <span style="color: #0056b3;">1 EUR = {{ eurToNprRate.getFormattedRate() }}</span>
+      } @else {
+        <span>Loading...</span>
+      }
+    </p>
   </div>
-
-  <div class="col-md-12 text-center">
-    <img src="assets/images/logo.png" alt="Janeko Thiyena Logo" class="img-responsive" style="max-height: 200px;">
-
-    <!-- Marquee Section -->
-    <div class="marquee">
-      <p>
-        <span style="color: red;" *ngIf="usdToNprRate; else loading">1 USD = {{ usdToNprRate.getFormattedRate() }}</span>
-        <span style="color: blue;" *ngIf="audToNprRate; else loading">1 AUD = {{ audToNprRate.getFormattedRate() }}</span>
-        <span style="color: red;" *ngIf="cadToNprRate; else loading">1 CAD = {{ cadToNprRate.getFormattedRate() }}</span>
-        <span style="color: #0056b3;" *ngIf="eurToNprRate; else loading">1 EUR = {{ eurToNprRate.getFormattedRate() }}</span>
-      </p>
-      <ng-template #loading><span>Loading...</span></ng-template>
-    </div>
-<!--    &lt;!&ndash; New stock exchange data marquee &ndash;&gt;-->
-<!--    <div class="stock-marquee">-->
-<!--      <p>-->
-<!--        <span class="stock-data apple">AAPL: {{ aaplStockData || 'Loading...' }}</span>-->
-<!--        <span class="stock-data google">GOOGL: {{ googlStockData || 'Loading...' }}</span>-->
-<!--        <span class="stock-data nasdaq">NASDAQ: {{ nasdaqStockData || 'Loading...' }}</span>-->
-<!--        <span class="stock-data sp500">S&P 500: {{ snp500StockData || 'Loading...' }}</span>-->
-<!--        <span class="stock-data dowjones">Dow Jones: {{ dowJonesStockData || 'Loading...' }}</span>-->
-<!--        <span class="stock-data tesla">Tesla: {{ teslaStockData || 'Loading...' }}</span>-->
-<!--        &lt;!&ndash; Add more specific stock symbols and data as needed &ndash;&gt;-->
+  <!--    &lt;!&ndash; New stock exchange data marquee &ndash;&gt;-->
+  <!--    <div class="stock-marquee">-->
+  <!--      <p>-->
+  <!--        <span class="stock-data apple">AAPL: {{ aaplStockData || 'Loading...' }}</span>-->
+  <!--        <span class="stock-data google">GOOGL: {{ googlStockData || 'Loading...' }}</span>-->
+  <!--        <span class="stock-data nasdaq">NASDAQ: {{ nasdaqStockData || 'Loading...' }}</span>-->
+  <!--        <span class="stock-data sp500">S&P 500: {{ snp500StockData || 'Loading...' }}</span>-->
+  <!--        <span class="stock-data dowjones">Dow Jones: {{ dowJonesStockData || 'Loading...' }}</span>-->
+  <!--        <span class="stock-data tesla">Tesla: {{ teslaStockData || 'Loading...' }}</span>-->
+  <!--        &lt;!&ndash; Add more specific stock symbols and data as needed &ndash;&gt;-->
 <!--      </p>-->
 <!--    </div>-->
 
 
-    <!-- Centered Alert Box with Flag -->
-    <div class="alert alert-info d-flex flex-column align-items-center text-center" role="alert">
-      <img src="assets/images/Nepali-Flag.JPEG" alt="Nepali Flag" style="width: 60px; height: auto; margin-bottom: 10px;">
-      <p style="font-family: 'Pacifico', cursive; font-size:24px; color: darkgoldenrod; margin-bottom: 5px;">
-        National Anthem Of Nepal
-      </p>
-      <p style="margin-bottom: 0;">
-        श्रीमान् गम्भीर नेपाली प्रचण्ड प्रतापी भूपति
-        श्री ५ सरकार महाराजाधिराजको सदा रहोस् उन्नति
-        राखुन् चिरायु ईशले प्रजा फैलियोस्
-        पुकारौ जय प्रेमले हामी नेपाली साराले |||
+<!-- Centered Alert Box with Flag -->
+<div class="alert alert-info d-flex flex-column align-items-center text-center" role="alert">
+  <img src="assets/images/Nepali-Flag.JPEG" alt="Nepali Flag" style="width: 60px; height: auto; margin-bottom: 10px;">
+  <p style="font-family: 'Pacifico', cursive; font-size:24px; color: darkgoldenrod; margin-bottom: 5px;">
+    National Anthem Of Nepal
+  </p>
+  <p style="margin-bottom: 0;">
+    श्रीमान् गम्भीर नेपाली प्रचण्ड प्रतापी भूपति
+    श्री ५ सरकार महाराजाधिराजको सदा रहोस् उन्नति
+    राखुन् चिरायु ईशले प्रजा फैलियोस्
+    पुकारौ जय प्रेमले हामी नेपाली साराले |||
+  </p>
+</div>
+
+
+
+<div class="row">
+  <div class="col md-4 mb-3">
+    <div class="marquee">
+      <p>
+        <span style="color: red;">Nepali Politics Unleashed</span>
+        <span style="color: blue;">Trending Fire</span>
+        <span style="color: red;">Jump into the X vibe:</span>
+        <a href="https://x.com/rajsabhaa" style="color: #0056b3;">राजसभा</a>
+        <!--            <span style="color: black;">  or </span>-->
+        <!--            <a href="https://x.com/KuraKanii" style="color: #0056b3;">कुराकानी</a>-->
       </p>
     </div>
+  </div>
 
 
-
-    <div class="row">
-      <div class="col md-4 mb-3">
-        <div class="marquee">
-          <p>
-            <span style="color: red;">Nepali Politics Unleashed</span>
-            <span style="color: blue;">Trending Fire</span>
-            <span style="color: red;">Jump into the X vibe:</span>
-            <a href="https://x.com/rajsabhaa" style="color: #0056b3;">राजसभा</a>
-<!--            <span style="color: black;">  or </span>-->
-<!--            <a href="https://x.com/KuraKanii" style="color: #0056b3;">कुराकानी</a>-->
-          </p>
-        </div>
-      </div>
-
-
-<!--      &lt;!&ndash; Nepali Vision Box &ndash;&gt;-->
-<!--      <div class="col-md-12">-->
-<!--        <div class="alert alert-danger" role="alert" style="border: 2px solid #dc3545; border-radius: 12px; background: linear-gradient(135deg, #ffe6e6, #ffcccc); box-shadow: 0 6px 12px rgba(0,0,0,0.15);">-->
-<!--          <div class="text-bg-warning p-3 rounded" role="alert">-->
-<!--            <h3 class="alert-heading text-center" style="color: #721c24; font-family: 'Arial', sans-serif; font-weight: 700; border-bottom: 3px solid #dc3545; display: inline-block; padding-bottom: 8px;">-->
-<!--              Committed to Reviving a Glorious Sanatan Hindu Nation and Kingdom in Nepal-->
+  <!--      &lt;!&ndash; Nepali Vision Box &ndash;&gt;-->
+  <!--      <div class="col-md-12">-->
+  <!--        <div class="alert alert-danger" role="alert" style="border: 2px solid #dc3545; border-radius: 12px; background: linear-gradient(135deg, #ffe6e6, #ffcccc); box-shadow: 0 6px 12px rgba(0,0,0,0.15);">-->
+  <!--          <div class="text-bg-warning p-3 rounded" role="alert">-->
+  <!--            <h3 class="alert-heading text-center" style="color: #721c24; font-family: 'Arial', sans-serif; font-weight: 700; border-bottom: 3px solid #dc3545; display: inline-block; padding-bottom: 8px;">-->
+  <!--              Committed to Reviving a Glorious Sanatan Hindu Nation and Kingdom in Nepal-->
 <!--            </h3>-->
 <!--          </div>-->
 <!--        </div>-->
@@ -173,83 +188,87 @@
 <!--      </div>-->
 
 
+<div class="row">
+  <div class="col">
+    <div class="text-bg-warning" role="alert">
+      <h4 class="text-primary"><strong>कसैले तपाईलाई ट्रेकिङ बारे सोध्नु हुन्छ ?</strong></h4>
+      <h4 class="text-primary"><strong>Remember to share this page</strong></h4>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+</div>
+<div class="container mb-1 mt-3">
+  <div class="row">
+    <!-- Everest Trekking Box -->
+    <div class="col-md-6 ">
+      <div class="alert alert-info" role="alert">
+        <h3>Are you going to Everest?</h3>
+        <!-- Everest Content Here -->
         <div class="row">
-        <div class="col">
-          <div class="text-bg-warning" role="alert">
-            <h4 class="text-primary"><strong>कसैले तपाईलाई ट्रेकिङ बारे सोध्नु हुन्छ ?</strong></h4>
-            <h4 class="text-primary"><strong>Remember to share this page</strong></h4>
+          @for (imageUrl of imageUrls; track imageUrl) {
+            <div class="col-md-12">
+              <img [src]="imageUrl" class="img-fluid custom-image-size" alt="Image description">
+            </div>
+          }
+        </div>
+        <a routerLink="/everest-trekking" class="btn btn btn-light">Get full Itinerary</a>
+      </div>
+    </div>
+
+    <!-- Annapurna Trekking Box -->
+    <div class="col-md-6">
+      <div class="alert alert-info" role="alert">
+        <h3>Are you going to Annapurna?</h3>
+        <!-- Annapurna Content Here -->
+        <div class="row">
+          @for (imageUrl of annapurnaImageUrls; track imageUrl; let i = $index) {
+            <div class="col-md-12">
+              <img [src]="imageUrl" [class]="i === 1 ? 'img-fluid custom-image-size-annapurna' : 'img-fluid custom-image-size'" alt="Annapurna trekking image">
+            </div>
+          }
+        </div>
+        <a routerLink="/trekking" class="btn btn btn-light">Get full Itinerary</a>
+      </div>
+    </div>
+    <!-- Gokyo Trekking Box 1 -->
+    <div class="col-md-6">
+      <div class="alert alert-info" role="alert">
+        <h3>Are you going to Gokyo?</h3>
+        <h6>Gat your full Itinerary here</h6>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Display only one image (index 0) from gokyoImageUrls -->
+            <img [src]="gokyoImageUrls[0]" class="img-fluid custom-image-size" alt="Gokyo trekking image">
           </div>
         </div>
+        <a routerLink="/gokyo" class="btn btn btn-light">Get full Itinerary</a>
       </div>
+    </div>
 
-
-      <br>
-
+    <!-- Thorong La Pass Trekking Box -->
+    <div class="col-md-6">
+      <div class="alert alert-info" role="alert">
+        <h3>Conquering Thorong La Pass?</h3>
+        <h6>Grab Your Ultimate Short Itinerary</h6>
+        <div class="col-md-12">
+          <img [src]="thorongImageUrls" class="img-fluid custom-image-size" alt="Thorong La Pass trekking image">
         </div>
-        <div class="container mb-1 mt-3">
-          <div class="row">
-            <!-- Everest Trekking Box -->
-            <div class="col-md-6 ">
-              <div class="alert alert-info" role="alert">
-                <h3>Are you going to Everest?</h3>
-                <!-- Everest Content Here -->
-                <div class="row">
-                  <div class="col-md-12" *ngFor="let imageUrl of imageUrls">
-                    <img [src]="imageUrl" class="img-fluid custom-image-size" alt="Image description">
-                  </div>
-                </div>
-                <a routerLink="/everest-trekking" class="btn btn btn-light">Get full Itinerary</a>
-              </div>
-            </div>
-
-            <!-- Annapurna Trekking Box -->
-            <div class="col-md-6">
-              <div class="alert alert-info" role="alert">
-                <h3>Are you going to Annapurna?</h3>
-                <!-- Annapurna Content Here -->
-                <div class="row">
-                  <div class="col-md-12" *ngFor="let imageUrl of annapurnaImageUrls; let i = index">
-                    <img [src]="imageUrl" [class]="i === 1 ? 'img-fluid custom-image-size-annapurna' : 'img-fluid custom-image-size'" alt="Annapurna trekking image">
-                  </div>
-                </div>
-                <a routerLink="/trekking" class="btn btn btn-light">Get full Itinerary</a>
-              </div>
-            </div>
-            <!-- Gokyo Trekking Box 1 -->
-            <div class="col-md-6">
-              <div class="alert alert-info" role="alert">
-                <h3>Are you going to Gokyo?</h3>
-                <h6>Gat your full Itinerary here</h6>
-                <div class="row">
-                  <div class="col-md-12">
-                    <!-- Display only one image (index 0) from gokyoImageUrls -->
-                    <img [src]="gokyoImageUrls[0]" class="img-fluid custom-image-size" alt="Gokyo trekking image">
-                  </div>
-                </div>
-                <a routerLink="/gokyo" class="btn btn btn-light">Get full Itinerary</a>
-              </div>
-            </div>
-
-            <!-- Thorong La Pass Trekking Box -->
-            <div class="col-md-6">
-              <div class="alert alert-info" role="alert">
-                <h3>Conquering Thorong La Pass?</h3>
-                <h6>Grab Your Ultimate Short Itinerary</h6>
-                <div class="col-md-12">
-                  <img [src]="thorongImageUrls" class="img-fluid custom-image-size" alt="Thorong La Pass trekking image">
-                </div>
-                <a routerLink="/thorongla" class="btn btn-light">Unlock Full Itinerary</a>
-              </div>
-            </div>
+        <a routerLink="/thorongla" class="btn btn-light">Unlock Full Itinerary</a>
+      </div>
+    </div>
 
 
 
-            <!-- Image gallery -->
-<!--      <div class="alert alert-danger" role="alert">-->
-<!--    <p class="lead text-center colorful-wavy-text">-->
-<!--      🎄 Embrace the festive season! Check out what's happening now in our Christmas-themed corner. 🎅-->
-<!--      <a routerLink="/happening-now" class="btn btn-light">Explore Now</a>-->
-<!--    </p>-->
+    <!-- Image gallery -->
+    <!--      <div class="alert alert-danger" role="alert">-->
+    <!--    <p class="lead text-center colorful-wavy-text">-->
+    <!--      🎄 Embrace the festive season! Check out what's happening now in our Christmas-themed corner. 🎅-->
+    <!--      <a routerLink="/happening-now" class="btn btn-light">Explore Now</a>-->
+  <!--    </p>-->
 <!--  </div>-->
 
 <!--  <div class="alert alert-info" role="alert">-->
@@ -268,16 +287,16 @@
 </div>
 
 <div class="container">
-<!--  &lt;!&ndash; First Row &ndash;&gt;-->
-<!--  <div class="row">-->
-<!--    &lt;!&ndash; First Alert Box &ndash;&gt;-->
-<!--    <div class="col-md-6">-->
-<!--      <div class="alert alert-info" role="alert">-->
-<!--        <h5 class="text-primary text-center">Are you looking for a Job...?</h5>-->
-<!--        <br>-->
-<!--        <h5 class="text-primary text-center">Are you looking Post your job...?</h5>-->
-<!--        <div class="text-center">-->
-<!--          <a routerLink="/dmv-jobs" class="btn btn btn-light">Explore Now</a>-->
+  <!--  &lt;!&ndash; First Row &ndash;&gt;-->
+  <!--  <div class="row">-->
+  <!--    &lt;!&ndash; First Alert Box &ndash;&gt;-->
+  <!--    <div class="col-md-6">-->
+  <!--      <div class="alert alert-info" role="alert">-->
+  <!--        <h5 class="text-primary text-center">Are you looking for a Job...?</h5>-->
+  <!--        <br>-->
+  <!--        <h5 class="text-primary text-center">Are you looking Post your job...?</h5>-->
+  <!--        <div class="text-center">-->
+  <!--          <a routerLink="/dmv-jobs" class="btn btn btn-light">Explore Now</a>-->
 <!--        </div>-->
 <!--      </div>-->
 <!--    </div>-->
@@ -293,88 +312,106 @@
 <!--    </div>-->
 <!--  </div>-->
 
-  <div class="container mt-4">
-    <div class="row">
-      <h4 class="col-12">Top Nepali Movies</h4>
+<div class="container mt-4">
+  <div class="row">
+    <h4 class="col-12">Top Nepali Movies</h4>
 
-      <!-- Loop over each movie in the top Nepali movies array (only top 2 movies) -->
-      <div class="col-md-6" *ngFor="let movie of topNepaliMovies | slice:0:2">
+    <!-- Loop over each movie in the top Nepali movies array (only top 2 movies) -->
+    @for (movie of topNepaliMovies | slice:0:2; track movie) {
+      <div class="col-md-6">
         <div class="card">
           <!-- Check if the movie has a poster and display it -->
-          <ng-container *ngIf="movie.poster_path">
+          @if (movie.poster_path) {
             <img [src]="getMovieImageUrl(movie.poster_path)" class="card-img-top custom-image-size" alt="{{ movie.title }}">
-          </ng-container>
+          }
           <div class="card-body">
             <h5 class="card-title">{{ movie.title }}</h5>
             <p class="card-text">{{ movie.overview | slice:0:100 }}...</p>
             <!-- Display the top 5 cast members -->
             <p class="card-cast" style="font-weight: bold; font-style: italic;">
-                        <span class="actor-name" *ngFor="let actor of movie.cast; let last = last">
-                            {{ actor.name | titlecase }}<ng-container *ngIf="!last">, </ng-container>
-                        </span>
-            </p>
-            <!-- Link to view more Nepali movies (adjust as needed) -->
-            <a routerLink="/nepali-movies" class="btn btn-primary">View More</a>
-          </div>
+              @for (actor of movie.cast; track actor; let last = $last) {
+                <span class="actor-name">
+                  {{ actor.name | titlecase }}@if (!last) {
+                  ,
+                }
+              </span>
+            }
+          </p>
+          <!-- Link to view more Nepali movies (adjust as needed) -->
+          <a routerLink="/nepali-movies" class="btn btn-primary">View More</a>
         </div>
       </div>
     </div>
-  </div>
+  }
+</div>
+</div>
 
 
-  <div class="container mt-4">
-    <div class="row">
-      <!-- Top Movies Section -->
-      <div class="col-md-12">
-        <h4>Hindi Top Movies</h4>
-        <div class="row">
-          <!-- Loop over each movie and display only the top 2 movies -->
-          <div class="col-md-6" *ngFor="let movie of topMovies | slice:0:2">
+<div class="container mt-4">
+  <div class="row">
+    <!-- Top Movies Section -->
+    <div class="col-md-12">
+      <h4>Hindi Top Movies</h4>
+      <div class="row">
+        <!-- Loop over each movie and display only the top 2 movies -->
+        @for (movie of topMovies | slice:0:2; track movie) {
+          <div class="col-md-6">
             <div class="card">
-              <ng-container *ngIf="movie.poster_path">
+              @if (movie.poster_path) {
                 <img [src]="getMovieImageUrl(movie.poster_path)" class="card-img-top custom-image-size" alt="{{ movie.title }}">
-              </ng-container>
+              }
               <div class="card-body">
                 <h5 class="card-title">{{ movie.title }}</h5>
                 <p class="card-text">{{ movie.overview | slice:0:100 }}...</p>
                 <p class="card-cast" style="font-weight: bold; font-style: italic;">
-                                <span class="actor-name" *ngFor="let actor of movie.cast; let last = last">
-                                    {{ actor.name | titlecase }}<ng-container *ngIf="!last">, </ng-container>
-                                </span>
-                </p>
-                <a routerLink="/bollywood" class="btn btn-primary">View Bollywood Movies</a>
-              </div>
+                  @for (actor of movie.cast; track actor; let last = $last) {
+                    <span class="actor-name">
+                      {{ actor.name | titlecase }}@if (!last) {
+                      ,
+                    }
+                  </span>
+                }
+              </p>
+              <a routerLink="/bollywood" class="btn btn-primary">View Bollywood Movies</a>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Top TV Shows Section -->
-      <div class="col-md-12">
-        <h4>Top Hindi TV Shows</h4>
-        <div class="row">
-          <!-- Loop over each TV show and display only the top 2 shows -->
-          <div class="col-md-6" *ngFor="let show of topTVShows | slice:0:2">
-            <div class="card">
-              <ng-container *ngIf="show.poster_path">
-                <img [src]="getTVShowImageUrl(show.poster_path)" class="card-img-top custom-image-size" alt="{{ show.name }}">
-              </ng-container>
-              <div class="card-body">
-                <h5 class="card-title">{{ show.name }}</h5>
-                <p class="card-text">{{ show.overview | slice:0:100 }}...</p>
-                <p class="card-cast" style="font-weight: bold; font-style: italic;">
-                                <span class="actor-name" *ngFor="let actor of show.cast; let last = last">
-                                    {{ actor.name | titlecase }}<ng-container *ngIf="!last">, </ng-container>
-                                </span>
-                </p>
-                <a routerLink="/bollywood-tv-shows" class="btn btn-primary">View More!</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      }
     </div>
   </div>
+
+  <!-- Top TV Shows Section -->
+  <div class="col-md-12">
+    <h4>Top Hindi TV Shows</h4>
+    <div class="row">
+      <!-- Loop over each TV show and display only the top 2 shows -->
+      @for (show of topTVShows | slice:0:2; track show) {
+        <div class="col-md-6">
+          <div class="card">
+            @if (show.poster_path) {
+              <img [src]="getTVShowImageUrl(show.poster_path)" class="card-img-top custom-image-size" alt="{{ show.name }}">
+            }
+            <div class="card-body">
+              <h5 class="card-title">{{ show.name }}</h5>
+              <p class="card-text">{{ show.overview | slice:0:100 }}...</p>
+              <p class="card-cast" style="font-weight: bold; font-style: italic;">
+                @for (actor of show.cast; track actor; let last = $last) {
+                  <span class="actor-name">
+                    {{ actor.name | titlecase }}@if (!last) {
+                    ,
+                  }
+                </span>
+              }
+            </p>
+            <a routerLink="/bollywood-tv-shows" class="btn btn-primary">View More!</a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+</div>
+</div>
 
 <br>
 
@@ -388,51 +425,51 @@
         <!--            <li><a href="https://www.1040.com/" target="_blank" style="color: #0066CC; text-decoration: none;">1040.COM</a></li>-->
         <!--            <li><a href="https://www.eztaxreturn.com/" target="_blank" style="color: #0066CC; text-decoration: none;">ezTaxReturn.com</a></li>-->
         <!--            <li><a href="https://www.taxhawk.com/" target="_blank" style="color: #0066CC; text-decoration: none;">TaxHawk (FreeTaxUSA)</a></li>-->
-        <!--          </ul>-->
-        <div class="row">
-          <div class="col-md-3">
-            <!-- Small image on the left -->
-            <img src="assets/images/nepali-sahitya.JPG" alt="Bio" class="img-responsive img-thumbnail">
-          </div>
-          <div class="col-md-9">
-            <!-- Content on the right -->
-            <h3 style="font-family: 'Arial', sans-serif; color: #2a6496; font-size: 24px; font-weight: bold; border-bottom: 2px solid sandybrown; display: inline-block; padding-bottom: 5px;">
-              साहित्य/संस्कृति
-            </h3>
-            <h5 style="font-family: 'Arial', sans-serif; color: #2a6496; font-size: 24px; font-weight: bold; border-bottom: 2px solid sandybrown; display: inline-block; padding-bottom: 5px;">
-            </h5>
-            <br>
-<!--            <button style="background-color: #f4f4f4; border: 1px solid #ccc; color: #2a6496; font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; padding: 10px 20px; border-radius: 5px; cursor: pointer;">-->
-<!--              ❤️सानी❤️ <a routerLink="/sani" class="btn btn-light">Explore Now</a>-->
-<!--            </button>-->
-<!--            <br>-->
-<!--            <br>-->
-<!--            <button style="background-color: #f4f4f4; border: 1px solid #ccc; color: #2a6496; font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; padding: 10px 20px; border-radius: 5px; cursor: pointer;">-->
-<!--              💞राधा पियारी💞 <a routerLink="/radha-piyari" class="btn btn-light">Explore Now</a>-->
-<!--            </button>-->
-            <br>
+      <!--          </ul>-->
+      <div class="row">
+        <div class="col-md-3">
+          <!-- Small image on the left -->
+          <img src="assets/images/nepali-sahitya.JPG" alt="Bio" class="img-responsive img-thumbnail">
+        </div>
+        <div class="col-md-9">
+          <!-- Content on the right -->
+          <h3 style="font-family: 'Arial', sans-serif; color: #2a6496; font-size: 24px; font-weight: bold; border-bottom: 2px solid sandybrown; display: inline-block; padding-bottom: 5px;">
+            साहित्य/संस्कृति
+          </h3>
+          <h5 style="font-family: 'Arial', sans-serif; color: #2a6496; font-size: 24px; font-weight: bold; border-bottom: 2px solid sandybrown; display: inline-block; padding-bottom: 5px;">
+          </h5>
+          <br>
+            <!--            <button style="background-color: #f4f4f4; border: 1px solid #ccc; color: #2a6496; font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; padding: 10px 20px; border-radius: 5px; cursor: pointer;">-->
+            <!--              ❤️सानी❤️ <a routerLink="/sani" class="btn btn-light">Explore Now</a>-->
+          <!--            </button>-->
+          <!--            <br>-->
+          <!--            <br>-->
+          <!--            <button style="background-color: #f4f4f4; border: 1px solid #ccc; color: #2a6496; font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; padding: 10px 20px; border-radius: 5px; cursor: pointer;">-->
+          <!--              💞राधा पियारी💞 <a routerLink="/radha-piyari" class="btn btn-light">Explore Now</a>-->
+        <!--            </button>-->
+        <br>
 
 
-          </div>
         </div>
       </div>
-      <br>
+    </div>
+    <br>
 
-  <!--  <div class="text-center">-->
-<!--    <h4>Convert Date</h4>-->
-<!--    <p class="text-bg-dark">Please note that the results may be off by a couple of days. Use this for tentative reference only.</p>-->
-<!--    <div class="row">-->
-<!--      <div class="col">-->
-<!--        <div class="text-primary">-->
-<!--          <label for="englishDate">English Date (AD):</label>-->
-<!--          <input type="date" id="englishDate" name="englishDate" [(ngModel)]="inputEnglishDate" [placeholder]="englishDateToday">-->
-<!--        </div>-->
-<!--      </div>-->
+      <!--  <div class="text-center">-->
+      <!--    <h4>Convert Date</h4>-->
+      <!--    <p class="text-bg-dark">Please note that the results may be off by a couple of days. Use this for tentative reference only.</p>-->
+      <!--    <div class="row">-->
+      <!--      <div class="col">-->
+      <!--        <div class="text-primary">-->
+      <!--          <label for="englishDate">English Date (AD):</label>-->
+      <!--          <input type="date" id="englishDate" name="englishDate" [(ngModel)]="inputEnglishDate" [placeholder]="englishDateToday">-->
+    <!--        </div>-->
+  <!--      </div>-->
 
-<!--      <div class="col">-->
-<!--        <div class="text-warning-emphasis">-->
-<!--          <label for="nepaliDate">Nepali Date (BS):</label>-->
-<!--          <input type="text" id="nepaliDate" name="nepaliDate" [(ngModel)]="inputNepaliDate" [placeholder]="nepaliDateToday">-->
+  <!--      <div class="col">-->
+  <!--        <div class="text-warning-emphasis">-->
+  <!--          <label for="nepaliDate">Nepali Date (BS):</label>-->
+  <!--          <input type="text" id="nepaliDate" name="nepaliDate" [(ngModel)]="inputNepaliDate" [placeholder]="nepaliDateToday">-->
 <!--        </div>-->
 <!--      </div>-->
 
@@ -449,132 +486,132 @@
 <!--    </div>-->
 <!--  </div>-->
 
-  <hr class="my-4">
-      <h3 class="text-danger-emphasis text-center">Share Your Turning Point</h3>
+<hr class="my-4">
+<h3 class="text-danger-emphasis text-center">Share Your Turning Point</h3>
 
-      <!-- Update the structure for each card -->
-      <div class="row">
-        <div class="col-lg-4 mb-4">
-          <div class="card custom-card card-color-1" routerLink="/new-in-community" style="cursor: pointer">
-            <div class="card-body">
-              <h5 class="card-title text-primary">New in the Community</h5>
-              <p class="card-text">New to America? Welcome! Click here to learn the basics...</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 mb-4">
-          <div class="card custom-card card-color-2" routerLink="/health-tips" style="cursor: pointer">
-            <div class="card-body">
-              <h5 class="card-title  text-primary">Health Tips</h5>
-              <p class="card-text">Start Your Healthy habit, Learn more here... </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 mb-4">
-          <div class="card custom-card card-color-3" style="cursor: pointer;" routerLink="/yoga">
-            <div class="card-body">
-              <h5 class="card-title  text-primary">Yoga</h5>
-              <p class="card-text">Yoga and more</p>
-              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Repeat for BanksAndCreditCards, LegalHelp, RealEstate, Deadlines, ITJobHelp, and ImmigrationsHelp -->
-        <div class="col-lg-4 mb-4">
-          <div class="card custom-card card-color-4" style="cursor: pointer;" routerLink="/banks-and-credit-cards">
-            <div class="card-body">
-              <h5 class="card-title  text-primary">Banks and Credit Card Tips</h5>
-              <p class="card-text">Content related to the Banks and Credit Card help topic.</p>
-              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 mb-4">
-          <div class="card custom-card card-color-5" style="cursor: pointer;" routerLink="/legal-help">
-            <div class="card-body">
-              <h5 class="card-title  text-primary">Legal Tips</h5>
-              <p class="card-text">Content related to Legal Tips help topic.</p>
-              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 mb-4">
-          <div class="card custom-card card-color-6" style="cursor: pointer;" routerLink="/deadlines">
-            <div class="card-body">
-              <h5 class="card-title  text-primary">Important Deadlines</h5>
-              <p class="card-text">Content related to Important Deadlines tips help topic.</p>
-              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 mb-4">
-          <div class="card custom-card card-color-7" style="cursor: pointer;" routerLink="/real-estate">
-            <div class="card-body">
-              <h5 class="card-title  text-primary">Real Estate Tips</h5>
-              <p class="card-text">Buying First home?</p>
-              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 mb-4">
-          <div class="card custom-card card-color-8" style="cursor: pointer;" routerLink="/it-job-help">
-            <div class="card-body">
-              <h5 class="card-title  text-primary">IT Job Tips</h5>
-              <p class="card-text">Content related to IT Job Tips help topic.</p>
-              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 mb-4">
-          <div class="card custom-card card-color-9" style="cursor: pointer;" routerLink="/immigrations-help">
-            <div class="card-body">
-              <h5 class="card-title  text-primary">Immigrations Tips</h5>
-              <p class="card-text">Content related to Immigrations Tips tips help topic.</p>
-              <p class="card-text">Start Your Healthy habit, Learn more here...</p>
-            </div>
-          </div>
-        </div>
+<!-- Update the structure for each card -->
+<div class="row">
+  <div class="col-lg-4 mb-4">
+    <div class="card custom-card card-color-1" routerLink="/new-in-community" style="cursor: pointer">
+      <div class="card-body">
+        <h5 class="card-title text-primary">New in the Community</h5>
+        <p class="card-text">New to America? Welcome! Click here to learn the basics...</p>
       </div>
-  <br>
+    </div>
+  </div>
+
+  <div class="col-lg-4 mb-4">
+    <div class="card custom-card card-color-2" routerLink="/health-tips" style="cursor: pointer">
+      <div class="card-body">
+        <h5 class="card-title  text-primary">Health Tips</h5>
+        <p class="card-text">Start Your Healthy habit, Learn more here... </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 mb-4">
+    <div class="card custom-card card-color-3" style="cursor: pointer;" routerLink="/yoga">
+      <div class="card-body">
+        <h5 class="card-title  text-primary">Yoga</h5>
+        <p class="card-text">Yoga and more</p>
+        <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Repeat for BanksAndCreditCards, LegalHelp, RealEstate, Deadlines, ITJobHelp, and ImmigrationsHelp -->
+  <div class="col-lg-4 mb-4">
+    <div class="card custom-card card-color-4" style="cursor: pointer;" routerLink="/banks-and-credit-cards">
+      <div class="card-body">
+        <h5 class="card-title  text-primary">Banks and Credit Card Tips</h5>
+        <p class="card-text">Content related to the Banks and Credit Card help topic.</p>
+        <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 mb-4">
+    <div class="card custom-card card-color-5" style="cursor: pointer;" routerLink="/legal-help">
+      <div class="card-body">
+        <h5 class="card-title  text-primary">Legal Tips</h5>
+        <p class="card-text">Content related to Legal Tips help topic.</p>
+        <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 mb-4">
+    <div class="card custom-card card-color-6" style="cursor: pointer;" routerLink="/deadlines">
+      <div class="card-body">
+        <h5 class="card-title  text-primary">Important Deadlines</h5>
+        <p class="card-text">Content related to Important Deadlines tips help topic.</p>
+        <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 mb-4">
+    <div class="card custom-card card-color-7" style="cursor: pointer;" routerLink="/real-estate">
+      <div class="card-body">
+        <h5 class="card-title  text-primary">Real Estate Tips</h5>
+        <p class="card-text">Buying First home?</p>
+        <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 mb-4">
+    <div class="card custom-card card-color-8" style="cursor: pointer;" routerLink="/it-job-help">
+      <div class="card-body">
+        <h5 class="card-title  text-primary">IT Job Tips</h5>
+        <p class="card-text">Content related to IT Job Tips help topic.</p>
+        <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 mb-4">
+    <div class="card custom-card card-color-9" style="cursor: pointer;" routerLink="/immigrations-help">
+      <div class="card-body">
+        <h5 class="card-title  text-primary">Immigrations Tips</h5>
+        <p class="card-text">Content related to Immigrations Tips tips help topic.</p>
+        <p class="card-text">Start Your Healthy habit, Learn more here...</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
 
 
+  <div class="row">
+    <div class="col">
+      <div class="text-bg-warning" style="padding: 20px; border-radius: 10px;">
+        <!--          <h4>Tax Season is Here !!!</h4>-->
+        <!--          <h6>Here are some free tax filing sites:</h6>-->
+        <!--          <ul style="list-style: none; padding: 0; line-height: 1.6; font-size: 14px;">-->
+        <!--            <li><a href="https://www.1040now.net/freefile.htm?code=21" target="_blank" style="color: #0066CC; text-decoration: none;">1040Now</a></li>-->
+        <!--            <li><a href="https://www.1040.com/" target="_blank" style="color: #0066CC; text-decoration: none;">1040.COM</a></li>-->
+        <!--            <li><a href="https://www.eztaxreturn.com/" target="_blank" style="color: #0066CC; text-decoration: none;">ezTaxReturn.com</a></li>-->
+        <!--            <li><a href="https://www.taxhawk.com/" target="_blank" style="color: #0066CC; text-decoration: none;">TaxHawk (FreeTaxUSA)</a></li>-->
+      <!--          </ul>-->
       <div class="row">
-        <div class="col">
-          <div class="text-bg-warning" style="padding: 20px; border-radius: 10px;">
-            <!--          <h4>Tax Season is Here !!!</h4>-->
-            <!--          <h6>Here are some free tax filing sites:</h6>-->
-            <!--          <ul style="list-style: none; padding: 0; line-height: 1.6; font-size: 14px;">-->
-            <!--            <li><a href="https://www.1040now.net/freefile.htm?code=21" target="_blank" style="color: #0066CC; text-decoration: none;">1040Now</a></li>-->
-            <!--            <li><a href="https://www.1040.com/" target="_blank" style="color: #0066CC; text-decoration: none;">1040.COM</a></li>-->
-            <!--            <li><a href="https://www.eztaxreturn.com/" target="_blank" style="color: #0066CC; text-decoration: none;">ezTaxReturn.com</a></li>-->
-            <!--            <li><a href="https://www.taxhawk.com/" target="_blank" style="color: #0066CC; text-decoration: none;">TaxHawk (FreeTaxUSA)</a></li>-->
-            <!--          </ul>-->
-            <div class="row">
-              <div class="col-md-3">
-                <!-- Small image on the left -->
-                <img src="assets/images/Bio.jpeg" alt="Bio" class="img-responsive img-thumbnail">
-              </div>
-              <div class="col-md-9">
-                <!-- Content on the right -->
-                <h3 style="font-family: 'Arial', sans-serif; color: #2a6496; font-size: 24px; font-weight: bold; border-bottom: 2px solid sandybrown; display: inline-block; padding-bottom: 5px;">
-                  Biography:
-                </h3>
-                <h5 style="font-family: 'Arial', sans-serif; color: #2a6496; font-size: 24px; font-weight: bold; border-bottom: 2px solid sandybrown; display: inline-block; padding-bottom: 5px;">
-                </h5>
-                <br>
-                <button style="background-color: #f4f4f4; border: 1px solid #ccc; color: #2a6496; font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-                  Arjun Ranabhat
-                </button>
-                <br>
-                <br>
+        <div class="col-md-3">
+          <!-- Small image on the left -->
+          <img src="assets/images/Bio.jpeg" alt="Bio" class="img-responsive img-thumbnail">
+        </div>
+        <div class="col-md-9">
+          <!-- Content on the right -->
+          <h3 style="font-family: 'Arial', sans-serif; color: #2a6496; font-size: 24px; font-weight: bold; border-bottom: 2px solid sandybrown; display: inline-block; padding-bottom: 5px;">
+            Biography:
+          </h3>
+          <h5 style="font-family: 'Arial', sans-serif; color: #2a6496; font-size: 24px; font-weight: bold; border-bottom: 2px solid sandybrown; display: inline-block; padding-bottom: 5px;">
+          </h5>
+          <br>
+            <button style="background-color: #f4f4f4; border: 1px solid #ccc; color: #2a6496; font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+              Arjun Ranabhat
+            </button>
+            <br>
+              <br>
                 <p class="text-primary" style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold;">
                   <a routerLink="/arjun-biography" class="btn btn-light">Explore Now</a>
                 </p>
@@ -584,39 +621,43 @@
           </div>
         </div>
       </div>
-<br>
+      <br>
         <!-- Nepali News Section -->
-  <div class="alert alert-info" role="alert">
-    <h4 class="alert-heading">Nepali News</h4>
-    <div *ngFor="let nepaliNewsItem of nepaliNewsItems">
-      <p><strong>{{ nepaliNewsItem.title }}</strong> - {{ nepaliNewsItem.description }}</p>
-    </div>
-    <p class="mb-0">Stay updated with the latest happenings in Nepal.</p>
-    <p class="text-primary" style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold;">
-      <a routerLink="/news" class="btn btn-light">Explore Now</a>
-    </p>
-  </div>
+        <div class="alert alert-info" role="alert">
+          <h4 class="alert-heading">Nepali News</h4>
+          @for (nepaliNewsItem of nepaliNewsItems; track nepaliNewsItem) {
+            <div>
+              <p><strong>{{ nepaliNewsItem.title }}</strong> - {{ nepaliNewsItem.description }}</p>
+            </div>
+          }
+          <p class="mb-0">Stay updated with the latest happenings in Nepal.</p>
+          <p class="text-primary" style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold;">
+            <a routerLink="/news" class="btn btn-light">Explore Now</a>
+          </p>
+        </div>
 
-  <!-- World News Section -->
-  <div class="text-bg-warning" role="alert">
-    <h4 class="alert-heading">World News</h4>
-    <div *ngFor="let worldNewsItem of worldNewsItems">
-      <p><strong>{{ worldNewsItem.title }}</strong> - {{ worldNewsItem.description }}</p>
-    </div>
-    <p class="mb-0">Stay updated with the latest happenings around the world.</p>
-    <p class="text-primary" style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold;">
-      <a routerLink="/news" class="btn btn-light">Explore Now</a>
-    </p>
-  </div>
-</div>
+        <!-- World News Section -->
+        <div class="text-bg-warning" role="alert">
+          <h4 class="alert-heading">World News</h4>
+          @for (worldNewsItem of worldNewsItems; track worldNewsItem) {
+            <div>
+              <p><strong>{{ worldNewsItem.title }}</strong> - {{ worldNewsItem.description }}</p>
+            </div>
+          }
+          <p class="mb-0">Stay updated with the latest happenings around the world.</p>
+          <p class="text-primary" style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold;">
+            <a routerLink="/news" class="btn btn-light">Explore Now</a>
+          </p>
+        </div>
+      </div>
 
-</div>
+    </div>
 
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   </div>
 </div>
-    </div>
-  </div>
+</div>
+</div>
 
 
 

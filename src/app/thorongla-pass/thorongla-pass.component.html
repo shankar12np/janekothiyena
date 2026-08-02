@@ -63,14 +63,16 @@
           <!-- Image Gallery -->
           <div class="image-gallery mt-4">
             <div class="row">
-              <div class="col-md-4 mb-4" *ngFor="let image of imageUrls">
-                <div class="card shadow-sm h-100" style="border: 1px solid #dc3545; border-radius: 10px;">
-                  <img [src]="image.url" class="card-img-top img-fluid rounded" [alt]="image.alt" loading="lazy">
-                  <div class="card-body" style="background: linear-gradient(135deg, #ffe6e6, #ffcccc);">
-                    <p class="card-text text-center" [innerHTML]="sanitizeCaption(image.caption)"></p>
+              @for (image of imageUrls; track image) {
+                <div class="col-md-4 mb-4">
+                  <div class="card shadow-sm h-100" style="border: 1px solid #dc3545; border-radius: 10px;">
+                    <img [src]="image.url" class="card-img-top img-fluid rounded" [alt]="image.alt" loading="lazy">
+                    <div class="card-body" style="background: linear-gradient(135deg, #ffe6e6, #ffcccc);">
+                      <p class="card-text text-center" [innerHTML]="sanitizeCaption(image.caption)"></p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              }
             </div>
           </div>
         </div> <!-- Close Trekking Season Call -->
@@ -102,9 +104,11 @@
   <div class="container mt-3">
     <div class="row">
       <h2 class="text-center mb-4">Marvel at Stunning Views</h2>
-      <div *ngFor="let image of images" class="col-md-4 mb-4">
-        <img [src]="image.webformatURL" [alt]="image.tags" class="img-fluid rounded shadow-sm">
-      </div>
+      @for (image of images; track image) {
+        <div class="col-md-4 mb-4">
+          <img [src]="image.webformatURL" [alt]="image.tags" class="img-fluid rounded shadow-sm">
+        </div>
+      }
     </div>
   </div>
 

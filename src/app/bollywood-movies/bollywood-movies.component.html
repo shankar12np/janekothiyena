@@ -2,43 +2,54 @@
 <div class="container mt-4">
   <h2 class="text-center mb-4">Bollywood Movies</h2>
   <div class="row">
-    <div class="col-md-4 mb-3" *ngFor="let movie of movies">
-      <div class="card h-100">
-        <img [src]="getMovieImageUrl(movie.poster_path)" class="card-img-top img-fluid" alt="{{ movie.title }}">
-        <!-- ... rest of the card content ... -->        <div class="card-body">
+    @for (movie of movies; track movie) {
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <img [src]="getMovieImageUrl(movie.poster_path)" class="card-img-top img-fluid" alt="{{ movie.title }}">
+          <!-- ... rest of the card content ... -->        <div class="card-body">
           <h5 class="card-title">{{ movie.title }}</h5>
           <p class="card-text">{{ movie.overview | slice:0:100 }}...</p>
           <h6>Main Cast:</h6>
           <p class="card-cast">
-            <span class="actor-name" *ngFor="let actor of movie.cast; let last = last">
-              {{ actor.name | titlecase }}<ng-container *ngIf="!last">, </ng-container>
+            @for (actor of movie.cast; track actor; let last = $last) {
+              <span class="actor-name">
+                {{ actor.name | titlecase }}@if (!last) {
+                ,
+              }
             </span>
-          </p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Release Date: {{ movie.release_date }}</small>
-        </div>
+          }
+        </p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Release Date: {{ movie.release_date }}</small>
       </div>
     </div>
   </div>
+}
+</div>
 </div>
 
 <div class="container mt-4">
   <!-- Section for Trending Bollywood Movies -->
   <h2 class="text-center mb-4">Trending Bollywood Movies</h2>
   <div class="row">
-    <div class="col-md-4 mb-3" *ngFor="let movie of popularMovies">
-      <div class="card h-100">
-        <img [src]="getMovieImageUrl(movie.poster_path)" class="card-img-top img-fluid" alt="{{ movie.title }}">
-        <div class="card-body">
-          <h5 class="card-title">{{ movie.title }}</h5>
-          <p class="card-text">{{ movie.overview | slice:0:100 }}...</p>
-          <!-- Display Main Cast if available -->
-          <h6>Main Cast:</h6>
-          <p class="card-cast">
-            <span class="actor-name" *ngFor="let actor of movie.cast; let last = last">
-              {{ actor.name | titlecase }}<ng-container *ngIf="!last">, </ng-container>
-            </span>
+    @for (movie of popularMovies; track movie) {
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <img [src]="getMovieImageUrl(movie.poster_path)" class="card-img-top img-fluid" alt="{{ movie.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.title }}</h5>
+            <p class="card-text">{{ movie.overview | slice:0:100 }}...</p>
+            <!-- Display Main Cast if available -->
+            <h6>Main Cast:</h6>
+            <p class="card-cast">
+              @for (actor of movie.cast; track actor; let last = $last) {
+                <span class="actor-name">
+                  {{ actor.name | titlecase }}@if (!last) {
+                  ,
+                }
+              </span>
+            }
           </p>
         </div>
         <div class="card-footer">
@@ -46,5 +57,6 @@
         </div>
       </div>
     </div>
-  </div>
+  }
+</div>
 </div>

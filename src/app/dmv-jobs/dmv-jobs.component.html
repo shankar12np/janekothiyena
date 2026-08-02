@@ -17,23 +17,25 @@
 
   <!-- Cards Section -->
   <div class="row">
-    <div class="col-md-4" *ngFor="let job of jobListings">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">{{ job.title }}</h5>
-          <p class="card-text">{{ job.description }}</p>
-          <p class="card-text"><strong>Location:</strong> {{ job.location }}</p>
-          <p class="card-text"><strong>Company:</strong> {{ job.company }}</p>
-          <p class="card-text"><strong>Salary:</strong> {{ job.salary }}</p>
-          <p class="card-text"><strong>Posted Date:</strong> {{ job.postedDate }}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary" (click)="viewDetails(job.id)">View Details</button>
+    @for (job of jobListings; track job) {
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ job.title }}</h5>
+            <p class="card-text">{{ job.description }}</p>
+            <p class="card-text"><strong>Location:</strong> {{ job.location }}</p>
+            <p class="card-text"><strong>Company:</strong> {{ job.company }}</p>
+            <p class="card-text"><strong>Salary:</strong> {{ job.salary }}</p>
+            <p class="card-text"><strong>Posted Date:</strong> {{ job.postedDate }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="viewDetails(job.id)">View Details</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    }
   </div>
 
   <!-- Call to Action Section -->
