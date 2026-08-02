@@ -2,16 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {WelcomeComponent} from "./welcome/welcome.component";
 import {TrekkingComponent} from "./trekking/trekking.component";
-import {BaltimoreComponent} from "./baltimore/baltimore.component";
-import {
-  NepaleseOwnedBusinessNewyorkComponent
-} from "./nepalese-owned-business-newyork/nepalese-owned-business-newyork.component";
-import {
-  NepaleseOwnedBusinessDallasComponent
-} from "./nepalese-owned-business-dallas/nepalese-owned-business-dallas.component";
-import {NepaleseOwnedBusinessLAComponent} from "./nepalese-owned-business-la/nepalese-owned-business-la.component";
-import {ArjunBiographyComponent} from "./arjun-biography/arjun-biography.component";
-import {DmvJobsComponent} from "./dmv-jobs/dmv-jobs.component";
 import {MarqueeSectionComponent} from "./marquee-section/marquee-section.component";
 import {EverestTrekkingComponent} from "./everest-trekking/everest-trekking.component";
 import {TrekkingPrepComponent} from "./trekking-prep/trekking-prep.component";
@@ -51,13 +41,14 @@ const routes: Routes = [
   { path: 'los-angeles', loadChildren: () => import('./los-angeles/los-angeles.module').then(m => m.LosAngelesModule) },
   { path: 'dallas', loadChildren: () => import('./dallas-texas/dallas-texas.module').then(m => m.DallasTexasModule) },
 
+  { path: 'baltimore', loadChildren: () => import('./baltimore/baltimore.module').then(m => m.BaltimoreModule) },
+  { path: 'nepalese-owned-business-newyork', loadChildren: () => import('./nepalese-owned-business-newyork/nepalese-owned-business-newyork.module').then(m => m.NepaleseOwnedBusinessNewyorkModule) },
+  { path: 'nepalese-owned-business-dallas', loadChildren: () => import('./nepalese-owned-business-dallas/nepalese-owned-business-dallas.module').then(m => m.NepaleseOwnedBusinessDallasModule) },
+  { path: 'nepalese-owned-business-la', loadChildren: () => import('./nepalese-owned-business-la/nepalese-owned-business-la.module').then(m => m.NepaleseOwnedBusinessLAModule) },
+  { path: 'arjun-biography', loadChildren: () => import('./arjun-biography/arjun-biography.module').then(m => m.ArjunBiographyModule) },
+  { path: 'dmv-jobs', loadChildren: () => import('./dmv-jobs/dmv-jobs.module').then(m => m.DmvJobsModule) },
+
   {path: 'trekking', component: TrekkingComponent},
-  {path: 'baltimore', component: BaltimoreComponent},
-  {path: 'nepalese-owned-business-newyork', component: NepaleseOwnedBusinessNewyorkComponent},
-  {path: 'nepalese-owned-business-dallas', component: NepaleseOwnedBusinessDallasComponent},
-  {path: 'nepalese-owned-business-la', component : NepaleseOwnedBusinessLAComponent},
-  {path: 'arjun-biography', component: ArjunBiographyComponent},
-  {path:'dmv-jobs', component: DmvJobsComponent},
   {path:'marquee', component: MarqueeSectionComponent},
   {path: 'everest-trekking', component: EverestTrekkingComponent},
   {path: 'trekking-prep', component: TrekkingPrepComponent},

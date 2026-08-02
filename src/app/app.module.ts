@@ -10,12 +10,6 @@ import { FooterComponent } from './footer/footer.component';
 import { provideHttpClient, withInterceptorsFromDi, withXhr } from "@angular/common/http";
 import { TrekkingComponent } from './trekking/trekking.component';
 import {FormsModule} from "@angular/forms";
-import { BaltimoreComponent } from './baltimore/baltimore.component';
-import { NepaleseOwnedBusinessNewyorkComponent } from './nepalese-owned-business-newyork/nepalese-owned-business-newyork.component';
-import { NepaleseOwnedBusinessDallasComponent } from './nepalese-owned-business-dallas/nepalese-owned-business-dallas.component';
-import { NepaleseOwnedBusinessLAComponent } from './nepalese-owned-business-la/nepalese-owned-business-la.component';
-import { ArjunBiographyComponent } from './arjun-biography/arjun-biography.component';
-import { DmvJobsComponent } from './dmv-jobs/dmv-jobs.component';
 import { MarqueeSectionComponent } from './marquee-section/marquee-section.component';
 import { EverestTrekkingComponent } from './everest-trekking/everest-trekking.component';
 import { TrekkingPrepComponent } from './trekking-prep/trekking-prep.component';
@@ -40,12 +34,6 @@ import { ThoronglaPassComponent } from './thorongla-pass/thorongla-pass.componen
     HeaderComponent,
     FooterComponent,
     TrekkingComponent,
-    BaltimoreComponent,
-    NepaleseOwnedBusinessNewyorkComponent,
-    NepaleseOwnedBusinessDallasComponent,
-    NepaleseOwnedBusinessLAComponent,
-    ArjunBiographyComponent,
-    DmvJobsComponent,
     MarqueeSectionComponent,
     EverestTrekkingComponent,
     TrekkingPrepComponent,
