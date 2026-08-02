@@ -1,13 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {WelcomeComponent} from "./welcome/welcome.component";
-import {HappningNowComponent} from "./happning-now/happning-now.component";
-import {UpComingEventComponent} from "./up-coming-event/up-coming-event.component";
 import {TrekkingComponent} from "./trekking/trekking.component";
-import {NepaleseOwnBusinessComponent} from "./nepalese-own-business/nepalese-own-business.component";
-import {NewYorkComponent} from "./new-york/new-york.component";
-import {LosAngelesComponent} from "./los-angeles/los-angeles.component";
-import {DallasTexasComponent} from "./dallas-texas/dallas-texas.component";
 import {BaltimoreComponent} from "./baltimore/baltimore.component";
 import {
   NepaleseOwnedBusinessNewyorkComponent
@@ -36,31 +30,28 @@ import {ThoronglaPassComponent} from "./thorongla-pass/thorongla-pass.component"
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
 
-  // --- Batch 1: lazy loaded ---
   { path: 'post', loadChildren: () => import('./post-your-knowledge/post-your-knowledge.module').then(m => m.PostYourKnowledgeModule) },
   { path: 'about', loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule) },
   { path: 'contact', loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule) },
   { path: 'new-in-community', loadChildren: () => import('./new-in-community/new-in-community.module').then(m => m.NewInCommunityModule) },
   { path: 'health-tips', loadChildren: () => import('./health-tips/health-tips.module').then(m => m.HealthTipsModule) },
   { path: 'yoga', loadChildren: () => import('./yoga/yoga.module').then(m => m.YogaModule) },
-  // --- end batch 1 ---
 
-  // --- Batch 2: lazy loaded ---
   { path: 'banks-and-credit-cards', loadChildren: () => import('./banks-and-credit-cards/banks-and-credit-cards.module').then(m => m.BanksAndCreditCardsModule) },
   { path: 'legal-help', loadChildren: () => import('./legal-help/legal-help.module').then(m => m.LegalHelpModule) },
   { path: 'real-estate', loadChildren: () => import('./real-estate/real-estate.module').then(m => m.RealEstateModule) },
   { path: 'deadlines', loadChildren: () => import('./deadlines/deadlines.module').then(m => m.DeadlinesModule) },
   { path: 'it-job-help', loadChildren: () => import('./it-job-help/it-job-help.module').then(m => m.ItJobHelpModule) },
   { path: 'immigrations-help', loadChildren: () => import('./immigrations-help/immigrations-help.module').then(m => m.ImmigrationsHelpModule) },
-  // --- end batch 2 ---
 
-  {path: 'happening-now', component: HappningNowComponent},
-  {path: 'up-coming-event', component: UpComingEventComponent},
+  { path: 'happening-now', loadChildren: () => import('./happning-now/happning-now.module').then(m => m.HappningNowModule) },
+  { path: 'up-coming-event', loadChildren: () => import('./up-coming-event/up-coming-event.module').then(m => m.UpComingEventModule) },
+  { path: 'nepalese-own-business', loadChildren: () => import('./nepalese-own-business/nepalese-own-business.module').then(m => m.NepaleseOwnBusinessModule) },
+  { path: 'new-york', loadChildren: () => import('./new-york/new-york.module').then(m => m.NewYorkModule) },
+  { path: 'los-angeles', loadChildren: () => import('./los-angeles/los-angeles.module').then(m => m.LosAngelesModule) },
+  { path: 'dallas', loadChildren: () => import('./dallas-texas/dallas-texas.module').then(m => m.DallasTexasModule) },
+
   {path: 'trekking', component: TrekkingComponent},
-  {path: 'nepalese-own-business', component: NepaleseOwnBusinessComponent},
-  {path: 'new-york', component: NewYorkComponent},
-  {path: 'los-angeles', component: LosAngelesComponent},
-  {path: 'dallas', component: DallasTexasComponent},
   {path: 'baltimore', component: BaltimoreComponent},
   {path: 'nepalese-owned-business-newyork', component: NepaleseOwnedBusinessNewyorkComponent},
   {path: 'nepalese-owned-business-dallas', component: NepaleseOwnedBusinessDallasComponent},
@@ -77,17 +68,16 @@ const routes: Routes = [
   {path: 'nepali-movies', component: NepaliMoviesComponent},
   {path: 'news', component: NewsComponent},
   {path: 'nepali-sahitya', component: NepaliSahityaComponent},
-    {path: 'radha-piyari', component: RadhaPiyariComponent},
-    {path: 'sani', component: SaniComponent},
-    {path: 'rajabadi', component: RajabadiNewsComponent},
-    {path: 'thorongla', component: ThoronglaPassComponent}
-
+  {path: 'radha-piyari', component: RadhaPiyariComponent},
+  {path: 'sani', component: SaniComponent},
+  {path: 'rajabadi', component: RajabadiNewsComponent},
+  {path: 'thorongla', component: ThoronglaPassComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabledBlocking'
-})],
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

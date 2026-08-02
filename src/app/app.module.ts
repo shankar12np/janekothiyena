@@ -7,15 +7,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { HappningNowComponent } from './happning-now/happning-now.component';
-import { UpComingEventComponent } from './up-coming-event/up-coming-event.component';
 import { provideHttpClient, withInterceptorsFromDi, withXhr } from "@angular/common/http";
 import { TrekkingComponent } from './trekking/trekking.component';
 import {FormsModule} from "@angular/forms";
-import { NepaleseOwnBusinessComponent } from './nepalese-own-business/nepalese-own-business.component';
-import { NewYorkComponent } from './new-york/new-york.component';
-import { LosAngelesComponent } from './los-angeles/los-angeles.component';
-import { DallasTexasComponent } from './dallas-texas/dallas-texas.component';
 import { BaltimoreComponent } from './baltimore/baltimore.component';
 import { NepaleseOwnedBusinessNewyorkComponent } from './nepalese-owned-business-newyork/nepalese-owned-business-newyork.component';
 import { NepaleseOwnedBusinessDallasComponent } from './nepalese-owned-business-dallas/nepalese-owned-business-dallas.component';
@@ -30,7 +24,6 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.development";
 import { BollywoodMoviesComponent } from './bollywood-movies/bollywood-movies.component';
 import { BollywoodTvShowsComponent } from './bollywood-tv-shows/bollywood-tv-shows.component';
-
 import { NepaliMoviesComponent } from './nepali-movies/nepali-movies.component';
 import { NewsComponent } from './news/news.component';
 import { NepaliSahityaComponent } from './nepali-sahitya/nepali-sahitya.component';
@@ -46,15 +39,7 @@ import { ThoronglaPassComponent } from './thorongla-pass/thorongla-pass.componen
     WelcomeComponent,
     HeaderComponent,
     FooterComponent,
-    // Batch 1 (PostYourKnowledge, AboutUs, ContactUs, NewInCommunity, HealthTips, Yoga) now lazy loaded
-    // Batch 2 (BanksAndCreditCards, LegalHelp, RealEstate, Deadlines, ItJobHelp, ImmigrationsHelp) now lazy loaded
-    HappningNowComponent,
-    UpComingEventComponent,
     TrekkingComponent,
-    NepaleseOwnBusinessComponent,
-    NewYorkComponent,
-    LosAngelesComponent,
-    DallasTexasComponent,
     BaltimoreComponent,
     NepaleseOwnedBusinessNewyorkComponent,
     NepaleseOwnedBusinessDallasComponent,
@@ -74,7 +59,7 @@ import { ThoronglaPassComponent } from './thorongla-pass/thorongla-pass.componen
     RadhaPiyariComponent,
     SaniComponent,
     RajabadiNewsComponent,
-    ThoronglaPassComponent,
+    ThoronglaPassComponent
   ],
   bootstrap: [AppComponent],
   imports: [
