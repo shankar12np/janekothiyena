@@ -13,7 +13,7 @@ export class TmdbResponse {
 })
 export class TmdbServiceService {
   private baseUrl = 'https://api.themoviedb.org/3';
-  private apiKey = '9aeabcded2cd8b12e18d492d545ffe35'; // Directly use the key for testing
+  private apiKey = environment.tmdbApiKey;
   hindiShows!: TmdbResponse;
   malayalamShows!: TmdbResponse;
   private languageCode = 'ne'; // Set the default language code (e.g., 'hi' for Hindi)

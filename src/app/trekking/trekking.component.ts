@@ -132,8 +132,7 @@ export class TrekkingComponent {
   }
 
   updateKathmanduTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e';
-    this.weatherService.getKathmanduWeather(apiKey)
+    this.weatherService.getKathmanduWeather()
       .subscribe(data => {
         this.temperatureInKathmandu = data.main.temp + ' °C';
       }, error => {
@@ -142,8 +141,7 @@ export class TrekkingComponent {
   }
 
   updateEverestTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e';
-    this.weatherService.getEverestBaseCampWeather(apiKey)
+    this.weatherService.getEverestBaseCampWeather()
       .subscribe(data => {
         this.temperatureAtEverestBaseCamp = data.main.temp + ' °C';
       }, error => {
@@ -152,8 +150,7 @@ export class TrekkingComponent {
   }
 
   updateAnnapurnaTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e';
-    this.weatherService.getAnnapurnaBaseCampWeather(apiKey)
+    this.weatherService.getAnnapurnaBaseCampWeather()
       .subscribe(data => {
         this.temperatureAtAnnapurnaBaseCamp = data.main.temp + ' °C';
       }, error => {

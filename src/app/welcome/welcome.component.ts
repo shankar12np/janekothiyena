@@ -32,6 +32,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   temperatureAtEverestBaseCamp!: string;
   temperatureAtAnnapurnaBaseCamp!: string;
   temperatureInKathmandu!: string;
+  clockAngles = { hourDeg: 0, minuteDeg: 0, secondDeg: 0 };
 
   inputEnglishDate: string = '';
   inputNepaliDate: string = '';
@@ -203,27 +204,25 @@ export class WelcomeComponent implements OnInit, OnDestroy {
 
   updateKathmanduTime() {
     this.timeInKathmandu = this.timeService.getKathmanduTime();
+    this.clockAngles = this.timeService.getKathmanduClockAngles();
   }
 
   updateKathmanduTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e';
-    this.weatherService.getKathmanduWeather(apiKey).subscribe({
+    this.weatherService.getKathmanduWeather().subscribe({
       next: data => (this.temperatureInKathmandu = `${data.main.temp} °C`),
       error: error => console.error('Error fetching Kathmandu weather:', error)
     });
   }
 
   updateEverestTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e';
-    this.weatherService.getEverestBaseCampWeather(apiKey).subscribe({
+    this.weatherService.getEverestBaseCampWeather().subscribe({
       next: data => (this.temperatureAtEverestBaseCamp = `${data.main.temp} °C`),
       error: error => console.error('Error fetching Everest weather:', error)
     });
   }
 
   updateAnnapurnaTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e';
-    this.weatherService.getAnnapurnaBaseCampWeather(apiKey).subscribe({
+    this.weatherService.getAnnapurnaBaseCampWeather().subscribe({
       next: data => (this.temperatureAtAnnapurnaBaseCamp = `${data.main.temp} °C`),
       error: error => console.error('Error fetching Annapurna weather:', error)
     });

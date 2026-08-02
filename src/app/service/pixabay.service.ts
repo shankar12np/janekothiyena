@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PixabayService {
 private API_URL = 'https://pixabay.com/api/'
-  private API_KEY = '41564115-d3175b503e3fd2ea43eb7331c'
+  private API_KEY = environment.pixabayApiKey;
   constructor(private http: HttpClient) { }
 
   searchImages(query: string){

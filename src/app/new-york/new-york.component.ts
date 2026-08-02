@@ -58,8 +58,7 @@ export class NewYorkComponent {
   }
 
   updateKathmanduTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e'; // Replace with your OpenWeatherMap API key
-    this.weatherService.getKathmanduWeather(apiKey) // Add the new function in WeatherService
+    this.weatherService.getKathmanduWeather() // Add the new function in WeatherService
       .subscribe(data => {
         this.temperatureInKathmandu = data.main.temp + ' °C';
       }, error => {
@@ -68,8 +67,7 @@ export class NewYorkComponent {
   }
 
   updateEverestTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e'; // Your OpenWeatherMap API key
-    this.weatherService.getEverestBaseCampWeather(apiKey)
+    this.weatherService.getEverestBaseCampWeather()
       .subscribe(data => {
         this.temperatureAtEverestBaseCamp = data.main.temp + ' °C';
       }, error => {
@@ -78,8 +76,7 @@ export class NewYorkComponent {
   }
 
   updateAnnapurnaTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e'; // Your OpenWeatherMap API key
-    this.weatherService.getAnnapurnaBaseCampWeather(apiKey) // Call the Annapurna Base Camp weather service
+    this.weatherService.getAnnapurnaBaseCampWeather() // Call the Annapurna Base Camp weather service
       .subscribe(data => {
         this.temperatureAtAnnapurnaBaseCamp = data.main.temp + ' °C';
       }, error => {

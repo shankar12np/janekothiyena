@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { ExchangeRate } from '../exchange-rate';
+import {environment} from "../../environments/environment";
 
 // Define API response interfaces for type safety
 interface FixerResponse {
@@ -22,12 +23,12 @@ interface OpenExchangeResponse {
 const API_CONFIG = {
   fixer: {
     url: 'http://data.fixer.io/api/latest',
-    key: 'd70648d3aebc891c64a62f382c1cc608',
+    key: environment.fixerApiKey,
     defaultSymbols: 'USD,AUD,CAD,NPR'
   },
   openExchange: {
     url: 'https://openexchangerates.org/api/latest.json',
-    appId: '7cc5c64080284276ad157a830b1d3106',
+    appId: environment.openExchangeAppId,
     base: 'USD'
   },
   cacheTTL: 24 * 60 * 60 * 1000 // 24 hours in milliseconds

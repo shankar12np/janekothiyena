@@ -274,3 +274,110 @@
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
+ /*clock added scss*/
+
+.analog-clock {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.clock-face {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: 4px;
+}
+
+.hour-hand {
+  width: 3px;
+  height: 22px;
+  margin-left: -1.5px;
+  background: #fff;
+}
+
+.minute-hand {
+  width: 2px;
+  height: 30px;
+  margin-left: -1px;
+  background: #fff;
+}
+
+.second-hand {
+  width: 1px;
+  height: 34px;
+  margin-left: -0.5px;
+  background: red;
+}
+
+.center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: red;
+  border-radius: 50%;
+}
+
+@media (max-width: 576px) {
+  .clock-face {
+    width: 56px;
+    height: 56px;
+  }
+
+  .hour-hand {
+    height: 15px;
+  }
+
+  .minute-hand {
+    height: 21px;
+  }
+
+  .second-hand {
+    height: 24px;
+  }
+}
+.floating-clock-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  text-align: center;
+}
+
+.floating-clock-widget h6 {
+  margin: 0 0 4px 0;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.floating-clock-widget p {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+}
+
+@media (max-width: 576px) {
+  .floating-clock-widget {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 10px;
+  }
+}

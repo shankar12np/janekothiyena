@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, shareReplay } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 export interface WeatherData {
   main: { temp: number; pressure: number; humidity: number };
@@ -19,10 +20,8 @@ export class WeatherService {
 
   constructor(private http: HttpClient) {}
 
-  private getWeather(lat: number, lon: number, apiKey: string): Observable<WeatherData> {
-    if (!apiKey || apiKey.trim() === '') {
-      return throwError(() => new Error('API key is required'));
-    }
+  private getWeather(lat: number, lon: number): Observable<WeatherData> {
+    const apiKey = environment.openWeatherApiKey;
     const cacheKey = `${lat}-${lon}`;
     if (!this.weatherCache.has(cacheKey)) {
       const url = `${this.baseUrl}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -40,15 +39,15 @@ export class WeatherService {
     return this.weatherCache.get(cacheKey)!;
   }
 
-  getEverestBaseCampWeather(apiKey: string): Observable<any> {
-    return this.getWeather(28.0026, 86.8520, apiKey);
+  getEverestBaseCampWeather(): Observable<any> {
+    return this.getWeather(28.0026, 86.8520);
   }
 
-  getAnnapurnaBaseCampWeather(apiKey: string): Observable<any> {
-    return this.getWeather(28.5301, 83.8789, apiKey);
+  getAnnapurnaBaseCampWeather(): Observable<any> {
+    return this.getWeather(28.5301, 83.8789);
   }
 
-  getKathmanduWeather(apiKey: string): Observable<any> {
-    return this.getWeather(27.7172, 85.3240, apiKey);
+  getKathmanduWeather(): Observable<any> {
+    return this.getWeather(27.7172, 85.3240);
   }
 }

@@ -161,8 +161,7 @@ export class EverestTrekkingComponent implements OnInit, OnDestroy {
   }
 
   updateKathmanduTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e';
-    this.weatherService.getKathmanduWeather(apiKey)
+    this.weatherService.getKathmanduWeather()
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: data => this.temperatureInKathmandu = `${data.main.temp} °C`,
@@ -171,8 +170,7 @@ export class EverestTrekkingComponent implements OnInit, OnDestroy {
   }
 
   updateEverestTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e';
-    this.weatherService.getEverestBaseCampWeather(apiKey)
+    this.weatherService.getEverestBaseCampWeather()
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: data => this.temperatureAtEverestBaseCamp = `${data.main.temp} °C`,
@@ -181,8 +179,7 @@ export class EverestTrekkingComponent implements OnInit, OnDestroy {
   }
 
   updateAnnapurnaTemperature() {
-    const apiKey = 'd8b4f176d89cc65db9f674b88ae1e72e';
-    this.weatherService.getAnnapurnaBaseCampWeather(apiKey)
+    this.weatherService.getAnnapurnaBaseCampWeather()
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: data => this.temperatureAtAnnapurnaBaseCamp = `${data.main.temp} °C`,

@@ -1,4 +1,17 @@
 <div class="container mt-1">
+    <!-- Floating Nepal Time Widget -->
+    <div class="floating-clock-widget">
+      <h6>Nepal Time</h6>
+      <p id="timeKathmandu">{{ timeInKathmandu }}</p>
+      <div class="analog-clock">
+        <div class="clock-face">
+          <div class="hand hour-hand" [style.transform]="'rotate(' + clockAngles.hourDeg + 'deg)'"></div>
+          <div class="hand minute-hand" [style.transform]="'rotate(' + clockAngles.minuteDeg + 'deg)'"></div>
+          <div class="hand second-hand" [style.transform]="'rotate(' + clockAngles.secondDeg + 'deg)'"></div>
+          <div class="center-dot"></div>
+        </div>
+      </div>
+    </div>
   <!--  &lt;!&ndash; Header Container with Social Media Links &ndash;&gt;-->
   <!--  <div class="header-container">-->
   <!--    <div class="social-links">-->
@@ -12,34 +25,33 @@
 <!--    </div>-->
 <!--  </div>-->
 
-<!-- Logo -->
-<div class="text-center">
-  <div class="row">
-    <div class="col">
-      <div class="text-bg-info">
-        <h2 class="text-primary" style="font-size: 16px;">Kathmandu Nepal</h2>
-        <p id="tempKathmandu">{{ temperatureInKathmandu }}</p>
+  <!-- Logo -->
+  <div class="text-center">
+    <div class="row">
+      <div class="col">
+        <div class="text-bg-info">
+          <h2 class="text-primary" style="font-size: 16px;">Kathmandu Nepal</h2>
+          <p id="tempKathmandu">{{ temperatureInKathmandu }}</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Box for Temperature at Everest Base Camp -->
-    <div class="col">
-      <div class="text-bg-warning">
-        <h2 class="text-primary" style="font-size: 16px;">Everest Basecamp</h2>
-        <p id="tempEverestBaseCamp">{{ temperatureAtEverestBaseCamp }}</p>
+      <!-- Box for Temperature at Everest Base Camp -->
+      <div class="col">
+        <div class="text-bg-warning">
+          <h2 class="text-primary" style="font-size: 16px;">Everest Basecamp</h2>
+          <p id="tempEverestBaseCamp">{{ temperatureAtEverestBaseCamp }}</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Box for Temperature at Annapurna Base Camp -->
-    <div class="col">
-      <div class="text-bg-info">
-        <h2 class="text-primary" style="font-size: 16px;">Annapurna Basecamp</h2>
-        <p id="tempAnnapurnaBaseCamp">{{ temperatureAtAnnapurnaBaseCamp }}</p>
+      <!-- Box for Temperature at Annapurna Base Camp -->
+      <div class="col">
+        <div class="text-bg-info">
+          <h2 class="text-primary" style="font-size: 16px;">Annapurna Basecamp</h2>
+          <p id="tempAnnapurnaBaseCamp">{{ temperatureAtAnnapurnaBaseCamp }}</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
 
 <!-- Exchange Rate Container (Right Side) -->
 <div class="row">
