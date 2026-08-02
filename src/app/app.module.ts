@@ -7,12 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { PostYourKnowledgeComponent } from './post-your-knowledge/post-your-knowledge.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { NewInCommunityComponent } from './new-in-community/new-in-community.component';
-import { HealthTipsComponent } from './health-tips/health-tips.component';
-import { YogaComponent } from './yoga/yoga.component';
 import { BanksAndCreditCardsComponent } from './banks-and-credit-cards/banks-and-credit-cards.component';
 import { LegalHelpComponent } from './legal-help/legal-help.component';
 import { RealEstateComponent } from './real-estate/real-estate.component';
@@ -52,59 +46,55 @@ import { RajabadiNewsComponent } from './rajabadi-news/rajabadi-news.component';
 import {GokyoComponent} from "./gokyo/gokyo.component";
 import { ThoronglaPassComponent } from './thorongla-pass/thorongla-pass.component';
 
-
-
-
-
-
-@NgModule({ declarations: [
-        AppComponent,
-        WelcomeComponent,
-        HeaderComponent,
-        FooterComponent,
-        PostYourKnowledgeComponent,
-        AboutUsComponent,
-        ContactUsComponent,
-        NewInCommunityComponent,
-        HealthTipsComponent,
-        YogaComponent,
-        BanksAndCreditCardsComponent,
-        LegalHelpComponent,
-        RealEstateComponent,
-        DeadlinesComponent,
-        ItJobHelpComponent,
-        ImmigrationsHelpComponent,
-        HappningNowComponent,
-        UpComingEventComponent,
-        TrekkingComponent,
-        NepaleseOwnBusinessComponent,
-        NewYorkComponent,
-        LosAngelesComponent,
-        DallasTexasComponent,
-        BaltimoreComponent,
-        NepaleseOwnedBusinessNewyorkComponent,
-        NepaleseOwnedBusinessDallasComponent,
-        NepaleseOwnedBusinessLAComponent,
-        ArjunBiographyComponent,
-        DmvJobsComponent,
-        MarqueeSectionComponent,
-        EverestTrekkingComponent,
-        TrekkingPrepComponent,
-        SearchImagesComponent,
-        BollywoodMoviesComponent,
-        BollywoodTvShowsComponent,
-        GokyoComponent,
-        NepaliMoviesComponent,
-        NewsComponent,
-        NepaliSahityaComponent,
-        RadhaPiyariComponent,
-        SaniComponent,
-        RajabadiNewsComponent,
-        ThoronglaPassComponent,
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        NgbModule,
-        FormsModule,
-        AngularFireModule.initializeApp(environment.firebase)], providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())] })
+@NgModule({
+  declarations: [
+    AppComponent,
+    WelcomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    // Batch 1 (PostYourKnowledge, AboutUs, ContactUs, NewInCommunity, HealthTips, Yoga) now lazy loaded — declared in their own modules
+    BanksAndCreditCardsComponent,
+    LegalHelpComponent,
+    RealEstateComponent,
+    DeadlinesComponent,
+    ItJobHelpComponent,
+    ImmigrationsHelpComponent,
+    HappningNowComponent,
+    UpComingEventComponent,
+    TrekkingComponent,
+    NepaleseOwnBusinessComponent,
+    NewYorkComponent,
+    LosAngelesComponent,
+    DallasTexasComponent,
+    BaltimoreComponent,
+    NepaleseOwnedBusinessNewyorkComponent,
+    NepaleseOwnedBusinessDallasComponent,
+    NepaleseOwnedBusinessLAComponent,
+    ArjunBiographyComponent,
+    DmvJobsComponent,
+    MarqueeSectionComponent,
+    EverestTrekkingComponent,
+    TrekkingPrepComponent,
+    SearchImagesComponent,
+    BollywoodMoviesComponent,
+    BollywoodTvShowsComponent,
+    GokyoComponent,
+    NepaliMoviesComponent,
+    NewsComponent,
+    NepaliSahityaComponent,
+    RadhaPiyariComponent,
+    SaniComponent,
+    RajabadiNewsComponent,
+    ThoronglaPassComponent,
+  ],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase)
+  ],
+  providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())]
+})
 export class AppModule { }

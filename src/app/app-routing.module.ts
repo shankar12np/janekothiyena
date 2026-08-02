@@ -1,12 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {WelcomeComponent} from "./welcome/welcome.component";
-import {PostYourKnowledgeComponent} from "./post-your-knowledge/post-your-knowledge.component";
-import {AboutUsComponent} from "./about-us/about-us.component";
-import {ContactUsComponent} from "./contact-us/contact-us.component";
-import {NewInCommunityComponent} from "./new-in-community/new-in-community.component";
-import {HealthTipsComponent} from "./health-tips/health-tips.component";
-import {YogaComponent} from "./yoga/yoga.component";
 import {BanksAndCreditCardsComponent} from "./banks-and-credit-cards/banks-and-credit-cards.component";
 import {LegalHelpComponent} from "./legal-help/legal-help.component";
 import {RealEstateComponent} from "./real-estate/real-estate.component";
@@ -45,14 +39,18 @@ import {SaniComponent} from "./sani/sani.component";
 import {RajabadiNewsComponent} from "./rajabadi-news/rajabadi-news.component";
 import {ThoronglaPassComponent} from "./thorongla-pass/thorongla-pass.component";
 
-  const routes: Routes = [
+const routes: Routes = [
   { path: '', component: WelcomeComponent },
-  { path: 'post', component: PostYourKnowledgeComponent },
-  { path: 'about', component: AboutUsComponent },
-  { path: 'contact', component: ContactUsComponent },
-  { path: 'new-in-community', component: NewInCommunityComponent },
-  { path: 'health-tips', component: HealthTipsComponent },
-  { path: 'yoga', component: YogaComponent },
+
+  // --- Batch 1: lazy loaded ---
+  { path: 'post', loadChildren: () => import('./post-your-knowledge/post-your-knowledge.module').then(m => m.PostYourKnowledgeModule) },
+  { path: 'about', loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule) },
+  { path: 'contact', loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule) },
+  { path: 'new-in-community', loadChildren: () => import('./new-in-community/new-in-community.module').then(m => m.NewInCommunityModule) },
+  { path: 'health-tips', loadChildren: () => import('./health-tips/health-tips.module').then(m => m.HealthTipsModule) },
+  { path: 'yoga', loadChildren: () => import('./yoga/yoga.module').then(m => m.YogaModule) },
+  // --- end batch 1 ---
+
   { path: 'banks-and-credit-cards', component: BanksAndCreditCardsComponent },
   { path: 'legal-help', component: LegalHelpComponent },
   { path: 'real-estate', component: RealEstateComponent },
