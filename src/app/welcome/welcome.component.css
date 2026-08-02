@@ -1,13 +1,25 @@
+/* =====================================================
+   WELCOME PAGE STYLES
+   Organized sections:
+   1. Shared cards and utilities
+   2. Social/floating elements
+   3. Weather, rates and marquee
+   4. Images
+   5. News cards
+   6. Nepal clock
+   7. Responsive/accessibility
+===================================================== */
+
 .custom-card {
   background-color: lightgoldenrodyellow;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .custom-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .custom-card .card-body {
@@ -90,7 +102,7 @@
   background-color: #fff;
   border: 1px solid #ddd;
   padding: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 150px;
   font-size: 12px;
   z-index: 1000;
@@ -137,34 +149,58 @@
   font-size: small;
 }
 
-.marquee {
+
+/* ================================
+   MARQUEE / LIVE TICKER
+================================ */
+
+.marquee,
+.stock-marquee {
   width: 100%;
   overflow: hidden;
-  background: lightblue; /* Light grey background */
+  white-space: nowrap;
+  border-radius: 10px;
 }
 
-.marquee p {
-  margin: 0;
-  white-space: nowrap;
+.marquee {
+  background: linear-gradient(90deg, #e0f2fe, #f8fafc, #e0f2fe);
+  border: 1px solid rgba(14, 116, 144, 0.12);
+}
+
+.stock-marquee {
+  padding: 5px;
+  background: #f5f5f5;
+}
+
+.marquee p,
+.stock-marquee p {
   display: inline-block;
-  /* Increase the duration from 10s to 20s for slower animation */
+  min-width: 100%;
+  margin: 0;
+  padding: 8px 20px 8px 100%;
   animation: marquee 20s linear infinite;
 }
 
-.marquee p span {
-  /* Decrease the font size from 24px to 18px for smaller text */
+.stock-marquee p {
+  animation-duration: 15s;
+}
+
+.marquee span,
+.stock-marquee span {
+  margin-right: 20px;
   font-size: 18px;
-  letter-spacing: 2px; /* Space between letters */
-  margin-right: 15px; /* Space between words */
-  color: white; /* This can be removed if you want to keep inline styles for color */
+  letter-spacing: 1px;
+}
+
+.marquee:hover p,
+.stock-marquee:hover p {
+  animation-play-state: paused;
 }
 
 @keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }
-
-
 
 .alert img {
   margin-bottom: 5px; /* Adds some space between the images */
@@ -232,152 +268,660 @@
   }
 }
 
-.stock-marquee {
-  overflow: hidden;
-  white-space: nowrap;
-  background-color: #f5f5f5;
-  padding: 5px;
+
+/* ================================
+   MODERN NEWS CARDS
+================================ */
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin: 28px 0;
 }
 
-.stock-marquee p {
+.news-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100%;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 22px;
+  box-shadow:
+    0 14px 35px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+&::before {
+   content: '';
+   position: absolute;
+   top: -70px;
+   right: -55px;
+   width: 170px;
+   height: 170px;
+   border-radius: 50%;
+   filter: blur(8px);
+   opacity: 0.55;
+   pointer-events: none;
+ }
+
+&::after {
+   content: '';
+   position: absolute;
+   right: 22px;
+   bottom: 18px;
+   width: 75px;
+   height: 75px;
+   border: 1px solid rgba(255, 255, 255, 0.35);
+   border-radius: 50%;
+   opacity: 0.45;
+   pointer-events: none;
+ }
+
+&:hover {
+   transform: translateY(-6px);
+   box-shadow:
+     0 20px 45px rgba(15, 23, 42, 0.18),
+     inset 0 1px 0 rgba(255, 255, 255, 0.75);
+ }
+}
+
+.news-card--nepal {
+  background: linear-gradient(145deg, rgba(255, 247, 247, 0.98), rgba(255, 229, 234, 0.95));
+  border-color: rgba(220, 20, 60, 0.18);
+
+&::before { background: rgba(220, 20, 60, 0.2); }
+
+.news-card__eyebrow,
+.news-card__title { color: #8b1635; }
+
+.news-card__badge,
+.news-card__button {
+  color: #fff;
+  background: linear-gradient(135deg, #dc143c, #9f1239);
+}
+
+.news-card__badge { box-shadow: 0 6px 14px rgba(220, 20, 60, 0.2); }
+
+.news-item__dot {
+  background: #dc143c;
+  box-shadow: 0 0 0 5px rgba(220, 20, 60, 0.1), 0 0 12px rgba(220, 20, 60, 0.3);
+}
+
+.news-card__button {
+  box-shadow: 0 8px 18px rgba(220, 20, 60, 0.24);
+
+&:hover { box-shadow: 0 11px 22px rgba(220, 20, 60, 0.34); }
+}
+}
+
+.news-card--world {
+  background: linear-gradient(145deg, rgba(242, 248, 255, 0.98), rgba(224, 239, 255, 0.96));
+  border-color: rgba(37, 99, 235, 0.18);
+
+&::before { background: rgba(37, 99, 235, 0.18); }
+
+.news-card__eyebrow,
+.news-card__title { color: #173f82; }
+
+.news-card__badge,
+.news-card__button {
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #173f82);
+}
+
+.news-card__badge { box-shadow: 0 6px 14px rgba(37, 99, 235, 0.2); }
+
+.news-item__dot {
+  background: #2563eb;
+  box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.1), 0 0 12px rgba(37, 99, 235, 0.3);
+}
+
+.news-card__button {
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.24);
+
+&:hover { box-shadow: 0 11px 22px rgba(37, 99, 235, 0.34); }
+}
+}
+
+.news-card__header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.news-card__eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.news-card__title {
   margin: 0;
-  animation: marquee 15s linear infinite;
+  font-size: clamp(21px, 2.4vw, 28px);
+  font-weight: 800;
+  line-height: 1.2;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.news-card__badge {
+  flex-shrink: 0;
+  padding: 6px 11px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border-radius: 999px;
 }
 
+.news-card__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
 
-.marquee {
+.news-item {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr);
+  gap: 12px;
+  align-items: flex-start;
+  padding: 13px 14px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.06);
+  transition: transform 0.25s ease, background 0.25s ease;
+
+&:hover {
+   transform: translateX(4px);
+   background: rgba(255, 255, 255, 0.88);
+ }
+
+p {
+  margin: 0;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+strong {
+  display: block;
+  margin-bottom: 3px;
+  color: #172033;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+span:not(.news-item__dot) { color: #526076; }
+}
+
+.news-item__dot {
+  width: 8px;
+  height: 8px;
+  margin-top: 7px;
+  border-radius: 50%;
+}
+
+.news-card__footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid rgba(100, 116, 139, 0.16);
+
+p {
+  margin: 0;
+  color: #526076;
+  font-size: 13px;
+  line-height: 1.45;
+}
+}
+
+.news-card__button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+span {
+  font-size: 17px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+&:hover {
+   color: #fff;
+   transform: translateY(-2px);
+
+span { transform: translateX(4px); }
+}
+}
+
+/* ================================
+   FLOATING NEPAL ANALOG CLOCK
+================================ */
+
+.floating-clock-widget {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1000;
+
+  width: 150px;
+  padding: 14px 14px 16px;
+
+  color: #fff;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 29, 75, 0.96),
+      rgba(15, 20, 45, 0.96)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 22px;
+
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.42),
+    0 0 24px rgba(220, 20, 60, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
   overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+&::before {
+   content: '';
+   position: absolute;
+   top: -55px;
+   right: -45px;
+
+   width: 115px;
+   height: 115px;
+
+   background: rgba(220, 20, 60, 0.28);
+   border-radius: 50%;
+   filter: blur(28px);
+   pointer-events: none;
+ }
+
+&::after {
+   content: '';
+   position: absolute;
+   bottom: -50px;
+   left: -45px;
+
+   width: 100px;
+   height: 100px;
+
+   background: rgba(30, 90, 210, 0.25);
+   border-radius: 50%;
+   filter: blur(25px);
+   pointer-events: none;
+ }
+
+&:hover {
+   transform: translateY(-4px) scale(1.02);
+
+   box-shadow:
+     0 18px 42px rgba(0, 0, 0, 0.5),
+     0 0 30px rgba(220, 20, 60, 0.22),
+     inset 0 1px 0 rgba(255, 255, 255, 0.2);
+ }
+
+h6,
+p,
+.analog-clock {
+  position: relative;
+  z-index: 2;
 }
 
-.marquee p {
-  display: inline-block;
-  animation: marquee 20s linear infinite;
-  padding-right: 20px; /* Space between repeated text */
+h6 {
+  margin: 0 0 3px;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+
+  color: #ffd66b;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.6),
+    0 0 10px rgba(255, 214, 107, 0.25);
 }
 
-.marquee span {
-  margin-right: 20px; /* Space between rates */
+p {
+  margin: 0 0 10px;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  color: rgba(255, 255, 255, 0.88);
+}
 }
 
-@keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
- /*clock added scss*/
+/* Clock container */
 
 .analog-clock {
   display: flex;
   justify-content: center;
-  margin-top: 8px;
+  align-items: center;
 }
+
+/* Clock body */
 
 .clock-face {
   position: relative;
-  width: 80px;
-  height: 80px;
-  border: 3px solid #fff;
+
+  width: 94px;
+  height: 94px;
+
+  border: 3px solid rgba(255, 214, 107, 0.92);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 255, 255, 0.2),
+      transparent 33%
+    ),
+    radial-gradient(
+      circle at center,
+      #172f65 0%,
+      #0b1839 68%,
+      #050c20 100%
+    );
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.45),
+    0 0 0 4px rgba(255, 255, 255, 0.07),
+    0 0 18px rgba(255, 214, 107, 0.2),
+    inset 0 0 18px rgba(0, 0, 0, 0.5);
+
+  overflow: hidden;
+
+/* Main 12, 3, 6 and 9 markers */
+&::before {
+   content: '';
+
+   position: absolute;
+   inset: 7px;
+
+   border-radius: 50%;
+
+   background:
+     linear-gradient(#ffd66b, #ffd66b) center top / 3px 9px no-repeat,
+     linear-gradient(#ffd66b, #ffd66b) right center / 9px 3px no-repeat,
+     linear-gradient(#ffd66b, #ffd66b) center bottom / 3px 9px no-repeat,
+     linear-gradient(#ffd66b, #ffd66b) left center / 9px 3px no-repeat;
+
+   opacity: 0.95;
+ }
+
+/* Inner decorative ring */
+&::after {
+   content: '';
+
+   position: absolute;
+   inset: 13px;
+
+   border: 1px dashed rgba(255, 255, 255, 0.25);
+   border-radius: 50%;
+
+   pointer-events: none;
+ }
 }
+
+/* Shared hand styles */
 
 .hand {
   position: absolute;
-  bottom: 50%;
   left: 50%;
+  bottom: 50%;
+
+  z-index: 4;
+
   transform-origin: bottom center;
-  border-radius: 4px;
+  border-radius: 10px 10px 3px 3px;
+
+  box-shadow: 0 0 7px rgba(255, 255, 255, 0.25);
+
+  will-change: transform;
 }
+
+/* Hour hand */
 
 .hour-hand {
-  width: 3px;
-  height: 22px;
-  margin-left: -1.5px;
-  background: #fff;
+  width: 5px;
+  height: 24px;
+  margin-left: -2.5px;
+
+  background: linear-gradient(
+    to top,
+    #e9edf8,
+    #ffffff
+  );
 }
+
+/* Minute hand */
 
 .minute-hand {
-  width: 2px;
-  height: 30px;
-  margin-left: -1px;
-  background: #fff;
+  width: 3px;
+  height: 33px;
+  margin-left: -1.5px;
+
+  background: linear-gradient(
+    to top,
+    #a9c8ff,
+    #ffffff
+  );
 }
 
+/* Second hand */
+
 .second-hand {
-  width: 1px;
-  height: 34px;
-  margin-left: -0.5px;
-  background: red;
+  width: 2px;
+  height: 38px;
+  margin-left: -1px;
+
+  z-index: 5;
+
+  background: linear-gradient(
+    to top,
+    #ff1744,
+    #ff667f
+  );
+
+  box-shadow:
+    0 0 6px rgba(255, 23, 68, 0.75),
+    0 0 12px rgba(255, 23, 68, 0.35);
 }
+
+/* Center pin */
 
 .center-dot {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 6px;
-  height: 6px;
-  margin: -3px 0 0 -3px;
-  background: red;
+
+  z-index: 7;
+
+  width: 11px;
+  height: 11px;
+
+  transform: translate(-50%, -50%);
+
+  background: #dc143c;
+  border: 2px solid #ffd66b;
   border-radius: 50%;
+
+  box-shadow:
+    0 0 0 3px rgba(220, 20, 60, 0.18),
+    0 0 10px rgba(255, 23, 68, 0.65);
 }
 
-@media (max-width: 576px) {
-  .clock-face {
-    width: 56px;
-    height: 56px;
-  }
+/* Optional Nepal label inside the clock */
 
-  .hour-hand {
-    height: 15px;
-  }
+.clock-face .nepal-label {
+  position: absolute;
+  top: 61%;
+  left: 50%;
 
-  .minute-hand {
-    height: 21px;
-  }
+  z-index: 2;
 
-  .second-hand {
-    height: 24px;
-  }
-}
-.floating-clock-widget {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  padding: 12px 16px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  text-align: center;
+  transform: translateX(-50%);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: rgba(255, 214, 107, 0.7);
 }
 
-.floating-clock-widget h6 {
-  margin: 0 0 4px 0;
-  font-size: 13px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.floating-clock-widget p {
-  margin: 0 0 6px 0;
-  font-size: 14px;
-}
+/* Mobile */
 
 @media (max-width: 576px) {
   .floating-clock-widget {
-    bottom: 10px;
     right: 10px;
-    padding: 8px 10px;
+    bottom: 10px;
+
+    width: 112px;
+    padding: 10px 9px 11px;
+
+    border-radius: 17px;
+
+  h6 {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  p {
+    margin-bottom: 7px;
+    font-size: 10px;
+  }
+}
+
+.clock-face {
+  width: 66px;
+  height: 66px;
+  border-width: 2px;
+
+&::before {
+   inset: 5px;
+
+   background:
+     linear-gradient(#ffd66b, #ffd66b) center top / 2px 6px no-repeat,
+     linear-gradient(#ffd66b, #ffd66b) right center / 6px 2px no-repeat,
+     linear-gradient(#ffd66b, #ffd66b) center bottom / 2px 6px no-repeat,
+     linear-gradient(#ffd66b, #ffd66b) left center / 6px 2px no-repeat;
+ }
+
+&::after {
+   inset: 9px;
+ }
+}
+
+.hour-hand {
+  width: 4px;
+  height: 17px;
+  margin-left: -2px;
+}
+
+.minute-hand {
+  width: 3px;
+  height: 23px;
+  margin-left: -1.5px;
+}
+
+.second-hand {
+  width: 1.5px;
+  height: 27px;
+  margin-left: -0.75px;
+}
+
+.center-dot {
+  width: 8px;
+  height: 8px;
+  border-width: 1.5px;
+}
+}
+
+
+@media (max-width: 900px) {
+  .news-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 576px) {
+  .news-grid {
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .news-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .news-card__header { margin-bottom: 15px; }
+  .news-card__title { font-size: 21px; }
+
+  .news-card__badge {
+    padding: 5px 9px;
+    font-size: 9px;
+  }
+
+  .news-item {
+    padding: 11px 12px;
+
+  p { font-size: 13px; }
+  strong { font-size: 14px; }
+}
+
+.news-card__footer {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.news-card__button { width: 100%; }
+}
+
+/* Respect accessibility settings */
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-clock-widget {
+    transition: none;
   }
 }

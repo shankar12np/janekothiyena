@@ -14,5 +14,7 @@ export const environment = {
   fixerApiKey: 'd70648d3aebc891c64a62f382c1cc608',
   openExchangeAppId: '7cc5c64080284276ad157a830b1d3106',
   gNewsApiKey: '75f5d6cae6a4709827ecd671317f4ce2',
-  newsApiKey: '4ce8b2ab034a4e8a8f6f5e5d4bf8b2b3'
+  newsApiKey: '4ce8b2ab034a4e8a8f6f5e5d4bf8b2b3',
+  newsDataApiKey: 'pub_b705f4e7c4b14fcca315873b662ea647',
+  currentsApiKey: 'y8gt48jZR665AeJ-7DbHlRPiuRNjFGz90i6IomXSmN2Exj5h',
 };

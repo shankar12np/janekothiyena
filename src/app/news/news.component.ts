@@ -1,14 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NewsService } from '../service/news.service';
-import { forkJoin } from 'rxjs';
 
-// Define interfaces for response
 interface NewsArticle {
   title: string;
   description: string;
   content: string;
   url: string;
-  fullContent?: string;  // Optional property to hold the full content
+  fullContent?: string;
 }
 
 interface NewsApiResponse {
@@ -16,11 +14,11 @@ interface NewsApiResponse {
 }
 
 @Component({
-    selector: 'app-news',
-    templateUrl: './news.component.html',
-    styleUrls: ['./news.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-news',
+  templateUrl: './news.component.html',
+  styleUrls: ['./news.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class NewsComponent implements OnInit {
   nepaliNewsItems: NewsArticle[] = [];
@@ -30,38 +28,46 @@ export class NewsComponent implements OnInit {
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
-    this.fetchNews();
+    // Each section fetched independently — a failure in one feed no longer
+    // blanks out the other two, unlike the previous forkJoin-based approach.
+    this.fetchNepaliNews();
+    this.fetchWorldNews();
+    this.fetchTopHeadlines();
   }
 
-  // Combined method to fetch Nepali News, World Political/War News, and Most Popular Headlines
-  fetchNews() {
-    forkJoin([
-      this.newsService.getNepaliNews(),
-      this.newsService.getWorldPoliticalWarNews(),
-      this.newsService.getMostPopularHeadlines()
-    ]).subscribe(
-      ([nepaliNewsData, worldNewsData, popularHeadlinesData]) => {
-        // Processing Nepali News
-        this.nepaliNewsItems = nepaliNewsData.articles.map((article: NewsArticle) => ({
+  private fetchNepaliNews() {
+    this.newsService.getNepaliNews().subscribe({
+      next: (data: NewsApiResponse) => {
+        this.nepaliNewsItems = data.articles.map(article => ({
           ...article,
-          fullContent: article.content // Ensure 'content' contains full article text
-        }));
-
-        // Processing World Political/War News
-        this.worldNewsItems = worldNewsData.articles.map((article: NewsArticle) => ({
-          ...article,
-          fullContent: article.content // Ensure 'content' contains full article text
-        }));
-
-        // Processing Most Popular Headlines
-        this.mostPopularHeadlines = popularHeadlinesData.articles.map((article: NewsArticle) => ({
-          ...article,
-          fullContent: article.content // Ensure 'content' contains full article text
+          fullContent: article.content
         }));
       },
-      error => {
-        console.error('Failed to fetch news', error);
-      }
-    );
+      error: (error) => console.error('Failed to fetch Nepali news', error)
+    });
+  }
+
+  private fetchWorldNews() {
+    this.newsService.getWorldPoliticalWarNews().subscribe({
+      next: (data: NewsApiResponse) => {
+        this.worldNewsItems = data.articles.map(article => ({
+          ...article,
+          fullContent: article.content
+        }));
+      },
+      error: (error) => console.error('Failed to fetch world news', error)
+    });
+  }
+
+  private fetchTopHeadlines() {
+    this.newsService.getTopWorldHeadlines().subscribe({
+      next: (data: NewsApiResponse) => {
+        this.mostPopularHeadlines = data.articles.map(article => ({
+          ...article,
+          fullContent: article.content
+        }));
+      },
+      error: (error) => console.error('Failed to fetch top headlines', error)
+    });
   }
 }

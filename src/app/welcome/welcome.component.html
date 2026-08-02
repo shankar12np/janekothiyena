@@ -1,17 +1,32 @@
 <div class="container mt-1">
-    <!-- Floating Nepal Time Widget -->
-    <div class="floating-clock-widget">
-      <h6>Nepal Time</h6>
-      <p id="timeKathmandu">{{ timeInKathmandu }}</p>
-      <div class="analog-clock">
-        <div class="clock-face">
-          <div class="hand hour-hand" [style.transform]="'rotate(' + clockAngles.hourDeg + 'deg)'"></div>
-          <div class="hand minute-hand" [style.transform]="'rotate(' + clockAngles.minuteDeg + 'deg)'"></div>
-          <div class="hand second-hand" [style.transform]="'rotate(' + clockAngles.secondDeg + 'deg)'"></div>
-          <div class="center-dot"></div>
+  <!-- Floating Nepal Time Widget -->
+  <div class="floating-clock-widget">
+    <h6>Nepal Time</h6>
+    <p id="timeKathmandu">{{ timeInKathmandu }}</p>
+
+    <div class="analog-clock">
+      <div class="clock-face">
+        <div
+          class="hand hour-hand"
+          [style.transform]="'rotate(' + clockAngles.hourDeg + 'deg)'">
         </div>
+
+        <div
+          class="hand minute-hand"
+          [style.transform]="'rotate(' + clockAngles.minuteDeg + 'deg)'">
+        </div>
+
+        <div
+          class="hand second-hand"
+          [style.transform]="'rotate(' + clockAngles.secondDeg + 'deg)'">
+        </div>
+
+        <span class="nepal-label">Nepal</span>
+        <div class="center-dot"></div>
       </div>
     </div>
+
+</div> <!-- This closing div was missing here -->
   <!--  &lt;!&ndash; Header Container with Social Media Links &ndash;&gt;-->
   <!--  <div class="header-container">-->
   <!--    <div class="social-links">-->
@@ -298,6 +313,78 @@
 </div>
 </div>
 
+        <!-- News Sections -->
+        <section class="news-grid">
+
+          <!-- Nepali News Section -->
+        <article class="news-card news-card--nepal">
+          <div class="news-card__header">
+          <div>
+          <span class="news-card__eyebrow">Local Coverage</span>
+        <h4 class="news-card__title">🇳🇵 Nepali News</h4>
+        </div>
+
+        <span class="news-card__badge">Nepal</span>
+          </div>
+
+          <div class="news-card__content">
+          @for (nepaliNewsItem of nepaliNewsItems; track nepaliNewsItem) {
+        <div class="news-item">
+          <span class="news-item__dot"></span>
+
+          <p>
+          <strong>{{ nepaliNewsItem.title }}</strong>
+        <span>{{ nepaliNewsItem.description }}</span>
+        </p>
+        </div>
+          }
+          </div>
+
+        <div class="news-card__footer">
+          <p>Stay updated with the latest happenings in Nepal.</p>
+
+        <a routerLink="/news" class="news-card__button">
+          Explore News
+        <span aria-hidden="true">→</span>
+        </a>
+        </div>
+        </article>
+
+        <!-- World News Section -->
+        <article class="news-card news-card--world">
+          <div class="news-card__header">
+          <div>
+          <span class="news-card__eyebrow">Global Coverage</span>
+        <h4 class="news-card__title">🌍 World News</h4>
+        </div>
+
+        <span class="news-card__badge">World</span>
+          </div>
+
+          <div class="news-card__content">
+          @for (worldNewsItem of worldNewsItems; track worldNewsItem) {
+        <div class="news-item">
+          <span class="news-item__dot"></span>
+
+          <p>
+          <strong>{{ worldNewsItem.title }}</strong>
+        <span>{{ worldNewsItem.description }}</span>
+        </p>
+        </div>
+          }
+          </div>
+
+        <div class="news-card__footer">
+          <p>Stay updated with the latest happenings around the world.</p>
+
+        <a routerLink="/news" class="news-card__button">
+          Explore News
+        <span aria-hidden="true">→</span>
+        </a>
+        </div>
+        </article>
+
+        </section>
 <div class="container">
   <!--  &lt;!&ndash; First Row &ndash;&gt;-->
   <!--  <div class="row">-->
@@ -634,33 +721,7 @@
         </div>
       </div>
       <br>
-        <!-- Nepali News Section -->
-        <div class="alert alert-info" role="alert">
-          <h4 class="alert-heading">Nepali News</h4>
-          @for (nepaliNewsItem of nepaliNewsItems; track nepaliNewsItem) {
-            <div>
-              <p><strong>{{ nepaliNewsItem.title }}</strong> - {{ nepaliNewsItem.description }}</p>
-            </div>
-          }
-          <p class="mb-0">Stay updated with the latest happenings in Nepal.</p>
-          <p class="text-primary" style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold;">
-            <a routerLink="/news" class="btn btn-light">Explore Now</a>
-          </p>
-        </div>
 
-        <!-- World News Section -->
-        <div class="text-bg-warning" role="alert">
-          <h4 class="alert-heading">World News</h4>
-          @for (worldNewsItem of worldNewsItems; track worldNewsItem) {
-            <div>
-              <p><strong>{{ worldNewsItem.title }}</strong> - {{ worldNewsItem.description }}</p>
-            </div>
-          }
-          <p class="mb-0">Stay updated with the latest happenings around the world.</p>
-          <p class="text-primary" style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold;">
-            <a routerLink="/news" class="btn btn-light">Explore Now</a>
-          </p>
-        </div>
       </div>
 
     </div>
