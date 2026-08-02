@@ -1,15 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {WelcomeComponent} from "./welcome/welcome.component";
-import {TrekkingComponent} from "./trekking/trekking.component";
 import {MarqueeSectionComponent} from "./marquee-section/marquee-section.component";
-import {SearchImagesComponent} from "./search-images/search-images.component";
-import {NepaliMoviesComponent} from "./nepali-movies/nepali-movies.component";
-import {NewsComponent} from "./news/news.component";
-import {NepaliSahityaComponent} from "./nepali-sahitya/nepali-sahitya.component";
-import {RadhaPiyariComponent} from "./radha-piyari/radha-piyari.component";
-import {SaniComponent} from "./sani/sani.component";
-import {RajabadiNewsComponent} from "./rajabadi-news/rajabadi-news.component";
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -49,15 +41,16 @@ const routes: Routes = [
   { path: 'bollywood', loadChildren: () => import('./bollywood-movies/bollywood-movies.module').then(m => m.BollywoodMoviesModule) },
   { path: 'bollywood-tv-shows', loadChildren: () => import('./bollywood-tv-shows/bollywood-tv-shows.module').then(m => m.BollywoodTvShowsModule) },
 
-  {path: 'trekking', component: TrekkingComponent},
-  {path:'marquee', component: MarqueeSectionComponent},
-  {path: 'search--images', component: SearchImagesComponent},
-  {path: 'nepali-movies', component: NepaliMoviesComponent},
-  {path: 'news', component: NewsComponent},
-  {path: 'nepali-sahitya', component: NepaliSahityaComponent},
-  {path: 'radha-piyari', component: RadhaPiyariComponent},
-  {path: 'sani', component: SaniComponent},
-  {path: 'rajabadi', component: RajabadiNewsComponent}
+  { path: 'trekking', loadChildren: () => import('./trekking/trekking.module').then(m => m.TrekkingModule) },
+  { path: 'search--images', loadChildren: () => import('./search-images/search-images.module').then(m => m.SearchImagesModule) },
+  { path: 'nepali-movies', loadChildren: () => import('./nepali-movies/nepali-movies.module').then(m => m.NepaliMoviesModule) },
+  { path: 'news', loadChildren: () => import('./news/news.module').then(m => m.NewsModule) },
+  { path: 'nepali-sahitya', loadChildren: () => import('./nepali-sahitya/nepali-sahitya.module').then(m => m.NepaliSahityaModule) },
+  { path: 'radha-piyari', loadChildren: () => import('./radha-piyari/radha-piyari.module').then(m => m.RadhaPiyariModule) },
+  { path: 'sani', loadChildren: () => import('./sani/sani.module').then(m => m.SaniModule) },
+  { path: 'rajabadi', loadChildren: () => import('./rajabadi-news/rajabadi-news.module').then(m => m.RajabadiNewsModule) },
+
+  {path:'marquee', component: MarqueeSectionComponent}
 ];
 
 @NgModule({
