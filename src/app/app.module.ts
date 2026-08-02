@@ -7,12 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { BanksAndCreditCardsComponent } from './banks-and-credit-cards/banks-and-credit-cards.component';
-import { LegalHelpComponent } from './legal-help/legal-help.component';
-import { RealEstateComponent } from './real-estate/real-estate.component';
-import { DeadlinesComponent } from './deadlines/deadlines.component';
-import { ItJobHelpComponent } from './it-job-help/it-job-help.component';
-import { ImmigrationsHelpComponent } from './immigrations-help/immigrations-help.component';
 import { HappningNowComponent } from './happning-now/happning-now.component';
 import { UpComingEventComponent } from './up-coming-event/up-coming-event.component';
 import { provideHttpClient, withInterceptorsFromDi, withXhr } from "@angular/common/http";
@@ -52,13 +46,8 @@ import { ThoronglaPassComponent } from './thorongla-pass/thorongla-pass.componen
     WelcomeComponent,
     HeaderComponent,
     FooterComponent,
-    // Batch 1 (PostYourKnowledge, AboutUs, ContactUs, NewInCommunity, HealthTips, Yoga) now lazy loaded — declared in their own modules
-    BanksAndCreditCardsComponent,
-    LegalHelpComponent,
-    RealEstateComponent,
-    DeadlinesComponent,
-    ItJobHelpComponent,
-    ImmigrationsHelpComponent,
+    // Batch 1 (PostYourKnowledge, AboutUs, ContactUs, NewInCommunity, HealthTips, Yoga) now lazy loaded
+    // Batch 2 (BanksAndCreditCards, LegalHelp, RealEstate, Deadlines, ItJobHelp, ImmigrationsHelp) now lazy loaded
     HappningNowComponent,
     UpComingEventComponent,
     TrekkingComponent,

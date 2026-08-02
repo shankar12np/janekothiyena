@@ -1,12 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {WelcomeComponent} from "./welcome/welcome.component";
-import {BanksAndCreditCardsComponent} from "./banks-and-credit-cards/banks-and-credit-cards.component";
-import {LegalHelpComponent} from "./legal-help/legal-help.component";
-import {RealEstateComponent} from "./real-estate/real-estate.component";
-import {DeadlinesComponent} from "./deadlines/deadlines.component";
-import {ItJobHelpComponent} from "./it-job-help/it-job-help.component";
-import {ImmigrationsHelpComponent} from "./immigrations-help/immigrations-help.component";
 import {HappningNowComponent} from "./happning-now/happning-now.component";
 import {UpComingEventComponent} from "./up-coming-event/up-coming-event.component";
 import {TrekkingComponent} from "./trekking/trekking.component";
@@ -51,12 +45,15 @@ const routes: Routes = [
   { path: 'yoga', loadChildren: () => import('./yoga/yoga.module').then(m => m.YogaModule) },
   // --- end batch 1 ---
 
-  { path: 'banks-and-credit-cards', component: BanksAndCreditCardsComponent },
-  { path: 'legal-help', component: LegalHelpComponent },
-  { path: 'real-estate', component: RealEstateComponent },
-  { path: 'deadlines', component: DeadlinesComponent },
-  { path: 'it-job-help', component: ItJobHelpComponent },
-  { path: 'immigrations-help', component: ImmigrationsHelpComponent },
+  // --- Batch 2: lazy loaded ---
+  { path: 'banks-and-credit-cards', loadChildren: () => import('./banks-and-credit-cards/banks-and-credit-cards.module').then(m => m.BanksAndCreditCardsModule) },
+  { path: 'legal-help', loadChildren: () => import('./legal-help/legal-help.module').then(m => m.LegalHelpModule) },
+  { path: 'real-estate', loadChildren: () => import('./real-estate/real-estate.module').then(m => m.RealEstateModule) },
+  { path: 'deadlines', loadChildren: () => import('./deadlines/deadlines.module').then(m => m.DeadlinesModule) },
+  { path: 'it-job-help', loadChildren: () => import('./it-job-help/it-job-help.module').then(m => m.ItJobHelpModule) },
+  { path: 'immigrations-help', loadChildren: () => import('./immigrations-help/immigrations-help.module').then(m => m.ImmigrationsHelpModule) },
+  // --- end batch 2 ---
+
   {path: 'happening-now', component: HappningNowComponent},
   {path: 'up-coming-event', component: UpComingEventComponent},
   {path: 'trekking', component: TrekkingComponent},
