@@ -1,13 +1,14 @@
 import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { TimeService } from '../service/time.service';
 import { HttpClient } from '@angular/common/http';
 import { WeatherService } from '../service/weather.service';
 import { CurrencyService } from '../service/currency.service';
 import { ExchangeRate } from '../exchange-rate';
 import { interval, Subject, takeUntil } from 'rxjs';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FirebaseStorageService } from '../services/firebase-storage.service';
 import { TmdbResponse, TmdbServiceService } from '../service/tmdb-service.service';
 import { NewsService } from '../service/news.service';
+
 
 @Component({
     selector: 'app-welcome',
@@ -68,13 +69,13 @@ export class WelcomeComponent implements OnInit, OnDestroy {
 
 
   constructor(
-    private firestore: AngularFirestore,
     private http: HttpClient,
     private weatherService: WeatherService,
     private currencyService: CurrencyService,
     private firebaseStorageService: FirebaseStorageService,
     private tmdbService: TmdbServiceService,
-    private newsService: NewsService
+    private newsService: NewsService,
+    private timeService: TimeService
   ) {}
 
   ngOnInit() {
@@ -201,14 +202,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   }
 
   updateKathmanduTime() {
-    this.http.get<any>('http://worldtimeapi.org/api/timezone/Asia/Kathmandu').subscribe(data => {
-      const timeString = data.datetime.split('T')[1].split('+')[0];
-      const time = new Date('1970-01-01T' + timeString + 'Z');
-      const hours = time.getUTCHours() % 12 || 12;
-      const minutes = time.getUTCMinutes();
-      const ampm = time.getUTCHours() >= 12 ? 'PM' : 'AM';
-      this.timeInKathmandu = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${ampm}`;
-    });
+    this.timeInKathmandu = this.timeService.getKathmanduTime();
   }
 
   updateKathmanduTemperature() {
