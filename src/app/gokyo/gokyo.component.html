@@ -59,66 +59,67 @@
         <div class="container mt-3">
           <h3 class="text-center mb-3">Gokyo Trekking Highlights</h3>
           <div class="row">
-            <ng-container *ngIf="imageUrls.length > 0; else loading">
-              <div *ngFor="let image of imageUrls" class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100" style="border: 1px solid #dc3545; border-radius: 10px;">
-                  <ng-container *ngIf="image.url; else placeholder">
-                    <img [src]="image.url" class="card-img-top img-fluid rounded" [alt]="image.alt" loading="lazy">
-                  </ng-container>
-                  <ng-template #placeholder>
-                    <div class="card-img-top img-fluid rounded text-center bg-light" style="height: 200px; line-height: 200px;">
-                      Image not found: {{ image.alt }}
-                    </div>
-                  </ng-template>
-                  <div class="card-body" style="background: linear-gradient(135deg, #ffe6e6, #ffcccc);">
-                    <p class="card-text text-center" [innerHTML]="sanitizeCaption(image.caption)"></p>
-                  </div>
+            @if (imageUrls.length > 0) {
+            @for (image of imageUrls; track image.url) {
+            <div class="col-md-4 mb-4">
+              <div class="card shadow-sm h-100" style="border: 1px solid #dc3545; border-radius: 10px;">
+                @if (image.url) {
+                <img [src]="image.url" class="card-img-top img-fluid rounded" [alt]="image.alt" loading="lazy">
+                } @else {
+                <div class="card-img-top img-fluid rounded text-center bg-light" style="height: 200px; line-height: 200px;">
+                  Image not found: {{ image.alt }}
+                </div>
+                }
+                <div class="card-body" style="background: linear-gradient(135deg, #ffe6e6, #ffcccc);">
+                  <p class="card-text text-center" [innerHTML]="sanitizeCaption(image.caption)"></p>
                 </div>
               </div>
-            </ng-container>
-            <ng-template #loading>
-              <p class="text-center">Loading images...</p>
-            </ng-template>
+            </div>
+            }
+            } @else {
+            <p class="text-center">Loading images...</p>
+            }
           </div>
         </div>
 
 
-    <!-- Return Journey Options -->
-    <div class="container my-5 text-center" style="font-size: 1.1rem;">
-      <div class="row justify-content-center">
-        <div class="col-md-8 bg-light shadow-sm rounded p-5">
-          <h3 class="text-success mb-4" style="border-bottom: 3px double lightgreen; padding-bottom: 10px; font-size: 1.5rem;">
-            <i class="fas fa-undo-alt me-3"></i> Your Homeward Adventure
-          </h3>
-          <div class="alert alert-info rounded-pill shadow-sm p-3" role="alert" style="font-size: 1.1rem;">
-            <i class="fas fa-route me-3"></i> <strong style="font-size: 1.2rem;">Journey Back:</strong> From Gokyo, choose your path!
-            <ul class="list-unstyled mt-2" style="font-size: 1.1rem;">
-              <li class="mb-2"><i class="fas fa-hiking me-2"></i> <strong>Trek to Lukla:</strong> Descend via Phortse and Namche Bazaar to Lukla over 2-3 days.</li>
-              <li class="mb-2"><i class="fas fa-helicopter me-2"></i> <strong>Helicopter to Lukla:</strong> A swift 30-40 minute flight for time-constrained trekkers.</li>
-              <li class="mb-2"><i class="fas fa-plane me-2"></i> <strong>Fly to Kathmandu (Lukla):</strong> A 35-minute flight after reaching Lukla.</li>
-            </ul>
+        <!-- Return Journey Options -->
+        <div class="container my-5 text-center" style="font-size: 1.1rem;">
+          <div class="row justify-content-center">
+            <div class="col-md-8 bg-light shadow-sm rounded p-5">
+              <h3 class="text-success mb-4" style="border-bottom: 3px double lightgreen; padding-bottom: 10px; font-size: 1.5rem;">
+                <i class="fas fa-undo-alt me-3"></i> Your Homeward Adventure
+              </h3>
+              <div class="alert alert-info rounded-pill shadow-sm p-3" role="alert" style="font-size: 1.1rem;">
+                <i class="fas fa-route me-3"></i> <strong style="font-size: 1.2rem;">Journey Back:</strong> From Gokyo, choose your path!
+                <ul class="list-unstyled mt-2" style="font-size: 1.1rem;">
+                  <li class="mb-2"><i class="fas fa-hiking me-2"></i> <strong>Trek to Lukla:</strong> Descend via Phortse and Namche Bazaar to Lukla over 2-3 days.</li>
+                  <li class="mb-2"><i class="fas fa-helicopter me-2"></i> <strong>Helicopter to Lukla:</strong> A swift 30-40 minute flight for time-constrained trekkers.</li>
+                  <li class="mb-2"><i class="fas fa-plane me-2"></i> <strong>Fly to Kathmandu (Lukla):</strong> A 35-minute flight after reaching Lukla.</li>
+                </ul>
+              </div>
+              <p class="text-muted mt-3" style="font-size: 1rem;">Pick the route that matches your vibe and schedule!</p>
+            </div>
           </div>
-          <p class="text-muted mt-3" style="font-size: 1rem;">Pick the route that matches your vibe and schedule!</p>
         </div>
-      </div>
-    </div>
 
         <!-- Firebase Videos -->
         <div class="video-section mt-3">
           <h3 class="text-center mb-3">Gokyo Videos</h3>
           <div class="row">
-            <ng-container *ngIf="videoUrls$ | async as urls; else loading">
-              <div *ngFor="let videoUrl of urls; let i = index" class="col-md-4 mb-4">
-                <video controls width="100%" height="auto">
-                  <source [src]="videoUrl" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p class="text-center">Video {{ i + 1 }}</p>
-              </div>
-            </ng-container>
-            <ng-template #loading>
-              <p class="text-center">Loading videos...</p>
-            </ng-template>
+            @if (videoUrls$ | async; as urls) {
+            @for (videoUrl of urls; track videoUrl; let i = $index) {
+            <div class="col-md-4 mb-4">
+              <video controls width="100%" height="auto">
+                <source [src]="videoUrl" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p class="text-center">Video {{ i + 1 }}</p>
+            </div>
+            }
+            } @else {
+            <p class="text-center">Loading videos...</p>
+            }
           </div>
         </div>
       </div>
@@ -127,14 +128,16 @@
     <div class="container mt-3">
       <h3 class="text-center mb-3">More Gokyo Inspiration</h3>
       <div class="row">
-        <div *ngFor="let image of images" class="col-md-4 mb-4">
+        @for (image of images; track image.webformatURL) {
+        <div class="col-md-4 mb-4">
           <div class="card shadow-sm">
             <img [src]="image.webformatURL" [alt]="image.tags" class="img-fluid card-img-top" (click)="searchImages(image.tags)" />
             <div class="card-body">
               <p class="card-text text-center">{{ image.tags }}</p>
+              </div>
             </div>
           </div>
-        </div>
+        }
       </div>
     </div>
 
